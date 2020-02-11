@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "v-tag": "/components/tag/tag",
+    "hc-book": "/components/book/book",
+    "hc-loading": "/components/loading/loading"
+  }
+}

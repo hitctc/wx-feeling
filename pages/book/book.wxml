@@ -1,0 +1,19 @@
+<view wx:if="{{!searching}}" class="container">
+  <view class="header">
+    <view class='box' bind:tap="onSearching">
+      <image src="/images/icon/search.png" />
+      <text>搜索书籍</text>
+    </view>
+  </view>
+  <view class="sub-container">
+    <image class="head-img" src="/images/book/quality.png" />
+    <view class="books-container">
+      <!-- wx:key不需要加{{}} -->
+      <block wx:for="{{books}}" wx:key="id">
+        <hc-book book="{{item}}"></hc-book>
+      </block>
+    </view>
+  </view>
+</view>
+
+<hc-search wx:if="{{searching}}" more="{{more}}" bind:cancel="onCancel" />

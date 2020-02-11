@@ -1,0 +1,24 @@
+/* components/classic/movie/movie.wxss */
+.classic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.classic-img {
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.classic-tag {
+  position: relative;
+  right: 310rpx;
+  bottom: 58rpx;
+  width: 46rpx;
+  height: 142rpx;
+}
+
+.classic-desc {
+  max-width: 550rpx;
+  font-size: 36rpx;
+}

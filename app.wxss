@@ -1,10 +1,6 @@
-/**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+/* 组件能够继承的样式：font-family，font-size，color可以基础 */
+/* page可以继承 */
+page {
+    font-family: "PingFangSC-Thin";
+    font-size: 32rpx;
+}

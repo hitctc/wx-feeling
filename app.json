@@ -1,14 +1,57 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/classic/classic",
+    "components/like/like",
+    "pages/book/book",
+    "pages/my/my",
+    "pages/book-detail/book-detail",
+    "pages/about/about",
+    "pages/course/course"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#445566",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "小糖穿越火线",
+    "navigationStyle": "default",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
   },
-  "style": "v2",
+  "tabBar": {
+    "color": "#c7c7c7",
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "text": "流行",
+        "iconPath": "/images/tab/classic.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "selectedIconPath": "/images/tab/book@highlight.png",
+        "iconPath": "/images/tab/book.png",
+        "text": "书籍"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png",
+        "text": "喜欢"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxe5f52902cf4de896"
+  ],
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
   "sitemapLocation": "sitemap.json"
 }

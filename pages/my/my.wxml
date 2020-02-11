@@ -1,0 +1,35 @@
+<view class="container">
+  <image src="/images/my/my@bg.png" class="bg"></image>
+  <hc-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getuserinfo="onGetUserInfo">
+    <image slot="img" class="avatar" src="/images/my/my.png" />
+  </hc-button>
+  <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"/> -->
+  <!-- 获取用户信息，小程序接口多次修改，学习如何获取 -->
+  <!-- <open-data>不需要用户授权就可拿到用户信息，但是又一定缺陷，能使用，但不是上传到服务器中 -->
+  <!-- 登录 难点 服务器 微信支付 -->
+  <view wx:if="{{authorized}}" class="avatar-container avatar-position">
+    <image src="{{userInfo.avatarUrl}}" class="avatar" />
+    <text>{{userInfo.nickName}}</text>
+  </view>
+  <view class="about-container">
+    <view bind:tap="onJumpToAbout" class="about-us">
+      <image src="/images/my/about.png" />
+      <text class="description">关于我们</text>
+    </view>
+    <view class="about-us">
+      <text class="book-num">{{bookCount}}</text>
+      <text class="description">喜欢的书</text>
+    </view>
+  </view>
+
+  <view class="like-container">
+    <image class="headline" src="/images/my/like.png" />
+    <view class="preview-container">
+      <block wx:for="{{classics}}" wx:key="classics">
+        <hc-preview bind:tapping="onJumpToDetail" class="preview" classic="{{item}}" />
+      </block>
+    </view>
+  </view>
+
+</view>
+<image bind:tap="onStudy" class="study" src="/images/my/study.png"></image>
