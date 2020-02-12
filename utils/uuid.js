@@ -1,5 +1,5 @@
 // 通用唯一识别码（英语：Universally Unique Identifier，简称uuid）
-const uuid = function(n) {
+const uuid = function (n) {
   let res = []
   let hexDigits = '0123456789abcdefhijklmnopqrstuvwxyz'
   for (var i = 0; i < n; i++) {

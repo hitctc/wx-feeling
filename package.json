@@ -1,0 +1,24 @@
+{
+  "name": "wx-feeling",
+  "version": "1.0.0",
+  "description": "微信小程序 - 【感觉、情绪】",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huachuan005/wx-feeling.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huachuan005/wx-feeling/issues"
+  },
+  "homepage": "https://github.com/huachuan005/wx-feeling#readme"
+}

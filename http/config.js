@@ -1,7 +1,8 @@
 /* config.js配置文件 */
 const config = {
-  api_base_url: 'http://bl.7yue.pro/v1/',
-  appkey: 'E9b8dsZEd2RoBtta'
+  // api_base_url: 'http://bl.7yue.pro/v1/',
+  api_base_url: '',
+  // appkey: 'E9b8dsZEd2RoBtta'
 }
 
 export { config }

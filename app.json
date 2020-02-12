@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/mood/index",
+    "pages/users/index",
     "pages/classic/classic",
     "components/like/like",
     "pages/book/book",
@@ -11,7 +13,7 @@
   "window": {
     "navigationBarBackgroundColor": "#445566",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "小糖穿越火线",
+    "navigationBarTitleText": "MOOD",
     "navigationStyle": "default",
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light"
@@ -21,6 +23,18 @@
     "selectedColor": "#000000",
     "backgroundColor": "#ffffff",
     "list": [
+      {
+        "pagePath": "pages/mood/index",
+        "selectedIconPath": "/images/tab/happy@highlight.png",
+        "text": "",
+        "iconPath": "/images/tab/happy.png"
+      },
+      {
+        "pagePath": "pages/users/index",
+        "selectedIconPath": "/images/tab/users@highlight.png",
+        "text": "",
+        "iconPath": "/images/tab/users.png"
+      },
       {
         "pagePath": "pages/classic/classic",
         "selectedIconPath": "/images/tab/classic@highlight.png",

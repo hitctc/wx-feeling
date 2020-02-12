@@ -35,6 +35,7 @@ class HTTP {
         }
       },
       fail: (err) => {
+        console.log(err)
         // api调用失败，断网
         reject()
         this._showError(1)
