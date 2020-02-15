@@ -2,8 +2,7 @@
 <view class="container">
   <view class="header">现在的心情</view>
   <view class="main">
-    mian
-    <view class="tag">tag</view>
+    <hc-flutter-tag></hc-flutter-tag>
   </view>
   <view class="footer">H'C</view>
 </view>

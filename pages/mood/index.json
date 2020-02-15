@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "van-button": "@vant/weapp/button"
+    "van-button": "@vant/weapp/button",
+    "hc-flutter-tag": "/components/flutter-tag/index"
   }
 }

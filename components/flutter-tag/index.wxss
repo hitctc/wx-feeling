@@ -1,0 +1,15 @@
+/* components/flutter/index.wxss */
+
+.container {
+  margin: 6px 12px;
+}
+
+.tag-block {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.tag {
+  margin: 4px;
+}
