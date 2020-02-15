@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "van-tag": "@vant/weapp/tag"
+    "van-tag": "@vant/weapp/tag",
+    "van-dialog": "@vant/weapp/dialog"
   }
 }

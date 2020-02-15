@@ -1,5 +1,7 @@
 // components/flutter/index.js
 import { xqData } from "../../resource/xq20200213.js"
+import Dialog from '@vant/weapp/dialog/dialog'
+
 Component({
   /**
    * 组件的属性列表
@@ -13,13 +15,14 @@ Component({
    */
   data: {
     xqData: Object,
-    colorArr: ["#f2826a", "#7232dd", "#ffe1e1", "#ad0000", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a", "#f2826a"]
+    colorArr: ["#f2826a", "#7232dd", "#ffe1e1", "#ad0000", "#CCFFFF", "#99CCCC", "#FFCCCC", "#FF6666", "#99CCFF", "#003300", "#99CC00", "#993333", "#99CCFF", "#99CCFF", "#CCCC00", "#CCFF99", ],
+    randomIntegers: Math.ceil(Math.random() * 5)
   },
 
   attached() {
     console.log(xqData.res)
     this.setData({
-      xqData : xqData.res
+      xqData: xqData.res
     })
     console.log(this.data.xqData)
   },
@@ -29,6 +32,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onFlutter(event) {
+      const word = event.detail.value || event.currentTarget.dataset.text
+      Dialog.alert({
+        context: this,
+        title: '',
+        message: `${word}`
+      }).then(() => {
+        // on close
+      });
+    }
   }
 })

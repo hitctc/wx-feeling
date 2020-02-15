@@ -1,18 +1,10 @@
 <view class="container">
   <view class="tag-block">
-    <block wx:for="{{xqData}}" wx:key="id">
-      <!-- <hc-book book="{{item}}">{{item}}</hc-book> -->
-      <!-- <van-tag class="tag" plain size="medium" color="#ffe1e1" text-color="#ad0000">
-        {{item.mood}}{{index}}
-      </van-tag> -->
-      <van-tag class="tag" plain size="medium" style="color: {{colorArr[index]}};" color="{{colorArr[index]}}">
-        {{item.mood}}
-      </van-tag>
+    <block wx:for="{{xqData}}" wx:key="{{index}}">
+      <text class="tag-s" style="color: {{colorArr[randomIntegers+index]}}; background-color: {{colorArr[randomIntegers+index+1]}}; box-shadow: 0 0 20px 1px {{colorArr[randomIntegers+index+1]}};" bind:tap="onFlutter" data-text="{{item.answer}}">{{item.mood}}</text>
     </block>
   </view>
-  <!-- <van-tag color="#f2826a">标签</van-tag>
-  <van-tag color="#f2826a" plain>标签</van-tag>
-  <van-tag color="#7232dd">标签</van-tag>
-  <van-tag color="#7232dd" plain>标签</van-tag>
-  <van-tag color="#ffe1e1" text-color="#ad0000">标签</van-tag> -->
+  <view>
+    <van-dialog id="van-dialog" />
+  </view>
 </view>

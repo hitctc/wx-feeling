@@ -2,14 +2,37 @@
 
 .container {
   margin: 6px 12px;
+  font-size: 0rpx;
 }
 
 .tag-block {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
+  font-size: 0rpx;
 }
 
-.tag {
-  margin: 4px;
+.tag-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18rpx;
+  width: 120rpx;
+  height: 120rpx;
+  text-align: center;
+  border-radius: 60rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  animation: heart 1.3s ease-in-out 2.7s infinite alternate;
+}
+
+@keyframes heart {
+  from {
+    transform: translate(0, 0)
+  }
+  to {
+    transform: translate(0, 6px)
+  }
 }
