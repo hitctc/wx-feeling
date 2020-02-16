@@ -1,3 +1,8 @@
 <view class="container">
-  <text class="header">game开发中~</text>
+  <ul class="game-area">
+    <li class="game-item game-item1">骰子</li>
+    <li class="game-item game-item2">思考中</li>
+    <li class="game-item game-item3">思考中</li>
+    <li class="game-item game-item4">思考中</li>
+  </ul>
 </view>
