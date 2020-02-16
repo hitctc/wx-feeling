@@ -25,7 +25,11 @@
   border-radius: 60rpx;
   font-size: 40rpx;
   font-weight: bold;
+  /* box-shadow: 2px 2px 5px rgb(168, 168, 168); */
+  box-shadow: 5px 0 5px -5px rgb(168, 168, 168), -5px 0 5px -5px rgb(168, 168, 168);
   animation: heart 1.3s ease-in-out 2.7s infinite alternate;
+  /* text-shadow: 1px 1px #ffffff, 2px 2px #ffffff, 3px 3px black, 4px 4px black; */
+  text-shadow: 0 0 .1em, 0 0 .3em;
 }
 
 @keyframes heart {

@@ -1,6 +1,6 @@
 <!-- pages/mood/index.wxml -->
 <view class="container">
-  <view class="header">现在的心情</view>
+  <view class="header">FEEL NOW</view>
   <view class="main">
     <hc-flutter-tag></hc-flutter-tag>
   </view>
