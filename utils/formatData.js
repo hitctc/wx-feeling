@@ -1,5 +1,5 @@
 const formatData = () => {
-  let time, YYYYMMDD;
+  let time, YYYYMMDDnorm, YYYYMMDD;
   let now = new Date();
   console.log(now)
   let year = now.getFullYear();       //年
@@ -9,24 +9,24 @@ const formatData = () => {
   let mm = now.getMinutes();          //分
   let ss = now.getSeconds();           //秒
   time = year + "-";
-  YYYYMMDD = year + "-";
+  YYYYMMDDnorm = year + "-";
   if (month < 10) {
     time += "0";
     time += month + "-";
-    YYYYMMDD += "0";
-    YYYYMMDD += month + "-";
+    YYYYMMDDnorm += "0";
+    YYYYMMDDnorm += month + "-";
   } else {
     time += month + "-";
-    YYYYMMDD += month + "-";
+    YYYYMMDDnorm += month + "-";
   }
   if (day < 10) {
     time += "0";
     time += day + " ";
-    YYYYMMDD += "0";
-    YYYYMMDD += day;
+    YYYYMMDDnorm += "0";
+    YYYYMMDDnorm += day;
   } else {
     time += day + " ";
-    YYYYMMDD += day;
+    YYYYMMDDnorm += day;
   }
   if (hh < 10) {
     time += "0";
@@ -46,9 +46,10 @@ const formatData = () => {
   } else {
     time += ss;
   }
+  YYYYMMDD = YYYYMMDDnorm.split('-').join('')
   console.log(time)
   console.log(YYYYMMDD)
-  return { time, YYYYMMDD }
+  return { time, YYYYMMDDnorm, YYYYMMDD}
 }
 
 export {

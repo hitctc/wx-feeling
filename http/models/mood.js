@@ -7,8 +7,9 @@ class HTTPMoodModel extends HTTP {
     // 参数
     // request({url, data = {}, method = 'get'}) {
     return this.request({
-      //   url: `./resource/${param}.json`,
-      url: `./resource/xq${time}.json`,
+      // url: `./resource/${param}.json`,
+      // url: `./resource/xq${time}.json`,
+      url: `./resource/xq.js`,
       data: {},
       method: 'GET'
     })

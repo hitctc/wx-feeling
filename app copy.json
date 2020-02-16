@@ -1,9 +1,15 @@
 {
   "pages": [
     "pages/mood/index",
-    "pages/trophy/index",
     "pages/users/index",
-    "pages/mood-detail/index"
+    "pages/trophy/index",
+    "pages/classic/classic",
+    "components/like/like",
+    "pages/book/book",
+    "pages/my/my",
+    "pages/book-detail/book-detail",
+    "pages/about/about",
+    "pages/course/course"
   ],
   "window": {
     "navigationBarBackgroundColor": "#445566",
@@ -25,18 +31,35 @@
         "iconPath": "/images/tab/happy.png"
       },
       {
-        "pagePath": "pages/trophy/index",
-        "selectedIconPath": "/images/tab/trophy@highlight.png",
-        "text": "",
-        "iconPath": "/images/tab/trophy.png"
-      },
-      {
         "pagePath": "pages/users/index",
         "selectedIconPath": "/images/tab/users@highlight.png",
         "text": "",
         "iconPath": "/images/tab/users.png"
+      },
+      {
+        "pagePath": "pages/trophy/index",
+        "selectedIconPath": "/images/tab/users@highlight.png",
+        "text": "",
+        "iconPath": "/images/tab/users.png"
+      },
+      {
+        "pagePath": "pages/classic/classic",
+        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "text": "流行",
+        "iconPath": "/images/tab/classic.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "selectedIconPath": "/images/tab/book@highlight.png",
+        "iconPath": "/images/tab/book.png",
+        "text": "书籍"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png",
+        "text": "喜欢"
       }
-      
     ]
   },
   "networkTimeout": {

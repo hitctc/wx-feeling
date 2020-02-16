@@ -1,0 +1,5 @@
+<!-- pages/mood-detail/index.wxml -->
+<view class="container">
+  <text class="mooddesc">{{mooddesc}}</text>
+  <image class="image" src="./images/20200216204347.jpg"></image>
+</view>

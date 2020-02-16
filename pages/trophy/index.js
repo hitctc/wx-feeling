@@ -1,23 +1,18 @@
-// pages/mood/index.js
-import {
-  HTTPMoodModel
-} from "../../http/models/mood.js"
-
-
-const httpMoodModel = new HTTPMoodModel()
-
+// pages/trophy/index.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    moods: ''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  onLoad: function (options) {
+
   },
 
   /**

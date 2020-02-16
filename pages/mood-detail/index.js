@@ -1,23 +1,31 @@
-// pages/mood/index.js
-import {
-  HTTPMoodModel
-} from "../../http/models/mood.js"
-
-
-const httpMoodModel = new HTTPMoodModel()
+// pages/mood-detail/index.js
+import { formatData } from "../../utils/formatData.js"
 
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    moods: ''
+    mood: null,
+    mooddesc: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  onLoad: function (options) {
+    const YYYYMMDD = formatData().YYYYMMDD
+    wx.showLoading({
+      title: '数据加载中'
+    })
+    const mood = options.mood
+    const mooddesc = options.mooddesc
+    this.setData({
+      mood: mood,
+      mooddesc: mooddesc
+    })
+    wx.hideLoading()
   },
 
   /**
