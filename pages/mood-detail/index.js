@@ -8,14 +8,25 @@ Page({
    */
   data: {
     mood: null,
-    mooddesc: null
+    mooddesc: null,
+    YYYY: String,
+    MM: String,
+    DD: String
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const YYYYMMDD = formatData().YYYYMMDD
+    const FDate = formatData()
+    const YYYY = FDate.YYYY
+    const MM = FDate.MMChinese
+    const DD = FDate.DD
+    this.setData({
+      YYYY: YYYY,
+      MM: MM,
+      DD: DD
+    })
     wx.showLoading({
       title: '数据加载中'
     })
