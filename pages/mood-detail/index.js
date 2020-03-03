@@ -3,6 +3,13 @@ import { formatData } from "../../utils/formatData.js"
 
 Page({
 
+  // onShareAppMessage() {
+  //   return {
+  //     title: 'swiper',
+  //     path: 'page/component/pages/swiper/swiper'
+  //   }
+  // },
+
   /**
    * 页面的初始数据
    */
@@ -11,7 +18,13 @@ Page({
     mooddesc: null,
     YYYY: String,
     MM: String,
-    DD: String
+    DD: String,
+    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 500
   },
 
   /**

@@ -1,5 +1,14 @@
 <!-- pages/mood-detail/index.wxml -->
 <view class="container">
+  <view class="page-section page-section-spacing swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item {{item}}"></view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
   <view class="header">
     <text class="date">
       <text class="years">{{MM}}{{YYYY}} | </text>
