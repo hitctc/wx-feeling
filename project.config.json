@@ -65,13 +65,6 @@
 					"pathName": "pages/trophy/index",
 					"query": "",
 					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/mood-detail/index",
-					"pathName": "pages/mood-detail/index",
-					"query": "mooddesc=我显示的是一个参数，嘿嘿",
-					"scene": null
 				}
 			]
 		}

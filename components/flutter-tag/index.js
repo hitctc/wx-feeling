@@ -16,6 +16,9 @@ Component({
    */
   data: {
     xqData: Object,
+    allMood: Object,
+    mood: String,
+    mooddesc: String,
     colorArr: ["#f2826a", "#7232dd", "#ffe1e1", "#ad0000", "#CCFFFF", "#99CCCC", "#FFCCCC", "#FF6666", "#99CCFF", "#003300", "#99CC00", "#993333", "#99CCFF", "#99CCFF", "#CCCC00", "#CCFF99",],
     randomIntegers: Math.ceil(Math.random() * 5),
     YYYYMMDD: null
@@ -25,6 +28,9 @@ Component({
     let YYYYMMDD = formatData().YYYYMMDD
     this.setData({
       xqData: xqData.res[YYYYMMDD],
+      allMood: xqData,
+      mood: xqData.res[YYYYMMDD][0].mood,
+      mooddesc: xqData.res[YYYYMMDD][0].answer,
       YYYYMMDD: YYYYMMDD
     })
   },
@@ -35,9 +41,10 @@ Component({
    */
   methods: {
     onFlutter(event) {
-      console.log(event)
-      const mood = event.detail.value || event.currentTarget.dataset.mood
-      const mooddesc = event.detail.value || event.currentTarget.dataset.mooddesc
+      // console.log(event)
+      // const mood = event.detail.value || event.currentTarget.dataset.mood
+      // const mooddesc = event.detail.value || event.currentTarget.dataset.mooddesc
+      // const allmood = event.detail.value || event.currentTarget.dataset.allmood
       // Dialog.alert({
       //   context: this,
       //   title: '',
@@ -45,8 +52,19 @@ Component({
       // }).then(() => {
       //   // on close
       // });
+      const mood = this.data.mood
+      const mooddesc = this.data.mooddesc
+      const allMood = this.data.allMood
       wx.navigateTo({
-        url: `/pages/mood-detail/index?mood=${mood}&mooddesc=${mooddesc}`
+        url: `/pages/mood-detail/index?mood=${mood}&mooddesc=${mooddesc}`,
+        success: function (res) {
+          // 通过eventChannel向被打开页面传送数据
+          res.eventChannel.emit('acceptDataFromOpenerPage', {
+            "mood": mood,
+            "mooddesc": mooddesc,
+            "allMood": allMood
+          })
+        }
       })
     },
   }

@@ -1,22 +1,26 @@
 <!-- pages/mood-detail/index.wxml -->
 <view class="container">
   <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{background}}" wx:key="*this">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="seiper-area">
+      <block wx:for="{{allMood.res}}" wx:key="*this">
         <swiper-item>
-          <view class="swiper-item {{item}}"></view>
+        <view>
+          {{item}}
+        </view>
+          <view class="header">
+            <text class="date">
+              <text class="years">{{MM}}{{YYYY}} | </text>
+              <text class="no">NO.</text>
+              <text class="day">{{DD}}</text>
+            </text>
+            <van-icon name="share" size="40rpx" custom-class="share-icon" />
+          </view>
+          <text class="mooddesc">{{mooddesc}}</text>
+          <image class="image" src="./images/20200216204347.jpg"></image>
+          <!-- <view class="swiper-item {{item}}"></view> */ -->
         </swiper-item>
       </block>
     </swiper>
   </view>
-  <view class="header">
-    <text class="date">
-      <text class="years">{{MM}}{{YYYY}} | </text>
-      <text class="no">NO.</text>
-      <text class="day">{{DD}}</text>
-    </text>
-    <van-icon name="share" size="40rpx" custom-class="share-icon" />
-  </view>
-  <text class="mooddesc">{{mooddesc}}</text>
-  <image class="image" src="./images/20200216204347.jpg"></image>
+  
 </view>

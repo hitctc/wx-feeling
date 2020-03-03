@@ -50,3 +50,22 @@
   width: 100%;
   height: 100%;
 }
+
+/* page相关 */
+.page-section {
+  width: 100%;
+  height: 100%;
+}
+
+.page-section-spacing {
+  box-sizing: border-box;
+}
+
+.swiper .seiper-area {
+  height: 100%;
+}
+
+.swiper-item {
+  display: block;
+  height: 100%;
+}

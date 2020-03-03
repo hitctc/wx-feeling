@@ -16,39 +16,43 @@ Page({
   data: {
     mood: null,
     mooddesc: null,
+    allMood: null,
     YYYY: String,
     MM: String,
     DD: String,
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
+    indicatorDots: false, // 是否显示面板指示点
+    vertical: false, // 垂直滚动
+    autoplay: false, // 自动循环
+    interval: 2000, // 自动播放间隔时间
+    duration: 500, // 动画持续时间
+    circular: true // 衔接循环
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // todo 需要重新设计数据格式。
+    wx.showLoading({
+      title: '数据加载中'
+    })
     const FDate = formatData()
     const YYYY = FDate.YYYY
     const MM = FDate.MMChinese
     const DD = FDate.DD
-    this.setData({
-      YYYY: YYYY,
-      MM: MM,
-      DD: DD
+    const eventChannel = this.getOpenerEventChannel()
+    const self = this
+    eventChannel.on('acceptDataFromOpenerPage', function (data) {
+      self.setData({
+        allMood: data.allMood,
+        mood: data.mood,
+        mooddesc: data.mooddesc,
+        YYYY: YYYY,
+        MM: MM,
+        DD: DD
+      })
     })
-    wx.showLoading({
-      title: '数据加载中'
-    })
-    const mood = options.mood
-    const mooddesc = options.mooddesc
-    this.setData({
-      mood: mood,
-      mooddesc: mooddesc
-    })
+    console.log(this.data.allMood.res)
     wx.hideLoading()
   },
 
