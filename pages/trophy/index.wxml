@@ -1,8 +1,8 @@
 <view class="container">
   <ul class="game-area">
     <li class="game-item game-item1">骰子</li>
-    <li class="game-item game-item2">思考中</li>
-    <li class="game-item game-item3">思考中</li>
-    <li class="game-item game-item4">思考中</li>
+    <li class="game-item game-item2">敬请期待</li>
+    <li class="game-item game-item3">敬请期待</li>
+    <li class="game-item game-item4">敬请期待</li>
   </ul>
 </view>

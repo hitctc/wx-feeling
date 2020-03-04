@@ -51,5 +51,6 @@
     "audio",
     "location"
   ],
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

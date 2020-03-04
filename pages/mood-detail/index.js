@@ -1,22 +1,17 @@
 // pages/mood-detail/index.js
-import { formatData } from "../../utils/formatData.js"
+import { formatData, formatDataTime } from "../../utils/formatData.js"
+import { data as allMood } from "../../resource/mood/mood.js"
 
 Page({
 
-  // onShareAppMessage() {
-  //   return {
-  //     title: 'swiper',
-  //     path: 'page/component/pages/swiper/swiper'
-  //   }
-  // },
 
   /**
    * 页面的初始数据
    */
   data: {
-    mood: null,
+    keyword: null,
     mooddesc: null,
-    allMood: null,
+    FAllMood: null,
     YYYY: String,
     MM: String,
     DD: String,
@@ -25,7 +20,7 @@ Page({
     autoplay: false, // 自动循环
     interval: 2000, // 自动播放间隔时间
     duration: 500, // 动画持续时间
-    circular: true // 衔接循环
+    circular: false // 衔接循环
   },
 
   /**
@@ -37,22 +32,34 @@ Page({
       title: '数据加载中'
     })
     const FDate = formatData()
+    const currentTimestamp = new Date().getTime();
     const YYYY = FDate.YYYY
     const MM = FDate.MMChinese
     const DD = FDate.DD
-    const eventChannel = this.getOpenerEventChannel()
-    const self = this
-    eventChannel.on('acceptDataFromOpenerPage', function (data) {
-      self.setData({
-        allMood: data.allMood,
-        mood: data.mood,
-        mooddesc: data.mooddesc,
-        YYYY: YYYY,
-        MM: MM,
-        DD: DD
-      })
+    const keyword = options.keyword
+    const FAllMood = []
+    allMood.res.filter(item => {
+      const strtime = item.time + ' 00:00:00';
+      const date = new Date(strtime.replace(/-/g, '/'));
+      const paramTimestamp = date.getTime();
+      if (currentTimestamp > paramTimestamp) {
+        item.YYYY = formatDataTime(strtime).year
+        item.MM = formatDataTime(strtime).month
+        item.DD = formatDataTime(strtime).day
+        if (item.keyword === keyword && item.time === FDate.YYYYMMDDnorm) {
+          FAllMood.unshift(item)
+          return
+        }
+        FAllMood.push(item)
+      }
     })
-    console.log(this.data.allMood.res)
+    this.setData({
+      FAllMood: FAllMood,
+      keyword: keyword,
+      YYYY: YYYY,
+      MM: MM,
+      DD: DD
+    })
     wx.hideLoading()
   },
 
@@ -101,7 +108,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage() {
+    // path: '/page/user?id=123'
+    return {
+      title: 'MOOD SHARE'
+      // path: `/page/pages/mood-detail/index?keyword=${this.data.keyword}`
+    }
+  },
 
-  }
 })

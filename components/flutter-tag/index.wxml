@@ -1,7 +1,7 @@
 <view class="container">
   <view class="tag-block">
-    <block wx:for="{{xqData}}" wx:key="index">
-      <text class="tag-s" style="color: {{colorArr[randomIntegers+index]}}; background-color: {{colorArr[randomIntegers+index+1]}};" bind:tap="onFlutter" data-mood="{{item.mood}}" data-mooddesc="{{item.answer}}" data-allmood="{{allMood}}">{{item.mood}}</text>
+    <block wx:for="{{keyword}}" wx:key="index">
+      <text class="tag-s" style="color: {{colorArr[randomIntegers+index]}}; background-color: {{colorArr[randomIntegers+index+1]}};" bind:tap="onFlutter" data-keyword="{{item.keyword}}">{{item.keyword}}</text>
     </block>
   </view>
   <view>

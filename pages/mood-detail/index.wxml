@@ -2,20 +2,19 @@
 <view class="container">
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="seiper-area">
-      <block wx:for="{{allMood.res}}" wx:key="*this">
+      <block wx:for="{{FAllMood}}" wx:key="*this">
         <swiper-item>
-        <view>
-          {{item}}
-        </view>
           <view class="header">
             <text class="date">
-              <text class="years">{{MM}}{{YYYY}} | </text>
+              <text class="years">{{item.MM}}.{{item.YYYY}} | </text>
               <text class="no">NO.</text>
-              <text class="day">{{DD}}</text>
+              <text class="day">{{item.DD}}</text>
             </text>
-            <van-icon name="share" size="40rpx" custom-class="share-icon" />
+            <button class="share-button" open-type="share">
+              <van-icon name="share" size="40rpx" custom-class="share-icon" />
+            </button>
           </view>
-          <text class="mooddesc">{{mooddesc}}</text>
+          <text class="mooddesc">{{item.answer}}</text>
           <image class="image" src="./images/20200216204347.jpg"></image>
           <!-- <view class="swiper-item {{item}}"></view> */ -->
         </swiper-item>
