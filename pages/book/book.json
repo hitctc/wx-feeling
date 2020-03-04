@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "hc-book": "/components/book/book",
-    "hc-search": "/components/search/search"
-  }
-}

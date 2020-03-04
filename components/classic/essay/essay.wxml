@@ -1,6 +1,0 @@
-<!-- components/classic/essay/essay.wxml -->
-<view hidden="{{hidden}}" class="classic-container">
-  <image class="classic-img" src="{{img}}" />
-  <image class="classic-tag" src="./images/essay@tag.png" />
-  <text class="classic-desc">{{desc}}</text>
-</view>

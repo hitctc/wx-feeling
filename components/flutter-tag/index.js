@@ -1,7 +1,13 @@
 // components/flutter/index.js
 import { data as keyword } from "../../resource/mood/keyword.js"
 import { formatData } from "../../utils/formatData.js"
-import Dialog from '@vant/weapp/dialog/dialog'
+// import Dialog from '@vant/weapp/dialog/dialog'
+
+import {
+  HTTPMoodModel
+} from '../../http/models/mood.js'
+
+const httpMoodModel = new HTTPMoodModel()
 
 Component({
   /**
@@ -22,6 +28,10 @@ Component({
   },
 
   attached() {
+    // httpMoodModel.getMoodList().then((res) => {
+    //   console.log(res)
+    // })
+    console.log(formatData())
     let YYYYMMDDnorm = formatData().YYYYMMDDnorm
     let todayKey = []
     // 根据单个名字筛选

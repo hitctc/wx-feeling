@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "v-tag": "/components/tag/tag",
-    "hc-like": "/components/like/like",
-    "hc-mask": "/components/mask/mask"
-  }
-}

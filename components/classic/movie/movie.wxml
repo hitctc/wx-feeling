@@ -1,5 +1,0 @@
-<view hidden="{{hidden}}" class="classic-container">
-  <image class="classic-img" src="{{img}}" />
-  <image class="classic-tag" src="./images/movie@tag.png" />
-  <text class="classic-desc">{{desc}}</text>
-</view>

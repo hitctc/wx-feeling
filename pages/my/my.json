@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "hc-button": "/components/image-button/image-button",
-    "hc-preview": "/components/preview/index"
-  }
-}
