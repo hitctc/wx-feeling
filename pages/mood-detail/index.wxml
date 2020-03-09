@@ -15,7 +15,7 @@
             </button>
           </view>
           <text class="mooddesc">{{item.answer}}</text>
-          <image class="image" src="./images/20200216204347.jpg"></image>
+          <image class="image" src="./images/20200309.jpg"></image>
           <!-- <view class="swiper-item {{item}}"></view> */ -->
         </swiper-item>
       </block>

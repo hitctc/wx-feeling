@@ -25,7 +25,7 @@
   font-size: 38rpx;
   font-weight: bold;
   letter-spacing: 6rpx;
-  text-shadow: 0 0 .1em, 0 0 .3em;
+  /* text-shadow: 0 0 .1em, 0 0 .3em; */
 }
 
 .game-item1 {
