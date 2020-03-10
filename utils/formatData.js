@@ -108,7 +108,8 @@ const formatData = () => {
 }
 
 const formatDataTime = (time) => {
-  let now = new Date(time);
+  var timeF = (new Date(time.replace(/-/g, '/').valueOf()));
+  let now = new Date(timeF);
   // console.log(new Date(strtime).getFullYear())
   // console.log(new Date(strtime).getMonth() + 1)
   // console.log(new Date(strtime).getDate())

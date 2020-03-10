@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.date {
+  width: auto;
+}
+
 .date .years {
   font-size: 28rpx;
 }
@@ -33,6 +37,7 @@
 }
 
 .share-button {
+  flex: 1;
   display: inline-block;
   outline: none;
   background-color: #fff !important;

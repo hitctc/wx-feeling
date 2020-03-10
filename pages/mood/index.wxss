@@ -10,6 +10,10 @@
 }
 
 .header {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,11 +22,13 @@
   height: 80rpx;
   font-size: 36rpx;
   font-weight: bold;
+  color: #fff;
 }
 
 .main {
+  z-index: 999;
   position: fixed;
-  top: -80rpx;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -33,15 +39,24 @@
   align-items: center;
 }
 
+.image {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .footer {
+  z-index: 1000;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 40rpx;
+  line-height: 40rpx;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 26rpx;
   font-weight: bold;
   color: #c4c4c4;
   background-color: rgb(68, 85, 102);

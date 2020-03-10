@@ -31,7 +31,6 @@ Component({
     // httpMoodModel.getMoodList().then((res) => {
     //   console.log(res)
     // })
-    console.log(formatData())
     let YYYYMMDDnorm = formatData().YYYYMMDDnorm
     let todayKey = []
     // 根据单个名字筛选

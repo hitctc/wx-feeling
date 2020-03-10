@@ -11,13 +11,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    moods: ''
+    moods: '',
+    bgsrcAll: ['./images/bg1.jpg', './images/bg2.jpg', './images/bg3.jpg'],
+    bgsrc: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const random = Math.floor(Math.random() * 3)
+    this.setData({
+      bgsrc: this.data.bgsrcAll[random]
+    })
   },
 
   /**

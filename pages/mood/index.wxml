@@ -1,7 +1,8 @@
 <!-- pages/mood/index.wxml -->
 <view class="container">
-  <view class="header">FEEL NOW</view>
   <view class="main">
+    <view class="header">CURRENT MOOD</view>
+    <image class="image"  src="{{bgsrc}}"></image>
     <hc-flutter-tag></hc-flutter-tag>
   </view>
   <view class="footer">H'C</view>
