@@ -28,21 +28,25 @@ Component({
   },
 
   attached() {
-    // httpMoodModel.getMoodList().then((res) => {
-    //   console.log(res)
-    // })
-    let YYYYMMDDnorm = formatData().YYYYMMDDnorm
     let todayKey = []
+    let YYYYMMDDnorm = formatData().YYYYMMDDnorm
+    httpMoodModel.getMoodKey().then((res) => {
+      res.result.filter(item => {
+        if (item.time === YYYYMMDDnorm) {
+          todayKey.push(item)
+          this.setData({
+            keyword: todayKey,
+            YYYYMMDDnorm: YYYYMMDDnorm
+          })
+        }
+      })
+    })
     // 根据单个名字筛选
-    keyword.res.filter(item => {
-      if (item.time === YYYYMMDDnorm) {
-        todayKey.push(item)
-      }
-    })
-    this.setData({
-      keyword: todayKey,
-      YYYYMMDDnorm: YYYYMMDDnorm
-    })
+    // keyword.res.filter(item => {
+    //   if (item.time === YYYYMMDDnorm) {
+    //     todayKey.push(item)
+    //   }
+    // })
   },
 
 

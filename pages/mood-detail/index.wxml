@@ -2,7 +2,7 @@
 <view class="container">
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="seiper-area">
-      <block wx:for="{{FAllMood}}" wx:key="*this">
+      <block wx:for="{{FAllMood}}" wx:key="this">
         <swiper-item>
           <view class="header">
             <text class="date">
@@ -14,9 +14,9 @@
               <van-icon name="share" size="40rpx" custom-class="share-icon" />
             </button>
           </view>
+          <text class="moodkey">{{item.keyword}}</text>
           <text class="mooddesc">{{item.answer}}</text>
-          <image class="image" src="./images/20200309.jpg"></image>
-          <!-- <view class="swiper-item {{item}}"></view> */ -->
+          <image class="image" src="{{basemap}}"></image>
         </swiper-item>
       </block>
     </swiper>

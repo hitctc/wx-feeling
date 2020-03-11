@@ -12,7 +12,6 @@ Page({
    */
   data: {
     moods: '',
-    bgsrcAll: ['./images/bg1.jpg', './images/bg2.jpg', './images/bg3.jpg'],
     bgsrc: ''
   },
 
@@ -20,9 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const random = Math.floor(Math.random() * 3)
+    // https://www.20200127.cn/resource/mood/images/bg1.jpg
+    const random = Math.floor(Math.random() * 3) + 1
     this.setData({
-      bgsrc: this.data.bgsrcAll[random]
+      bgsrc: `https://www.20200127.cn/resource/mood/images/bg${random}.jpg`
     })
   },
 

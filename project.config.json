@@ -4,9 +4,9 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
-		"enhance": false,
+		"enhance": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
@@ -64,6 +64,12 @@
 					"name": "pages/trophy/index",
 					"pathName": "pages/trophy/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mood-detail/index",
+					"pathName": "pages/mood-detail/index",
 					"scene": null
 				}
 			]

@@ -48,8 +48,15 @@
   padding: 0 8rpx;
 }
 
+.moodkey {
+  display: block;
+  margin: 0 20rpx;
+  text-align: left;
+  color: rgb(150, 150, 150);
+}
+
 .mooddesc {
-  display: inline-block;
+  display: block;
   margin: 20rpx;
   text-align: left;
   color: rgb(150, 150, 150);
