@@ -25,12 +25,6 @@
         "iconPath": "/images/tab/happy.png"
       },
       {
-        "pagePath": "pages/trophy/index",
-        "selectedIconPath": "/images/tab/trophy@highlight.png",
-        "text": "",
-        "iconPath": "/images/tab/trophy.png"
-      },
-      {
         "pagePath": "pages/users/index",
         "selectedIconPath": "/images/tab/users@highlight.png",
         "text": "",
