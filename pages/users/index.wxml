@@ -11,6 +11,10 @@
     </view>
   </view>
   <view class="main">
-    <view class="share">分享</view>
+    <view class="share">
+      <button class="share-button" open-type="share">
+      分享
+      </button>
+    </view>
   </view>
 </view>

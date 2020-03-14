@@ -47,6 +47,7 @@
   width: 100%;
   height: 100%;
 }
+
 .footer {
   z-index: 1000;
   position: fixed;
@@ -59,5 +60,7 @@
   font-size: 26rpx;
   font-weight: bold;
   color: #c4c4c4;
-  background-color: rgb(68, 85, 102);
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 40rpx #dadada;
+  color: #8999a0;
 }
