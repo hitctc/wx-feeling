@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    imgsrc: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getUserHeaderBG()
+    let timer = setInterval(this._getUserHeaderBG, 1000 * 3)
   },
 
   /**
@@ -62,5 +63,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  _getUserHeaderBG() {
+    const imgAll = ['images/autumn.jpg', 'images/springtime.jpg', 'images/summer.jpg', 'images/winter.jpg']
+    const random = Math.floor(Math.random() * 4)
+    this.setData({
+      imgsrc: imgAll[random]
+    })
   }
 })
