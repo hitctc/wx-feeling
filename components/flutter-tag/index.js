@@ -3,11 +3,11 @@ import { data as keyword } from "../../resource/mood/keyword.js"
 import { formatData } from "../../utils/formatData.js"
 // import Dialog from '@vant/weapp/dialog/dialog'
 
-import {
-  HTTPMoodModel
-} from '../../http/models/mood.js'
+// import {
+//   HTTPMoodModel
+// } from '../../http/models/mood.js'
 
-const httpMoodModel = new HTTPMoodModel()
+// const httpMoodModel = new HTTPMoodModel()
 
 Component({
   /**
@@ -30,17 +30,17 @@ Component({
   attached() {
     let todayKey = []
     let YYYYMMDDnorm = formatData().YYYYMMDDnorm
-    httpMoodModel.getMoodKey().then((res) => {
-      res.result.filter(item => {
-        if (item.time === YYYYMMDDnorm) {
-          todayKey.push(item)
-          this.setData({
-            keyword: todayKey,
-            YYYYMMDDnorm: YYYYMMDDnorm
-          })
-        }
-      })
-    })
+    // httpMoodModel.getMoodKey().then((res) => {
+    //   res.result.filter(item => {
+    //     if (item.time === YYYYMMDDnorm) {
+    //       todayKey.push(item)
+    //       this.setData({
+    //         keyword: todayKey,
+    //         YYYYMMDDnorm: YYYYMMDDnorm
+    //       })
+    //     }
+    //   })
+    // })
     // 根据单个名字筛选
     // keyword.res.filter(item => {
     //   if (item.time === YYYYMMDDnorm) {

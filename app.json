@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/mood/index",
     "pages/trophy/index",
     "pages/users/index",
@@ -19,6 +20,12 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "/images/tab/home@highlight.png",
+        "text": "",
+        "iconPath": "/images/tab/home.png"
+      },
+      {
         "pagePath": "pages/mood/index",
         "selectedIconPath": "/images/tab/happy@highlight.png",
         "text": "",
@@ -30,7 +37,6 @@
         "text": "",
         "iconPath": "/images/tab/users.png"
       }
-      
     ]
   },
   "networkTimeout": {

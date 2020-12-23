@@ -22,7 +22,8 @@ Page({
     // https://www.20200127.cn/resource/mood/images/bg1.jpg
     const random = Math.floor(Math.random() * 3) + 1
     this.setData({
-      bgsrc: `https://www.20200127.cn/resource/mood/images/bg${random}.jpg`
+      // bgsrc: `https://www.20200127.cn/resource/mood/images/bg${random}.jpg`
+      bgsrc: `./images/bg1.jpg`
     })
   },
 

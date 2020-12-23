@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "nav-tab":"/components/index/nav-tab/nav-tab"
+  }
+}

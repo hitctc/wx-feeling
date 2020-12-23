@@ -5,4 +5,5 @@ Pipfile.lock
 project.config.json
 node_modules
 .jsbeautifyrc
-miniprogram_npm
+.history
+.DS_Store

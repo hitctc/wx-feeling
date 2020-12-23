@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "card-c": "/components/index/card-c/card-c"
+  }
+}

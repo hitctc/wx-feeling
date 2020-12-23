@@ -1,0 +1,6 @@
+/* pages/index/index.less */
+.index-page {
+  background-color: #445566;
+  width: 750rpx;
+  min-height: 100vh;
+}

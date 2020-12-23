@@ -22,7 +22,7 @@ const formatData = () => {
   } else {
     time += month + "-";
     YYYYMMDDnorm += month + "-";
-    MM = month;
+    MM = month.toString();
   }
   if (day < 10) {
     time += "0";
@@ -62,6 +62,7 @@ const formatData = () => {
     time += ss;
     HHMMSS += ss;
   }
+  console.log('🚀 ~ file: formatData.js ~ line 66 ~ MM', MM)
   switch (MM) {
     case "01":
       MMChinese = "一月"
@@ -104,6 +105,7 @@ const formatData = () => {
   }
 
   YYYYMMDD = YYYYMMDDnorm.split('-').join('')
+  console.log('🚀 ~ file: formatData.js ~ line 107 ~ YYYYMMDD', YYYYMMDD)
   return { time, YYYYMMDDnorm, YYYYMMDD, YYYY, MM, MMChinese, DD, HHMMSS }
 }
 

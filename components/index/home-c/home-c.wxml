@@ -1,0 +1,22 @@
+<!--components/index/home-c/home-c.wxml-->
+<view class="home-c">
+  <view class="card-list">
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+    <card-c class=""></card-c>
+  </view>
+  
+</view>

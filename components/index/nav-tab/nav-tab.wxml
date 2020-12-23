@@ -1,0 +1,10 @@
+<!--components/index/nav-tab/nav-tab.wxml-->
+<view class="nav-tab-c">
+  <van-tabs active="{{ active }}" bind:change="onChange" sticky color="#445566">
+    <van-tab title="首页">
+      <home-c></home-c>
+    </van-tab>
+    <van-tab title="最新">内容 2</van-tab>
+    <van-tab title="最火">内容 3</van-tab>
+  </van-tabs>
+</view>
