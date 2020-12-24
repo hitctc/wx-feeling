@@ -1,5 +1,4 @@
 // components/flutter/index.js
-import { data as keyword } from "../../resource/mood/keyword.js"
 import { formatData } from "../../utils/formatData.js"
 // import Dialog from '@vant/weapp/dialog/dialog'
 

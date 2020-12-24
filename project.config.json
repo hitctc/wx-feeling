@@ -49,17 +49,10 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
-      "currentL": -1,
       "list": []
     },
     "gamePlugin": {
@@ -85,6 +78,18 @@
           "id": -1,
           "name": "pages/users/index",
           "pathName": "pages/users/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/users/index",
+          "pathName": "pages/users/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/add-m/add-m",
+          "pathName": "pages/add-m/add-m",
           "scene": null
         }
       ]

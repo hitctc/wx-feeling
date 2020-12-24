@@ -1,6 +1,6 @@
 /* components/index/card-c/card-c.less */
 .card-c {
-  width: 238rpx;
+  width: 234rpx;
   height: 200rpx;
   margin: 6rpx;
   object-fit: cover;

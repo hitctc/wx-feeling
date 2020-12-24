@@ -1,6 +1,7 @@
 /* components/index/home-c/home-c.less */
 .home-c {
   width: 750rpx;
+  margin: 6rpx;
 }
 .home-c .card-list {
   width: 750rpx;

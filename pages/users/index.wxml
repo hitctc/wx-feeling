@@ -11,10 +11,12 @@
     </view>
   </view>
   <view class="main">
-    <view class="share">
-      <button class="share-button" open-type="share">
-      分享
-      </button>
+    <view class="shadow-styl">
+      <van-button custom-class="btn-styl" class="btn-styl" open-type="share" block>分享</van-button>
+    </view>
+
+    <view class="shadow-styl">
+      <van-button custom-class="btn-styl" class="btn-styl" block bind:tap="onAdd">添加</van-button>
     </view>
   </view>
 </view>

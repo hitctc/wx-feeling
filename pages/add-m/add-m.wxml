@@ -1,0 +1,48 @@
+<!--pages/add-m/add-m.wxml-->
+<view class="add-m-page">
+  <view class="form-box">
+    <view class="type">
+      <view class="type-title">资源来源</view>
+      <van-radio-group class="custom-class" value="{{ radio }}" bind:change="onChange">
+        <van-radio custom-class="radio-styl" name="1" shape="square" checked-color="#445566"
+          >百度</van-radio
+        >
+        <van-radio custom-class="radio-styl" name="2" shape="square" checked-color="#445566"
+          >迅雷</van-radio
+        >
+      </van-radio-group>
+    </view>
+
+    <view class="type">
+      <view class="type-title">资源类型</view>
+      <van-radio-group class="custom-class" value="{{ radio }}" bind:change="onChange">
+        <van-radio custom-class="radio-styl" name="1" shape="square" checked-color="#445566"
+          >最新</van-radio
+        >
+        <van-radio custom-class="radio-styl" name="2" shape="square" checked-color="#445566"
+          >最热</van-radio
+        >
+      </van-radio-group>
+    </view>
+
+    <view class="type link">
+      <view class="link-title">信息</view>
+      <van-cell-group custom-class="field-styl">
+        <van-field
+          value="{{ link }}"
+          border="{{ false }}"
+          clearable
+          label="链接"
+          placeholder="链接"
+        />
+        <van-field
+          value="{{ authCode }}"
+          border="{{ false }}"
+          clearable
+          label="授权码"
+          placeholder="授权码"
+        />
+      </van-cell-group>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+/* pages/add-m/add-m.less */
+.add-m-page {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-m-page .form-box {
+  width: 700rpx;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.add-m-page .form-box .type {
+  width: 700rpx;
+  margin-top: 20rpx;
+}
+.add-m-page .form-box .type .type-title {
+  font-size: 33rpx;
+  font-weight: bold;
+  padding: 6rpx 6rpx 6rpx 0;
+}
+.add-m-page .form-box .type .custom-class {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.add-m-page .form-box .type .custom-class .radio-styl {
+  margin-right: 18rpx;
+}
+.add-m-page .form-box .link {
+  width: 700rpx;
+}
+.add-m-page .form-box .link .link-title {
+  font-size: 33rpx;
+  font-weight: bold;
+  padding: 6rpx 6rpx 6rpx 0;
+}
+.add-m-page .form-box .link .van-cell {
+  padding: 20rpx 0 !important;
+}
