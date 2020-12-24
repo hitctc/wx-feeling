@@ -1,5 +1,5 @@
 <!--components/index/card-c/card-c.wxml-->
-<view class="card-c">
+<view class="card-c" bind:tap="onDetail">
   <image class="m-pic" src="https://djcollegeg.gzstv.com/resource/picture/get/490" mode="aspectFill" />
   <view class="content-box">
     <text class="m-title">标题</text>

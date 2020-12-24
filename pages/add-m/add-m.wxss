@@ -32,6 +32,7 @@
 }
 .add-m-page .form-box .link {
   width: 700rpx;
+  margin-top: 20rpx;
 }
 .add-m-page .form-box .link .link-title {
   font-size: 33rpx;
@@ -40,4 +41,16 @@
 }
 .add-m-page .form-box .link .van-cell {
   padding: 20rpx 0 !important;
+}
+.add-m-page .form-box .sub-btn {
+  width: 700rpx;
+  margin-top: 20rpx;
+}
+.add-m-page .form-box .sub-btn .btn-styl {
+  width: 100%;
+  padding: 10rpx;
+  margin: 0;
+  background-color: #445566;
+  color: #ffffff;
+  border: none;
 }

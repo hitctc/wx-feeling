@@ -3,11 +3,11 @@
   <view class="form-box">
     <view class="type">
       <view class="type-title">资源来源</view>
-      <van-radio-group class="custom-class" value="{{ radio }}" bind:change="onChange">
-        <van-radio custom-class="radio-styl" name="1" shape="square" checked-color="#445566"
+      <van-radio-group class="custom-class" value="{{ radioSource }}" bind:change="onChangeSource">
+        <van-radio custom-class="radio-styl" name="百度" shape="square" checked-color="#445566"
           >百度</van-radio
         >
-        <van-radio custom-class="radio-styl" name="2" shape="square" checked-color="#445566"
+        <van-radio custom-class="radio-styl" name="迅雷" shape="square" checked-color="#445566"
           >迅雷</van-radio
         >
       </van-radio-group>
@@ -15,11 +15,11 @@
 
     <view class="type">
       <view class="type-title">资源类型</view>
-      <van-radio-group class="custom-class" value="{{ radio }}" bind:change="onChange">
-        <van-radio custom-class="radio-styl" name="1" shape="square" checked-color="#445566"
+      <van-radio-group class="custom-class" value="{{ radioType }}" bind:change="onChangeType">
+        <van-radio custom-class="radio-styl" name="最新" shape="square" checked-color="#445566"
           >最新</van-radio
         >
-        <van-radio custom-class="radio-styl" name="2" shape="square" checked-color="#445566"
+        <van-radio custom-class="radio-styl" name="最热" shape="square" checked-color="#445566"
           >最热</van-radio
         >
       </van-radio-group>
@@ -29,20 +29,45 @@
       <view class="link-title">信息</view>
       <van-cell-group custom-class="field-styl">
         <van-field
-          value="{{ link }}"
+          model:value="{{ link }}"
           border="{{ false }}"
           clearable
           label="链接"
           placeholder="链接"
         />
         <van-field
-          value="{{ authCode }}"
+          model:value="{{ code }}"
           border="{{ false }}"
           clearable
           label="授权码"
           placeholder="授权码"
         />
+        <van-field
+          model:value="{{ title }}"
+          border="{{ false }}"
+          clearable
+          label="标题"
+          placeholder="标题"
+        />
+        <van-field
+          model:value="{{ content }}"
+          border="{{ false }}"
+          clearable
+          label="内容描述"
+          placeholder="内容描述"
+        />
+        <!-- <van-field
+          value="{{ time }}"
+          border="{{ false }}"
+          clearable
+          label="时间"
+          placeholder="时间"
+        /> -->
       </van-cell-group>
+    </view>
+
+    <view class="sub-btn">
+      <van-button custom-class="btn-styl" bind:tap="onSub">提交</van-button>
     </view>
   </view>
 </view>

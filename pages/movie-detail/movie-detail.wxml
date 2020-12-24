@@ -1,0 +1,35 @@
+<!--pages/movie-detail/movie-detail.wxml-->
+<view class="movie-detail-page">
+  <view class="head-banner">
+    <image
+      class="banner-pic"
+      src="https://djcollegeg.gzstv.com/resource/picture/get/490"
+      mode="aspectFill"
+    />
+  </view>
+
+  <view class="body-container">
+    <view class="desc">
+      <view class="title">标题</view>
+      <view class="content">内容</view>
+    </view>
+    <view class="link">
+      <view class="title">链接</view>
+      <view class="content">
+        链接
+        <text class="copy" bind:tap="onCopy" data-src="linklink">一键复制</text>
+      </view>
+    </view>
+    <view class="code">
+      <view class="title">验证码</view>
+      <view class="content">
+        sdfg
+        <text class="copy" data-code="sdfg" bind:tap="onCopy">一键复制</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-footer">
+    feel
+  </view>
+</view>

@@ -5,7 +5,8 @@
     "pages/trophy/index",
     "pages/users/index",
     "pages/mood-detail/index",
-    "pages/add-m/add-m"
+    "pages/add-m/add-m",
+    "pages/movie-detail/movie-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#445566",
@@ -62,6 +63,5 @@
     "van-radio-group": "@vant/weapp/radio-group/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-cell": "@vant/weapp/cell/index"
-
   }
 }
