@@ -1,0 +1,4 @@
+<!--pages/manager/manager.wxml-->
+<view class="manager-page">
+  <nav-tab></nav-tab>
+</view>

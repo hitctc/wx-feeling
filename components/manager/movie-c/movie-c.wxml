@@ -1,0 +1,24 @@
+<!--components/manager/movie-c/movie-c.wxml-->
+<view class="movie-c">
+  <block wx:for="{{dataList}}" wx:key="_id">
+    <view class="item">
+      <van-card
+        tag="{{item.tabType}}"
+        desc="{{item.desc}}"
+        title="{{item.title}}"
+        thumb="{{ imageURL==''?'https://djcollegeg.gzstv.com/resource/picture/get/490':imageURL }}"
+      >
+        <view slot="tags">
+          是否上架：{{item.status === true?'是':'否'}} 时间：{{item.time}}
+        </view>
+        <view slot="tags">
+          来源：{{item.source}}
+        </view>
+        <view slot="footer">
+          <van-button size="mini" bind:tap="onDelete(item)">删除</van-button>
+          <van-button size="mini" bind:tap="onEdit" data-item="{{item}}">编辑</van-button>
+        </view>
+      </van-card>
+    </view>
+  </block>
+</view>

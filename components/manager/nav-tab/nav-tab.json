@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+
+    "movie-c": "/components/manager/movie-c/movie-c"
+  }
+}

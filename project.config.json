@@ -101,6 +101,12 @@
         {
           "name": "pages/movie-detail/movie-detail",
           "pathName": "pages/movie-detail/movie-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/manager/manager",
+          "pathName": "pages/manager/manager",
           "scene": null
         }
       ]

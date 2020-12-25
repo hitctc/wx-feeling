@@ -22,6 +22,13 @@ Page({
     })
   },
 
+  onManager() {
+    const _self = this
+    wx.navigateTo({
+      url: '/pages/manager/manager'
+    })
+  },
+
   _getUserHeaderBG() {
     const imgAll = [ 'images/autumn.jpg', 'images/springtime.jpg', 'images/summer.jpg', 'images/winter.jpg' ]
     const random = Math.floor(Math.random() * 4)

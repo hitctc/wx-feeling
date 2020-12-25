@@ -6,7 +6,8 @@
     "pages/users/index",
     "pages/mood-detail/index",
     "pages/add-m/add-m",
-    "pages/movie-detail/movie-detail"
+    "pages/movie-detail/movie-detail",
+    "pages/manager/manager"
   ],
   "window": {
     "navigationBarBackgroundColor": "#445566",
@@ -62,6 +63,8 @@
     "van-radio": "@vant/weapp/radio/index",
     "van-radio-group": "@vant/weapp/radio-group/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-cell": "@vant/weapp/cell/index"
+    "van-cell": "@vant/weapp/cell/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index"
   }
 }

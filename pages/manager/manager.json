@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nav-tab":"/components/manager/nav-tab/nav-tab"
+
+  }
+}

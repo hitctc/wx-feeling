@@ -26,9 +26,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 .add-m-page .form-box .type .custom-class .radio-styl {
   margin-right: 18rpx;
+  margin-bottom: 18rpx;
 }
 .add-m-page .form-box .link {
   width: 700rpx;

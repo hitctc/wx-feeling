@@ -1,10 +1,24 @@
 <!--components/index/nav-tab/nav-tab.wxml-->
 <view class="nav-tab-c">
-  <van-tabs active="{{ active }}" bind:change="onChange" sticky color="#445566">
-    <van-tab title="首页">
+  <van-tabs
+    active="{{ active }}"
+    bind:change="onChange"
+    sticky
+    color="#ffffff"
+    title-active-color="#ffffff"
+    title-inactive-color="#999999"
+    tab-class="tab-class"
+    border="{{false}}"
+  >
+    <van-tab title="最新">
       <home-c></home-c>
     </van-tab>
-    <van-tab title="最新">内容 2</van-tab>
-    <van-tab title="最火">内容 3</van-tab>
+    <van-tab title="最热">最热</van-tab>
+    <van-tab title="电影">电影</van-tab>
+    <van-tab title="动漫">动漫</van-tab>
+    <van-tab title="电视剧">电视剧</van-tab>
+    <van-tab title="综艺">电视剧</van-tab>
+    <van-tab title="音乐">音乐</van-tab>
+    <van-tab title="书籍">书籍</van-tab>
   </van-tabs>
 </view>

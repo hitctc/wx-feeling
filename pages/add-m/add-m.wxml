@@ -3,26 +3,37 @@
   <view class="form-box">
     <view class="type">
       <view class="type-title">资源来源</view>
-      <van-radio-group class="custom-class" value="{{ radioSource }}" bind:change="onChangeSource">
-        <van-radio custom-class="radio-styl" name="百度" shape="square" checked-color="#445566"
-          >百度</van-radio
-        >
-        <van-radio custom-class="radio-styl" name="迅雷" shape="square" checked-color="#445566"
-          >迅雷</van-radio
-        >
+      <van-radio-group class="custom-class" model:value="{{ radioSource }}" bind:change="onChangeSource">
+        <van-radio custom-class="radio-styl" name="百度" checked-color="#445566">百度</van-radio>
+        <van-radio custom-class="radio-styl" name="迅雷" checked-color="#445566">迅雷</van-radio>
       </van-radio-group>
     </view>
 
     <view class="type">
       <view class="type-title">资源类型</view>
-      <van-radio-group class="custom-class" value="{{ radioType }}" bind:change="onChangeType">
-        <van-radio custom-class="radio-styl" name="最新" shape="square" checked-color="#445566"
-          >最新</van-radio
+      <van-checkbox-group class="custom-class" value="{{ type }}" bind:change="onChangeType">
+        <van-checkbox custom-class="radio-styl" name="最新" shape="square" checked-color="#445566">
+          最新
+        </van-checkbox>
+        <van-checkbox custom-class="radio-styl" name="最热" shape="square" checked-color="#445566">
+          最热
+        </van-checkbox>
+        <van-checkbox
+          custom-class="radio-styl"
+          name="电视剧"
+          shape="square"
+          checked-color="#445566"
         >
-        <van-radio custom-class="radio-styl" name="最热" shape="square" checked-color="#445566"
-          >最热</van-radio
-        >
-      </van-radio-group>
+          电视剧
+        </van-checkbox>
+        <van-checkbox custom-class="radio-styl" name="综艺" shape="square" checked-color="#445566">
+          综艺
+        </van-checkbox>
+        <van-checkbox custom-class="radio-styl" name="书籍" shape="square" checked-color="#445566">
+          书籍
+        </van-checkbox>
+      </van-checkbox-group>
+     
     </view>
 
     <view class="type link">
@@ -48,6 +59,13 @@
           clearable
           label="标题"
           placeholder="标题"
+        />
+        <van-field
+          model:value="{{ desc }}"
+          border="{{ false }}"
+          clearable
+          label="短描述"
+          placeholder="短描述"
         />
         <van-field
           model:value="{{ content }}"
