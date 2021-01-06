@@ -10,7 +10,7 @@
     "pages/manager/manager"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#445566",
+    "navigationBarBackgroundColor": "#343746",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "MOOD",
     "navigationStyle": "default",
@@ -20,7 +20,7 @@
   "tabBar": {
     "color": "#c7c7c7",
     "selectedColor": "#000000",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#343746",
     "list": [
       {
         "pagePath": "pages/index/index",

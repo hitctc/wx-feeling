@@ -52,7 +52,7 @@
   width: 100%;
   padding: 10rpx;
   margin: 0;
-  background-color: #445566;
+  background-color: #6272a4;
   color: #ffffff;
   border: none;
 }

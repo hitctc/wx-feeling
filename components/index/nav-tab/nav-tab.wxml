@@ -5,8 +5,8 @@
     bind:change="onChange"
     sticky
     color="#ffffff"
-    title-active-color="#ffffff"
-    title-inactive-color="#999999"
+    title-active-color="#74e9f1"
+    title-inactive-color="#ffffff"
     tab-class="tab-class"
     border="{{false}}"
   >

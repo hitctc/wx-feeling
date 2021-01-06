@@ -3,5 +3,14 @@
   box-sizing: border-box;
   width: 750rpx;
   min-height: 100vh;
-  background-color: #445566;
+  background-color: #21222c;
 }
+/*
+主题背景颜色 #21222c
+主字体颜色 #74e9f1
+icon颜色 #6272a4
+提亮点缀颜色 #ff79c6
+其它 #ffffff
+#bd93f9
+#3ffa7b
+*/
