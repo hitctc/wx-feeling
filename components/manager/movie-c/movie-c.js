@@ -31,9 +31,10 @@ Component({
       console.log('🚀 ~ file: movie-c.js ~ line 31 ~ e', e)
       const _self = this
       let item = JSON.parse(JSON.stringify(e.currentTarget.dataset.item))
+      // 跳转页面，传递数据
       wx
         .navigateTo({
-          url: `/pages/add-m/add-m`
+          url: `/pages/add-m/add-m?type=change`
         })
         .then((res) => {
           res.eventChannel.emit('setItemData', { data: item })

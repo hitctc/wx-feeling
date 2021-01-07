@@ -12,16 +12,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    radioSource: '百度',
-    type: [],
-    link: '',
-    code: '',
-    title: '',
-    content: '',
-    time: '',
-    desc: '',
-    imgUrl: '',
-    status: ''
+    artData: {
+      radioSource: '百度',
+      type: [],
+      link: '',
+      code: '',
+      title: '',
+      content: '',
+      time: '',
+      desc: '',
+      imgUrl: '',
+      status: ''
+    },
+    type: ''
   },
 
   /**
@@ -30,8 +33,9 @@ Page({
   onLoad: function(options) {
     console.log('🚀 ~ file: add-m.js ~ line 30 ~ options', options)
     console.log('🚀 ~ file: add-m.js ~ line 16 ~ movie', movie)
-
     const _self = this
+    const type = options.type // change or add
+    console.log('🚀 ~ file: add-m.js ~ line 36 ~ type', type)
     const eventChannel = this.getOpenerEventChannel()
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('setItemData', function(data) {
@@ -39,16 +43,19 @@ Page({
       console.log('🚀 ~ file: add-m.js ~ line 36 ~ data', data.data)
       console.log('🚀 ~ file: add-m.js ~ line 36 ~ data', data.title)
       _self.setData({
-        radioSource: data.data.source,
-        type: data.data.tabType,
-        link: data.data.link,
-        code: data.data.code,
-        title: data.data.title,
-        content: data.data.content,
-        time: data.data.time,
-        desc: data.data.desc,
-        imgUrl: data.data.imgUrl,
-        status: data.data.status
+        type,
+        artData: {
+          radioSource: data.data.source,
+          type: data.data.tabType,
+          link: data.data.link,
+          code: data.data.code,
+          title: data.data.title,
+          content: data.data.content,
+          time: data.data.time,
+          desc: data.data.desc,
+          imgUrl: data.data.imgUrl,
+          status: data.data.status
+        }
       })
     })
   },
@@ -67,14 +74,14 @@ Page({
     const _self = this
     let args = {
       // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
-      source: _self.data.radioSource,
-      tabType: _self.data.type,
-      link: _self.data.link,
-      code: _self.data.code,
-      title: _self.data.title,
-      content: _self.data.content,
+      source: _self.data.artData.radioSource,
+      tabType: _self.data.artData.type,
+      link: _self.data.artData.link,
+      code: _self.data.artData.code,
+      title: _self.data.artData.title,
+      content: _self.data.artData.content,
       time: '2020-12-30',
-      desc: _self.data.desc === '' ? '默认描述' : _self.data.desc,
+      desc: _self.data.artData.desc === '' ? '默认描述' : _self.data.artData.desc,
       imgUrl: 'https://djcollegeg.gzstv.com/resource/picture/get/490',
       status: true
     }
