@@ -4,7 +4,8 @@
   "description": "微信小程序 - 【感觉、情绪】",
   "main": "app.js",
   "dependencies": {
-    "@vant/weapp": "^1.6.4"
+    "@vant/weapp": "^1.6.4",
+    "wx-server-sdk": "^2.3.2"
   },
   "devDependencies": {},
   "scripts": {

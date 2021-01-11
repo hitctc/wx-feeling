@@ -1,9 +1,14 @@
 <!--pages/add-m/add-m.wxml-->
+<!-- 添加、更新art -->
 <view class="add-m-page">
   <view class="form-box">
     <view class="type">
       <view class="type-title">资源来源</view>
-      <van-radio-group class="custom-class" model:value="{{ artData.radioSource }}" bind:change="onChangeSource">
+      <van-radio-group
+        class="custom-class"
+        value="{{ artData.radioSource }}"
+        bind:change="selectSource"
+      >
         <van-radio custom-class="radio-styl" name="百度" checked-color="#445566">百度</van-radio>
         <van-radio custom-class="radio-styl" name="迅雷" checked-color="#445566">迅雷</van-radio>
       </van-radio-group>
@@ -11,7 +16,11 @@
 
     <view class="type">
       <view class="type-title">资源类型</view>
-      <van-checkbox-group class="custom-class" value="{{ artData.type }}" bind:change="onChangeType">
+      <van-checkbox-group
+        class="custom-class"
+        value="{{ artData.type }}"
+        bind:change="selectArtType"
+      >
         <van-checkbox custom-class="radio-styl" name="最新" shape="square" checked-color="#445566">
           最新
         </van-checkbox>
@@ -33,42 +42,41 @@
           书籍
         </van-checkbox>
       </van-checkbox-group>
-     
     </view>
 
     <view class="type link">
       <view class="link-title">信息</view>
       <van-cell-group custom-class="field-styl">
         <van-field
-          model:value="{{ artData.link }}"
+          value="{{ artData.link }}"
           border="{{ false }}"
           clearable
           label="链接"
           placeholder="链接"
         />
         <van-field
-          model:value="{{ artData.code }}"
+          value="{{ artData.code }}"
           border="{{ false }}"
           clearable
           label="授权码"
           placeholder="授权码"
         />
         <van-field
-          model:value="{{ artData.title }}"
+          value="{{ artData.title }}"
           border="{{ false }}"
           clearable
           label="标题"
           placeholder="标题"
         />
         <van-field
-          model:value="{{ artData.desc }}"
+          value="{{ artData.desc }}"
           border="{{ false }}"
           clearable
           label="短描述"
           placeholder="短描述"
         />
         <van-field
-          model:value="{{ artData.content }}"
+          value="{{ artData.content }}"
           border="{{ false }}"
           clearable
           label="内容描述"
