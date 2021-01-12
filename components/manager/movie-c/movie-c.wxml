@@ -3,7 +3,7 @@
   <block wx:for="{{dataList}}" wx:key="_id">
     <view class="item">
       <van-card
-        tag="{{item.tabType}}"
+        tag="{{item.source}}"
         desc="{{item.desc}}"
         title="{{item.title}}"
         thumb="{{ imageURL==''?'https://djcollegeg.gzstv.com/resource/picture/get/490':imageURL }}"
@@ -12,13 +12,17 @@
           是否上架：{{item.status === true?'是':'否'}} 时间：{{item.time}}
         </view>
         <view slot="tags">
-          来源：{{item.source}}
+          资源类型：{{item.artType}}
+        </view>
+        <view slot="tags">
+          TAB类型：{{item.tabType}}
         </view>
         <view slot="footer">
-          <van-button size="mini" bind:tap="onDelete(item)">删除</van-button>
+          <van-button size="mini" bind:tap="onDelete" data-data-item="{{item}}">删除</van-button>
           <van-button size="mini" bind:tap="onEdit" data-item="{{item}}">编辑</van-button>
         </view>
       </van-card>
     </view>
   </block>
+  <van-dialog id="van-dialog" />
 </view>

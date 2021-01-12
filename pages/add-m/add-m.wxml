@@ -6,7 +6,7 @@
       <view class="type-title">资源来源</view>
       <van-radio-group
         class="custom-class"
-        value="{{ artData.radioSource }}"
+        model:value="{{ radioSource }}"
         bind:change="selectSource"
       >
         <van-radio custom-class="radio-styl" name="百度" checked-color="#445566">百度</van-radio>
@@ -18,7 +18,7 @@
       <view class="type-title">资源类型</view>
       <van-checkbox-group
         class="custom-class"
-        value="{{ artData.type }}"
+        value="{{ artType }}"
         bind:change="selectArtType"
       >
         <van-checkbox custom-class="radio-styl" name="最新" shape="square" checked-color="#445566">
@@ -48,42 +48,42 @@
       <view class="link-title">信息</view>
       <van-cell-group custom-class="field-styl">
         <van-field
-          value="{{ artData.link }}"
+          model:value="{{ link }}"
           border="{{ false }}"
           clearable
           label="链接"
           placeholder="链接"
         />
         <van-field
-          value="{{ artData.code }}"
+          model:value="{{ code }}"
           border="{{ false }}"
           clearable
           label="授权码"
           placeholder="授权码"
         />
         <van-field
-          value="{{ artData.title }}"
+          model:value="{{ title }}"
           border="{{ false }}"
           clearable
           label="标题"
           placeholder="标题"
         />
         <van-field
-          value="{{ artData.desc }}"
+          model:value="{{ desc }}"
           border="{{ false }}"
           clearable
           label="短描述"
           placeholder="短描述"
         />
         <van-field
-          value="{{ artData.content }}"
+          model:value="{{ content }}"
           border="{{ false }}"
           clearable
           label="内容描述"
           placeholder="内容描述"
         />
         <!-- <van-field
-          value="{{ time }}"
+          model:value="{{ time }}"
           border="{{ false }}"
           clearable
           label="时间"
