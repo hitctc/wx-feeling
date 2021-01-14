@@ -8,6 +8,7 @@
       }
     ]
   },
+  "cloudfunctionRoot": "cloudfunction/",
   "setting": {
     "urlCheck": true,
     "es6": true,
@@ -54,6 +55,7 @@
   "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "plugin": {
       "list": []
