@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
 <view class="index-page">
+首页
 	<nav-tab id="homeSource"></nav-tab>
 	<welcome-g></welcome-g>
 

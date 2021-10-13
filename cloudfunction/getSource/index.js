@@ -7,6 +7,9 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
 
+console.log('ACHUAN : cloud.DYNAMIC_CURRENT_ENV', cloud.DYNAMIC_CURRENT_ENV)
+
+
 // 云函数入口函数
 const db = cloud.database()
 // 每次最多获取多少条记录,最大值为100
