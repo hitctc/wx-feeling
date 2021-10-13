@@ -1,0 +1,5 @@
+<!--components/welcome-g/index.wxml-->
+<view class="welcome-mask" wx:if="{{maskVisible}}" animation="{{maskVisible}}">
+  <view class="text1">欢迎</view>
+  <view class="text2">无广告，简洁用</view>
+</view>

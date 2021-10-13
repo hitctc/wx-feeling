@@ -8,6 +8,7 @@
       }
     ]
   },
+  "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunction/",
   "setting": {
     "urlCheck": true,
@@ -22,31 +23,30 @@
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
-    "uglifyFileName": false,
+    "uglifyFileName": true,
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "useApiHostProcess": true
+    "showES6CompileOption": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.12.2",
+  "libVersion": "2.14.1",
   "appid": "wxfa8b6648d994705b",
   "projectname": "%E6%9C%8B%E5%8F%8B%E5%9C%88%E6%96%87%E6%A1%88",
   "debugOptions": {

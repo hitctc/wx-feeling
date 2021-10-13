@@ -1,0 +1,27 @@
+<!--pages/about/index.wxml-->
+<view class="container">
+  <view class="main">
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="jumpdm">简洁弹幕字幕</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" open-type="contact">合作联系</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="handleZs">赞赏支持</button>
+    </view>
+
+  </view>
+
+  <l-transition show="{{ isZsVisible }}" duration="1000">
+    <view class="zs-pic-box">
+      <image src="../../images/zs.jpg" mode="widthFix" class="zs-pic" show-menu-by-longpress="true" />
+      <button type="default" size="mini" class="close-btn" bindtap="handleClose">关闭</button>
+    </view>
+
+  </l-transition>
+
+
+</view>

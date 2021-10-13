@@ -1,0 +1,10 @@
+/* pages/dev-page/index.wxss */
+.dev-container {
+  width: 750rpx;
+  box-sizing: border-box;
+  padding: 18rpx 30rpx;
+}
+
+.dev-container button {
+  margin: 0 10rpx 0 0;
+}

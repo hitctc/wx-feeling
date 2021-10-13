@@ -1,6 +1,0 @@
-/* 组件能够继承的样式：font-family，font-size，color可以基础 */
-/* page可以继承 */
-page {
-    font-family: "PingFangSC-Thin";
-    font-size: 32rpx;
-}

@@ -1,0 +1,26 @@
+<!--pages/tcq-index/index.wxml-->
+<view class="reward-index">
+  <view class="copy-box">
+    <text>作品</text>
+    <text class="high-text" bindtap="jumpdm">简洁弹幕字幕</text>
+    <text class="high-text" bindtap="jumpMovie">水果电影</text>
+    <text class="high-text" bindtap="jumpTcq">提词器</text>
+    <text class="high-text" bindtap="jumpPyq">朋友圈文案</text>
+    <text>无广告，高流畅</text>
+    <view>如果项目帮到你，或者你就是单纯赞赏，可以扫描 <text class="high-text" bindtap="handleZs">赞赏码</text> 支持一下！</view>
+    <text>支持作者继续开发，十分谢谢！</text>
+  </view>
+  <view class="copy-box" bindtap="handleCopy" data-text="等在烟火清凉">
+    <view>关注公众号，点击复制搜索关注</view>
+    <button type="default" plain>等在烟火清凉</button>
+  </view>
+  <view class="advise-btn-box">
+    <text>开发合作，联系作者</text>
+    <button type="default" plain open-type="contact">联系作者</button>
+  </view>
+  <view class="zs-pic-box" wx:if="{{isZsVisible}}">
+    <image src="../../images/zs.jpg" mode="widthFix" class="zs-pic" show-menu-by-longpress="true" />
+    <button type="default" size="mini" class="close-btn" bindtap="handleClose">关闭</button>
+  </view>
+</view>
+<official-account></official-account>

@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+
+  "usingComponents": {
+    "nav-tab": "/components/index/nav-tab/index",
+    "welcome-g": "/components/welcome-g/index"
+  }
+}

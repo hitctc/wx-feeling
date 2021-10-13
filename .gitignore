@@ -2,8 +2,11 @@
 .vscode
 .idea/
 Pipfile.lock
-project.config.json
-node_modules
+
 .jsbeautifyrc
-.history
 .DS_Store
+
+.history
+node_modules
+
+*.map

@@ -1,0 +1,12 @@
+/* components/loading-g/index.wxss */
+
+.loading-g-c {
+  z-index: 998;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50rpx, -50rpx);
+
+  width: 100rpx;
+  height: 100rpx;
+}

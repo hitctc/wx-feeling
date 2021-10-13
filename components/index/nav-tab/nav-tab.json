@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index",
-
-    "home-c": "/components/index/home-c/home-c"
-  }
-}

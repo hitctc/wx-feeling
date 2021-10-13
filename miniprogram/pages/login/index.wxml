@@ -1,0 +1,20 @@
+<!--pages/login/index.wxml-->
+<view class="login-container">
+  <view class="userimg {{login?'userimg-login':''}}">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="username {{login?'username-login':''}}">
+    <open-data type="userNickName"></open-data>
+  </view>
+  <view class="lable {{isLogin?'lable-login':''}}">{{loginText}}</view>
+  <block wx:if="{{!hasUserInfo}}">
+    <button class="login {{isLogin?'logining':''}}" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"
+      hover-class="btn-hover-styl"> 登录
+    </button>
+    <button class="login {{isLogin?'logining':''}}" wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"
+      hover-class="btn-hover-styl"> 登录
+    </button>
+  </block>
+
+  <view class="login-tip-text">登录以提供完整服务</view>
+</view>

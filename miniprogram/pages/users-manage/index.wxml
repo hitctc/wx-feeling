@@ -1,0 +1,50 @@
+<!--pages/users-manage/index.wxml-->
+<view class="users-manage-container">
+  <block>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th tx">头像</view>
+        <view class="th">昵称</view>
+        <view class="th">等级</view>
+        <view class="th">操作</view>
+      </view>
+      <block wx:for="{{ allUsers }}" wx:key="id">
+
+        <view class="tr bg-g" wx:if="{{ index % 2 == 0 }}">
+          <view class="td avatar tx">
+            <image src="{{item.avatarUrl}}" class="image" mode="scallToFill"></image>
+          </view>
+          <view class="td">{{ item.nickName }}</view>
+          <view class="td">{{ item.userType }}</view>
+          <view class="td">
+            <van-button size="mini" bindtap="editUser" data-user-data="{{item}}">编辑</van-button>
+            <van-button size="mini" bindtap="deleteUser" data-user-data="{{item}}" type="danger">删除</van-button>
+          </view>
+        </view>
+        <view class="tr" wx:else>
+          <view class="td avatar tx">
+            <image src="{{item.avatarUrl}}" class="image" mode="scallToFill"></image>
+          </view>
+          <view class="td">{{ item.nickName }}</view>
+          <view class="td">{{ item.userType }}</view>
+          <view class="td">
+            <van-button size="mini" bindtap="editUser" data-user-data="{{item}}">编辑</van-button>
+            <van-button size="mini" bindtap="deleteUser" data-user-data="{{item}}" type="danger">删除</van-button>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </block>
+
+  <van-dialog use-slot title="编辑用户等级" show="{{ editUserVisible }}" show-cancel-button show-confirm-button
+    bind:close="onClose" bind:confirm="confirmEditUser">
+    <van-cell-group>
+      <van-field model:value="{{ editUserType }}" label="等级" placeholder="请输入用户等级" border="{{ true }}" />
+    </van-cell-group>
+  </van-dialog>
+
+  <van-dialog id="van-dialog" />
+
+
+</view>

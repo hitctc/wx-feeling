@@ -1,0 +1,42 @@
+<!--pages/search/index.wxml-->
+<view class="search-page">
+  <!-- 搜索栏 -->
+  <view class="search-bar-box">
+    <l-search-bar placeholder="输入搜索" bg-color="#ffffff" shape="primary" cancel-text="搜索" show-cancel="{{false}}"
+      bind:linconfirm="handleSearch" value="{{searchVal}}" />
+  </view>
+
+  <!-- 显示的搜索的内容 -->
+  <view class="card-box" wx:if="{{!isEmptVisible}}">
+    <block wx:for="{{sourceList}}" wx:key="_id">
+      <l-card type="primary" plaintext="{{true}}" title="{{item.title}}" l-class="card-styl" bindtap="onDetail"
+        data-item="{{item}}">
+        <view class="content">
+          <view class="content-text">
+            <text>{{item.content}}</text>
+          </view>
+          <view class="time">{{item.scriptwriter}}</view>
+          <view class="time">{{item.sortTitle}}</view>
+          <view class="time">{{item.dateIssued}}</view>
+        </view>
+      </l-card>
+    </block>
+  </view>
+
+
+  <!-- 无内容显示状态 -->
+  <view class="status-box" wx:if="{{isEmptVisible}}">
+    <l-status-show show="{{isEmptVisible}}" describe="暂无内容" type="product" bg-color="#f8f8f8"></l-status-show>
+   <view class="btn-position">
+    <button type="default" plain class="mini-btn" open-type="contact">点击获取</button>
+    <!-- <button type="default" plain class="mini-btn" bindtap="backPage">返回</button> -->
+   </view>
+  </view>
+
+  <button wx:if="{{userInfo.userType ==='level-1'}}" class="add-btn" type="warn" plain size="mini"
+    bindtap="jumpAddMovie">添加</button>
+
+  <more-g moreVisible="{{isMore}}" isFinish="{{isFinish}}"></more-g>
+  <loading-g wx:if="{{ loadingVisible }}"></loading-g>
+
+</view>

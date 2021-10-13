@@ -1,0 +1,18 @@
+/* components/like-c/index.wxss */
+.like-c {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.like-c  .icon-styl {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 0 6rpx 0 20rpx;
+}
+
+.like-c .like-count {
+  width: 68rpx;
+  font-size: 28rpx;
+}

@@ -1,0 +1,80 @@
+/* pages/login/index.wxss */
+.login-container {
+  padding-top: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8;
+
+  box-sizing: border-box;
+  position: relative;
+  height: 100vh;
+}
+
+.userimg {
+  /* 超出部分处理 */
+  overflow: hidden;
+  width: 160rpx;
+  height: 160rpx;
+  transition: transform 1s;
+  border: 12rpx solid #fff;
+}
+
+.userimg-login {
+  transform: translateY(-50rpx);
+}
+
+.username {
+  font-size: 36rpx;
+  margin-top: 20px;
+  color: #000000;
+  font-weight: bold;
+  transition: transform 1s;
+}
+
+.username-login {
+  transform: translateY(-50rpx);
+}
+
+.logining {
+  opacity: 0;
+}
+
+.lable {
+  width: 750rpx;
+  height: 140rpx;
+  margin-top: 60rpx;
+  font-size: 100rpx;
+  opacity: 0;
+  transition: opacity 3s;
+  text-align: center;
+}
+
+.lable-login {
+  opacity: 1;
+}
+
+.login {
+  color: #fff;
+  margin-top: 60rpx;
+  width: 300rpx;
+  font-size: 40rpx;
+  background-color: #0083B0;
+  transition: opacity 1s;
+}
+
+.btn-hover-styl {
+  box-shadow: 0 0 20rpx #0083B0;
+}
+
+/* 登陆词 */
+.login-tip-text {
+  width: 750rpx;
+  margin-top: 60rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  text-align: center;
+
+  position: absolute;
+  bottom: 60rpx;
+}

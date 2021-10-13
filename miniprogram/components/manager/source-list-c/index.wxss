@@ -1,0 +1,10 @@
+/* components/manager/movie-c/movie-c.less */
+.movie-c {
+  width: 750rpx;
+}
+
+.movie-c .highlight-mark {
+  color: red;
+  font-size: 30rpx;
+  font-weight: bold;
+}

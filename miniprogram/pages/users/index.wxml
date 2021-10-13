@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="header" bindtap="jumpDev">
+    <view class="user-info" bindtap="jumpLogin">
+      <open-data class="user-icon" type="userAvatarUrl"></open-data>
+      <view class="avatar-bg"></view>
+    </view>
+    <view class="user-name">
+      <open-data type="userNickName"></open-data>
+      <view class="level">{{userInfo.userType || 'level-999'}}</view>
+    </view>
+    <view class="login-btn-box">
+      <button type="default" bindtap="onLoginSts" size="mini" class="btn-styl">{{oId!=''?'退出':'登录'}}</button>
+    </view>
+  </view>
+
+  <view class="main">
+    <view class="shadow-styl">
+      <button class="btn-styl" open-type="share">
+        感谢分享
+      </button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" bind:tap="jumpJs">
+        关于介绍
+      </button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" open-type="contact">留言建议</button>
+    </view>
+
+    <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">
+      <button class="btn-styl" bind:tap="onAdd">
+        添加影视
+      </button>
+    </view>
+
+    <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">
+      <button class="btn-styl" bind:tap="onManager">
+        管理影视
+      </button>
+    </view>
+
+
+  </view>
+</view>

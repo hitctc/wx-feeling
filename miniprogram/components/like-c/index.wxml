@@ -1,0 +1,8 @@
+<!--components/like-c/index.wxml-->
+<view class="like-c">
+  <image class="icon-styl" src="../../images/like-fill.png" catchtap="handleLike"></image>
+  <text class="like-count" catchtap="handleLike">{{item.likesCount>999?'999+' : item.likesCount || '0'}}</text>
+
+  <image class="icon-styl" src="../../images/unlike.png" catchtap="handleUnLike"></image>
+  <text class="like-count" catchtap="handleUnLike">{{item.badsCount>999?'999+' : item.badsCount || '0'}}</text>
+</view>

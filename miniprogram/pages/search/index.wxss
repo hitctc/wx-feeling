@@ -1,0 +1,72 @@
+/* pages/search/index.wxss */
+.search-page {
+  width: 750rpx;
+  margin: 0 auto;
+}
+
+
+.search-page .search-bar-box {
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 750rpx;
+
+}
+
+.search-page .status-box {
+  width: 750rpx;
+  height: cala(100vh - 80rpx);
+  /* z-index: 999; */
+  /* position: fixed; */
+  /* top: 80rpx; */
+  /* left: 0; */
+}
+
+.status-box .btn-position {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+}
+
+.btn-position button {
+  margin: 20rpx auto;
+  width: 60%;
+}
+
+.search-page .card-box {
+  margin-top: 80rpx;
+}
+
+.card-box .card-styl {
+  width: 710rpx;
+  margin: 20rpx auto;
+}
+
+.card-box .content {
+  font-size: 24rpx;
+  margin-top: 16rpx;
+}
+
+.content .content-text {
+  margin: 2rpx 0;
+
+}
+
+.content .time {
+  margin-top: 12rpx;
+  color: #999999;
+}
+
+
+.search-page .add-btn {
+  z-index: 998;
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+}

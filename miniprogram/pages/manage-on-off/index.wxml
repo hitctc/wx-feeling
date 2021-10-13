@@ -1,0 +1,22 @@
+<!--pages/users-manage/index.wxml-->
+<view class="users-manage-container">
+  <!-- <van-button custom-class="add-btn" size="small" bindtap="addSourceType">添加分类</van-button> -->
+  <block>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">开关名称</view>
+        <view class="th">操作</view>
+      </view>
+
+      <block wx:for="{{onOffList}}" wx:key="_id">
+        <view class="tr bg-g">
+        <view class="td">{{item.dataName}}</view>
+        <view class="td body-view">
+          <switch checked="{{item.isVisible}}" data-data-name="{{item.dataName}}" bindchange="switch1Change" data-id="{{item._id}}" />
+        </view>
+      </view>
+      </block>
+    </view>
+  </block>
+
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "more-g": "/components/more-g/index",
+    "loading-g": "/components/loading-g/index"
+
+  }
+}

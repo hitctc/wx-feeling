@@ -1,0 +1,208 @@
+<!--pages/movie-detail/index.wxml-->
+<view class="movie-detail-page">
+  <view class="head-banner" wx:if="{{false}}">
+    <image class="banner-pic"
+      src="cloud://cloud1-3gv4om0jed457476.636c-cloud1-3gv4om0jed457476-1306871317/qx-2021-9-29.png" mode="aspectFit" />
+  </view>
+
+  <view class="head-banner1">
+    <text>黔</text>
+    <text>行</text>
+  </view>
+
+  <view class="body-container" wx:if="{{sourceSingleData._id}}">
+    <view class="desc">
+      <view class="title">
+        {{sourceSingleData.title}}
+        <text class="new-tip" wx:if="{{sourceSingleData.isNew}}">new</text>
+      </view>
+
+      <view class="text-style" wx:if="{{sourceSingleData.aliasTitle && sourceSingleData.aliasTitle!=''}}">
+        <text class="text-style-title">别名/译名</text>：
+        <text>{{sourceSingleData.aliasTitle}}</text>
+      </view>
+
+      <view class="text-style" wx:if="{{sourceSingleData.shortTitle &&sourceSingleData.shortTitle!=''}}">
+        <text class="text-style-title">短 描 述</text>：
+        <text>{{sourceSingleData.shortTitle}}</text>
+      </view>
+
+      <view class="text-style" wx:if="{{sourceSingleData.sortTitle &&sourceSingleData.sortTitle!=''}}">
+        <text class="text-style-title">类 别</text>：
+        <text>{{sourceSingleData.sortTitle}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.language &&sourceSingleData.language!=''}}">
+        <text class="text-style-title">语 言</text>：
+        <text>{{sourceSingleData.language}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.caption &&sourceSingleData.caption!=''}}">
+        <text class="text-style-title">字幕语言</text>：
+        <text>{{sourceSingleData.caption}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.content &&sourceSingleData.content!=''}}">
+        <text class="text-style-title">剧情/简介</text>：
+        <text>{{sourceSingleData.content}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.premiere &&sourceSingleData.premiere!=''}}">
+        <text class="text-style-title">上映时间</text>：
+        <text>{{sourceSingleData.premiere}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.number &&sourceSingleData.number!=''}}">
+        <text class="text-style-title">集 数</text>：
+        <text>{{sourceSingleData.number}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.durationTime &&sourceSingleData.durationTime!=''}}">
+        <text class="text-style-title">片 长</text>：
+        <text>{{sourceSingleData.durationTime}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.sum && sourceSingleData.sum!='' && sourceSingleData.sum!=10}}">
+        <text class="text-style-title">豆瓣评分</text>：
+        <text>{{sourceSingleData.sum}}/10</text>
+      </view>
+      <view class="text-style"
+        wx:if="{{sourceSingleData.IMDbsum && sourceSingleData.IMDbsum!='' && sourceSingleData.IMDbsum!=10}}">
+        <text class="text-style-title">IMDb评分</text>：
+        <text>{{sourceSingleData.IMDbsum}}/10</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.director && sourceSingleData.director!=''}}">
+        <text class="text-style-title">导 演</text>：
+        <text>{{sourceSingleData.director}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.scriptwriter && sourceSingleData.scriptwriter!=''}}">
+        <text class="text-style-title">编 剧</text>：
+        <text>{{sourceSingleData.scriptwriter}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.protagonist && sourceSingleData.protagonist!=''}}">
+        <text class="text-style-title">主 演</text>：
+        <text>{{sourceSingleData.protagonist}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.movieYears && sourceSingleData.movieYears!=''}}">
+        <text class="text-style-title">年 代</text>：
+        <text>{{sourceSingleData.movieYears}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.movieDpi && sourceSingleData.movieDpi!=''}}">
+        <text class="text-style-title">分 辨 率</text>：
+        <text>{{sourceSingleData.movieDpi}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.movieTag && sourceSingleData.movieTag!=''}}">
+        <text class="text-style-title">标 签</text>：
+        <text>{{sourceSingleData.movieTag}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.music && sourceSingleData.music!=''}}">
+        <text class="text-style-title">音 乐</text>：
+        <text>{{sourceSingleData.music}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.photography && sourceSingleData.photography!=''}}">
+        <text class="text-style-title">摄 影</text>：
+        <text>{{sourceSingleData.photography}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.filmEditing && sourceSingleData.filmEditing!=''}}">
+        <text class="text-style-title">剪 辑</text>：
+        <text>{{sourceSingleData.filmEditing}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.fineArts && sourceSingleData.fineArts!=''}}">
+        <text class="text-style-title">美 术</text>：
+        <text>{{sourceSingleData.fineArts}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.awards && sourceSingleData.awards!=''}}">
+        <text class="text-style-title">奖 项</text>：
+        <text>{{sourceSingleData.awards}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.likesCount && sourceSingleData.likesCount!=0}}">
+        <text class="text-style-title">点 赞</text>：
+        <text>{{sourceSingleData.likesCount}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.badsCount && sourceSingleData.badsCount!=0}}">
+        <text class="text-style-title">点 踩</text>：
+        <text>{{sourceSingleData.badsCount}}</text>
+      </view>
+      <view class="text-style" wx:if="{{sourceSingleData.dateIssued && sourceSingleData.dateIssued!=''}}">
+        <text class="text-style-title">更新时间</text>：
+        <text>{{sourceSingleData.dateIssued}}</text>
+      </view>
+
+    </view>
+    <view class="source-data">
+      <block wx:for="{{sourceSingleData.sourceList}}" wx:key="name">
+        <view class="source-box" wx:if="{{(item.name && item.name !='') && (item.linkAll || item.link)}}">
+          <view class="source-title">{{item.name}}</view>
+          <view class="link" wx:if="{{item.linkAll && item.linkAll !=''}}">
+            <view class="title">
+              <text>完整链接</text>
+              <button type="default" plain size="mini" data-link="{{item.linkAll}}" bind:tap="onCopy">复制</button>
+            </view>
+            <!-- <view class="content">
+              {{item.linkAll}}
+            </view> -->
+          </view>
+          <view class="link" wx:if="{{item.link &&  item.link !=''}}">
+            <view class="title">
+              <text>单链接</text>
+              <button type="default" plain size="mini" data-link="{{item.link}}" bind:tap="onCopy">复制</button>
+            </view>
+            <!-- <view class="content">
+              {{item.link}}
+            </view> -->
+          </view>
+          <view class="code" wx:if="{{item.code &&  item.code !=''}}">
+            <view class="title">
+              <text>单CODE</text>
+              <button type="default" plain size="mini" data-link="{{item.code}}" bind:tap="onCopy">复制</button>
+            </view>
+            <!-- <view class="content">
+              {{item.code}}
+            </view> -->
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="links-box">
+      <view class="_box">
+        <button type="default" plain bind:tap="onLike"><text>{{sourceSingleData.likesCount}}</text> 点赞点赞</button>
+      </view>
+      <view class="_box">
+        <!-- button -->
+        <button type="default" plain open-type="contact" size="mini" send-message-title="{{sourceSingleData.title}} 失效"
+          bindcontact="handleContact">失效留言</button>
+        <!-- <button type="default" plain bind:tap="onBads">
+          <text>{{sourceSingleData.badsCount}} </text>失效点踩</button> -->
+      </view>
+    </view>
+  </view>
+
+  <view style="margin-top: 50rpx; font-weight: 300; font-size: 20rpx; text-align: center;"
+    wx:if="{{userInfo.userType ==='level-1'}}">
+    <view style="font-weight: 900;">{{userInfo.userType}}可见：</view>
+    <view>【所有资源链接是否可见：{{isSourceVisible}}】</view>
+    <view>【7日内更新：{{sourceSingleData.isNew}}】</view>
+    <view>【高亮标记：{{sourceSingleData.highlightMark}}】</view>
+    <view>【发布状态：{{sourceSingleData.statusIssued}}】</view>
+    <view>【是否出局：{{sourceSingleData.movieIsOut}}】</view>
+  </view>
+
+
+
+  <view class="bottom-footer">
+    <button class="mini-btn" type="default" plain size="mini" open-type="share"
+      style="border: none; width: 100%;">感谢分享给好友</button>
+  </view>
+
+  <view class="jump-btn">
+    <button class="mini-btn" type="warn" plain size="mini" open-type="share">分享</button>
+    <button class="mini-btn" type="default" plain size="mini" bindtap="jumpHome" data-page-type="首页">首页</button>
+    <button wx:if="{{userInfo.userType ==='level-1'}}" class="mini-btn" type="warn" plain size="mini" bindtap="jumpPage"
+      data-page-type="编辑页" data-item="{{sourceSingleData}}">编辑</button>
+    <button wx:if="{{userInfo.userType ==='level-1'}}" class="mini-btn" type="warn" plain size="mini"
+      bindtap="deleteMovie" data-page-type="删除">删除</button>
+  </view>
+
+  <!-- <view class="pyq-btn" wx:if="false">
+    <van-button size="small" plain type="info">朋友圈</van-button>
+  </view> -->
+
+  <!-- <view class="share-btn" bindtap="jumpPyq">
+    <van-button size="small" plain type="info" open-type="share">分享</van-button>
+  </view> -->
+
+</view>

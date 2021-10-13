@@ -1,0 +1,99 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index1/index",
+    "pages/search/index",
+    "pages/about/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/im/im",
+    "pages/im/room/room",
+    "pages/mood/index",
+    "pages/trophy/index",
+    "pages/users/index",
+    "pages/mood-detail/index",
+    "pages/add-m/add-m",
+    "pages/movie-detail/index",
+    "pages/manager/manager",
+    "pages/login",
+    "pages/login/index",
+    "pages/setting/setting",
+    "pages/dev-page/index",
+    "pages/users-manage/index",
+    "pages/source-type-manage/index",
+    "pages/manage-on-off/index",
+    "pages/reward-page/index"
+
+  ],
+  "window": {
+    "backgroundColor": "#F8F8F8",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "水果电影电视剧",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#c7c7c7",
+    "selectedColor": "#000000",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "/images/tab/home-active.png",
+        "text": "",
+        "iconPath": "/images/tab/home.png"
+      },
+      {
+        "pagePath": "pages/search/index",
+        "selectedIconPath": "/images/tab/search-active.png",
+        "text": "",
+        "iconPath": "/images/tab/search.png"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "selectedIconPath": "/images/tab/dashboard-active.png",
+        "text": "",
+        "iconPath": "/images/tab/dashboard.png"
+      },
+      {
+        "pagePath": "pages/users/index",
+        "selectedIconPath": "/images/tab/account-active.png",
+        "text": "",
+        "iconPath": "/images/tab/account.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-loading": "@vant/weapp/loading/index",
+
+    "l-loading":"/miniprogram_npm/lin-ui/loading/index",
+    "l-transition":"/miniprogram_npm/lin-ui/transition/index",
+    "l-search-bar":"/miniprogram_npm/lin-ui/search-bar/index",
+    "l-status-show":"/miniprogram_npm/lin-ui/status-show/index",
+    "l-card":"/miniprogram_npm/lin-ui/card/index"
+  }
+}

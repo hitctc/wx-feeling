@@ -1,0 +1,9 @@
+<!--pages/manager/manager.wxml-->
+<view class="manager-page">
+  <nav-tab id="manageAllSourceData"> </nav-tab>
+  <view class="jump-btn">
+    <van-button size="small" plain type="info" bindtap="jumpPage" data-page-type="添加页">添加页</van-button>
+    <van-button size="small" plain type="info" bindtap="jumpPage" data-page-type="首页">首页</van-button>
+  </view>
+
+</view>

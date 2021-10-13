@@ -1,0 +1,16 @@
+<!--components/index/nav-tab/index.wxml-->
+<view class="nav-tab-c">
+  <van-tabs active="{{ active }}" bind:change="onChangeTab" sticky color="#005C97" title-active-color="#005C97"
+    title-inactive-color="#999999" tab-class="tab-class">
+
+    <block wx:for="{{ sourceList }}" wx:key="index">
+      <van-tab title="{{item.name}}">
+        <block wx:for="{{ item.data }}" wx:key="index">
+
+          <source-list-c item="{{item}}" bind:deleteSourceData="deleteSourceData"></source-list-c>
+        </block>
+      </van-tab>
+    </block>
+
+  </van-tabs>
+</view>

@@ -1,0 +1,33 @@
+/* components/welcome-g/index.wxss */
+
+
+.welcome-mask {
+  box-sizing: border-box;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  width: 750rpx;
+  min-height: 100vh;
+  background-color: #F8F8F8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.welcome-mask .text1 {
+  font-size: 100rpx;
+  /* padding: 10rpx 0; */
+  font-weight: bold;
+  /* text-shadow: 2rpx 2rpx 2rpx #3a3939; */
+}
+
+.welcome-mask .text2 {
+  font-size: 26rpx;
+  /* text-shadow: 2rpx 2rpx 2rpx #3a3939; */
+}

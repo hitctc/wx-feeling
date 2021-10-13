@@ -1,0 +1,19 @@
+/* pages/manager/manager.less */
+.manager-page {
+  width: 750rpx;
+}
+
+.manager-page .jump-btn {
+  position: fixed;
+  bottom: 160rpx;
+  right: 30rpx;
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+.jump-btn .van-button {
+  margin: 8rpx 0;
+  background-color: transparent;
+}

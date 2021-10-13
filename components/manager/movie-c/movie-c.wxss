@@ -1,4 +1,0 @@
-/* components/manager/movie-c/movie-c.less */
-.movie-c {
-  width: 750rpx;
-}

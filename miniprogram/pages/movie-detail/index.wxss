@@ -1,0 +1,237 @@
+/* pages/movie-detail/index.less */
+.movie-detail-page {
+  box-sizing: border-box;
+  width: 750rpx;
+  min-height: 100vh;
+  padding: 0 0 80rpx 0;
+  position: relative;
+}
+
+.movie-detail-page .head-banner {
+  width: 750rpx;
+  height: 236rpx;
+}
+
+.head-banner .banner-pic {
+  width: 750rpx;
+  height: 236rpx;
+}
+
+.movie-detail-page .head-banner1 {
+  width: 750rpx;
+  height: 236rpx;
+  /* background-color: #2c2c2c; */
+  /* border: 10rpx solid darkblue; */
+  font-size: 150rpx;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #2c2c2c;
+  font-weight: 900;
+}
+
+
+.movie-detail-page .body-container {
+  width: 700rpx;
+  margin: 20rpx auto 0;
+}
+
+.desc .title {
+  width: 700rpx;
+  color: #000000;
+  font-weight: bold;
+  font-size: 40rpx;
+  position: relative;
+}
+
+.desc .title .new-tip {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  background-color: #ee6573;
+  opacity: 0.9;
+
+  font-size: 26rpx;
+  text-align: center;
+  color: #f8f8f8;
+  font-style: italic;
+  border-radius: 8rpx;
+}
+
+.desc .text-style {
+  width: 700rpx;
+  color: #434343;
+  font-size: 28rpx;
+  margin: 8rpx 0;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.text-style .text-style-title {
+  width: 124rpx;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.text-style text:last-child {
+  flex: 1;
+}
+
+/* .text-style-title::after {
+  display: inline-block;
+  width: 100%;
+  content: "";
+} */
+
+.body-container .source-data {
+  width: 700rpx;
+}
+
+.source-data .source-box {
+  border-bottom: 1rpx solid #e4e4e4;
+  padding-bottom: 10rpx;
+}
+
+.body-container .source-data .source-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin: 22rpx 0 10rpx 0;
+}
+
+.body-container .source-data .link {
+  font-size: 28rpx;
+  color: #2c2c2c;
+}
+
+.body-container .source-data .link .title,
+.body-container .source-data .code .title {
+  /* width: 700rpx; */
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin: 10rpx 0 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.body-container .source-data .link .title text:first-child,
+.body-container .source-data .code .title text:first-child {
+  width: 140rpx;
+  /* text-align: justify; */
+  /* text-align-last: justify; */
+}
+
+.body-container .source-data .link .title button,
+.body-container .source-data .code .title button {
+  padding: 10rpx 30rpx;
+  font-size: 26rpx;
+  line-height: 1;
+  margin: 0 0 0 24rpx;
+}
+
+.body-container .source-data .link .content,
+.body-container .source-data .code .content {
+  font-size: 28rpx;
+  color: #2c2c2c;
+  margin: 10rpx 0 0 0;
+  word-break: break-all;
+}
+
+.body-container .source-data button {
+  margin-left: 20rpx;
+}
+
+.body-container .links-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.body-container .links-box ._box {
+  display: inline-flex;
+  align-items: center;
+}
+
+.body-container .links-box button {
+  margin: 0;
+  width: 320rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+
+.movie-detail-page .bottom-footer {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10rpx #dadada;
+  color: #8999a0;
+}
+
+.movie-detail-page .jump-btn {
+  position: fixed;
+  bottom: 180rpx;
+  right: 30rpx;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.jump-btn button {
+  margin: 4rpx 0;
+}
+
+.jump-btn .van-button {
+  margin: 8rpx 0;
+  background-color: transparent;
+}
+
+.movie-detail-page .share-btn {
+  position: fixed;
+  bottom: 238rpx;
+  right: 30rpx;
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.share-btn .van-button {
+  margin: 8rpx 0;
+  background-color: transparent;
+}
+
+
+.movie-detail-page .pyq-btn {
+  position: fixed;
+  bottom: 318rpx;
+  right: 30rpx;
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.pyq-btn .van-button {
+  margin: 8rpx 0;
+  background-color: transparent;
+}

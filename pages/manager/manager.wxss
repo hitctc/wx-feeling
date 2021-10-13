@@ -1,4 +1,0 @@
-/* pages/manager/manager.less */
-.manager-page {
-  width: 750rpx;
-}

@@ -1,0 +1,10 @@
+<!--components/more-g/index.wxml-->
+<view class="welcome-mask">
+  <!-- <button type="default" loading="true" class="more-style" size="mini" wx:if="{{moreVisible}}">正在加载</button> -->
+
+  <l-loading show="{{moreVisible}}" type="flash"></l-loading>
+  <!-- <l-loading show="{{true}}" type="flash"></l-loading> -->
+
+  <button type="default" class="finish-style" size="mini" wx:if="{{!moreVisible && isFinish}}">我到了底线</button>
+</view>
+

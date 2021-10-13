@@ -1,0 +1,36 @@
+<!--components/manager/movie-c/movie-c.wxml-->
+<view class="movie-c">
+  <block>
+    <view class="item">
+      <van-card>
+        <view slot="tags" class="{{item.highlightMark?'highlight-mark':''}}">
+          标题：{{ item.title }}
+        </view>
+        <view slot="tags">
+          短描述：{{ item.shortTitle }}
+        </view>
+        <view slot="tags">
+          内容：{{ item.content }}
+        </view>
+        <view slot="tags">
+          发布状态：<text style="color: {{item.statusIssued === true?'red':''}}">{{item.statusIssued === true ? '发布' :
+            '未发布'}}</text>
+        </view>
+        <view slot="tags">
+          时间：{{item.dateIssued}}
+        </view>
+        <view slot="tags">
+          资源类型：{{ item.sourceType }}
+        </view>
+
+        <view slot="footer">
+          <van-button size="mini" bind:tap="onEditSource" data-item="{{item}}">编辑</van-button>
+          <van-button size="mini" bind:tap="onDeleteSource" data-data-item="{{item}}" type="danger">删除</van-button>
+        </view>
+      </van-card>
+    </view>
+  </block>
+
+  <van-dialog id="van-dialog" />
+
+</view>

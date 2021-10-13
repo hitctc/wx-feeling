@@ -1,0 +1,4 @@
+<!--components/loading-g/index.wxml-->
+<view class="loading-g-c">
+  <van-loading size="50"  />
+</view>

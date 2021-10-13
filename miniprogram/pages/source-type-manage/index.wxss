@@ -1,0 +1,56 @@
+/* pages/users-manage/index.wxss */
+.users-manage-container {
+  width: 750rpx;
+  min-height: 100vh;
+}
+
+.users-manage-container .add-btn {
+  margin: 16rpx 0;
+}
+
+
+
+.table {
+  border: 0px solid darkgray;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 70rpx;
+  align-items: center;
+}
+
+.td {
+  width: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70rpx;
+  font-size: 30rpx;
+}
+
+.bg-w {
+  background: snow;
+}
+
+.bg-g {
+  background: #6fb2df;
+}
+
+.th {
+  width: 50%;
+  justify-content: center;
+  background: #0063a5;
+  color: #fff;
+  display: flex;
+  height: 70rpx;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.tr .td button {
+  width: 40rpx;
+}

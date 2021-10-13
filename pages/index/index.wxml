@@ -1,4 +1,0 @@
-<!--pages/index/index.wxml-->
-<view class="index-page">
-  <nav-tab></nav-tab>
-</view>
