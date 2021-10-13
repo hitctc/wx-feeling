@@ -1,7 +1,7 @@
 // components/index/nav-tab/index.js
 let app = getApp()
 import envData from "../../../envList.js";
-console.log('ACHUAN :  envData.envList.envId',  envData.envList.envId)
+console.log('ACHUAN :  envData.envList.envId', envData.envList.envId)
 
 wx.cloud.init({
   env: envData.envList.envId
@@ -118,11 +118,14 @@ Component({
     _getSourceType() {
       let _self = this
       db.collection('resourceType').get().then(res => {
+        console.log('ACHUAN : db.collection : res', res)
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         let resT = res.data.filter(item => item.isVisible)
         _self.setData({
           allSourceType: resT
         })
+      }).catch(err => {
+        console.log('ACHUAN : db.collection : err', err)
       })
     },
 
