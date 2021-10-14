@@ -1,7 +1,7 @@
 <!--pages/users-manage/index.wxml-->
 <view class="users-manage-container">
   <van-button custom-class="add-btn" size="small" bindtap="addSourceType">添加分类</van-button>
-  <block >
+  <block>
     <view class="table">
       <view class="tr bg-w">
         <view class="th">分类名称</view>
@@ -11,9 +11,11 @@
       <block wx:for="{{ allKeyType }}" wx:key="id">
         <view class="tr bg-g">
           <view class="td">{{ item.name }}</view>
-          <view class="td">{{ item.isVisible }}</view>
+          <view class="td body-view">
+            <switch checked="{{item.isVisible}}" bindchange="switch1Change" />
+          </view>
           <view class="td">
-            <van-button size="mini" bindtap="editSourceTypeNama" data-source-info="{{item}}">编辑</van-button>
+            <button type="default" plain size="mini" bindtap="editSourceTypeNama" data-source-info="{{item}}">编辑</button>
           </view>
         </view>
       </block>
