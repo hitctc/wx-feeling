@@ -13,7 +13,7 @@ console.log('ACHUAN : cloud.DYNAMIC_CURRENT_ENV', cloud.DYNAMIC_CURRENT_ENV)
 // 云函数入口函数
 const db = cloud.database()
 // 每次最多获取多少条记录,最大值为100
-const MAX_LIMIT = 10
+const MAX_LIMIT = 20
 exports.main = async (event, context) => {
   console.log(event);
   // 先取出集合记录总数

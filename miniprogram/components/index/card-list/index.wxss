@@ -1,0 +1,32 @@
+/* components/index/nav-tab/nav-tab.less */
+.card-list-c {
+  /*noinspection CssInvalidPropertyValue*/
+  width: 100%;
+}
+
+
+.card-list-scroll-view {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.card-list-box {
+  width: 100%;
+}
+
+.card-list-box .item {
+  box-sizing: border-box;
+
+  width: cacl(100% - 50rpx);
+  padding: 40rpx 30rpx;
+  margin: 25rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  box-shadow: 0 0 4rpx rgb(202, 202, 202);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}

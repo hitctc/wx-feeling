@@ -1,15 +1,6 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": [
-      {
-        "type": "folder",
-        "value": ".history"
-      }
-    ]
-  },
   "miniprogramRoot": "miniprogram/",
-  "cloudfunctionRoot": "cloudfunction/",
+  "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "urlCheck": true,
     "es6": true,
@@ -45,72 +36,29 @@
     "minifyWXSS": true,
     "showES6CompileOption": false
   },
-  "compileType": "miniprogram",
-  "libVersion": "2.14.1",
   "appid": "wxfa8b6648d994705b",
-  "projectname": "%E6%9C%8B%E5%8F%8B%E5%9C%88%E6%96%87%E6%A1%88",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
+  "projectname": "朋友圈文案",
+  "libVersion": "2.14.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
     "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
           "id": -1,
-          "name": "pages/trophy/index",
-          "pathName": "pages/trophy/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/mood-detail/index",
-          "pathName": "pages/mood-detail/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/users/index",
-          "pathName": "pages/users/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/users/index",
-          "pathName": "pages/users/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/add-m/add-m",
-          "pathName": "pages/add-m/add-m",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/movie-detail/movie-detail",
-          "pathName": "pages/movie-detail/movie-detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/manager/manager",
-          "pathName": "pages/manager/manager",
-          "scene": null
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide"
         }
       ]
     }

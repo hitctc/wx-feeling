@@ -5,7 +5,7 @@ import {
 } from "../../utils/wxShowToast"
 
 wx.cloud.init({
-  env: 'cloud1-3gv4om0jed457476'
+  env: 'cloud1-feel-6gdrrxeye8840e663gv4om0jed457476'
 })
 const db = wx.cloud.database()
 
@@ -85,7 +85,7 @@ Page({
     return {
       title: title + '\r\n' + sortTitle,
       path: `/pages/movie-detail/index?_id=${_id}`,
-      imageUrl: 'https://636c-cloud1-3gv4om0jed457476-1306871317.tcb.qcloud.la/qx-2021-9-29.png?sign=e32dfaa84c3b57afeea826ebe4ecb027&t=1633106872'
+      imageUrl: ''
     }
   },
 
@@ -97,7 +97,7 @@ Page({
     return {
       title: title + '\r\n' + sortTitle,
       path: `/pages/movie-detail/index?_id=${_id}`,
-      imageUrl: 'https://636c-cloud1-3gv4om0jed457476-1306871317.tcb.qcloud.la/qx-2021-9-29.png?sign=e32dfaa84c3b57afeea826ebe4ecb027&t=1633106872'
+      imageUrl: ''
     }
   },
 

@@ -1,7 +1,7 @@
 // pages/users-manage/index.js
 let app = getApp()
 wx.cloud.init({
-  env: 'cloud1-3gv4om0jed457476'
+  env: 'feel-6gdrrxeye8840e66'
 })
 const db = wx.cloud.database()
 
@@ -16,19 +16,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    allUsers: [{
-      avatarUrl: "https://thirdwx.qlogo.cn/mmopen/vi_32/Cxp7icNXbU5trxZudKM2jOEmd1cDh0CibMMrNEwgPMJGhp73crRM3j9AibFQ3ibZLmiatiaCWL03eG85je24oojampqw/132",
-      nickName: "小糖穿越火线",
-      oId: "oCXQB49WooFaZYq_FuW-f3J0tZKI",
-      openId: "oCXQB49WooFaZYq_FuW-f3J0tZKI",
-      userType: "",
-    }],
     editUserVisible: false,
     editUserInfo: {},
     editUserType: '',
 
     _id: '',
-    allSourceType: [],
+    allKeyType: [],
     dialogVisible: false,
     isAddSourceType: true,
     sourceTypeName: ''
@@ -103,10 +96,10 @@ Page({
   // 获取所以资源类型
   getAllSourceType() {
     let _self = this
-    db.collection('resourceType').get().then(res => {
+    db.collection('key-type').get().then(res => {
       // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
       _self.setData({
-        allSourceType: res.data
+        allKeyType: res.data
       })
     })
   },
@@ -146,12 +139,10 @@ Page({
           _showToast('添加完成~')
           _self.getAllSourceType()
         }
-      }, err => {
-      })
+      }, err => {})
     }
 
   },
-  onClose(e) {
-  },
+  onClose(e) {},
 
 })

@@ -1,4 +1,10 @@
 // pages/index/index.js
+wx.cloud.init({
+  env: 'feel-6gdrrxeye8840e66',
+})
+
+const db = wx.cloud.database()
+
 Page({
 
   /**
@@ -22,11 +28,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let homeSource = this.selectComponent('#homeSource')
-    if (homeSource) {
-      homeSource.getSource()
-      homeSource._getSourceType()
-    }
+    // let homeSource = this.selectComponent('#homeSource')
+    // if (homeSource) {
+    //   homeSource.getSource()
+    //   homeSource._getSourceType()
+    // }
   },
 
   /**
@@ -60,7 +66,7 @@ Page({
   onPullDownRefresh: function () {
     let homeSource = this.selectComponent('#homeSource')
     if (homeSource) {
-      homeSource._reachDown()
+      // homeSource._reachDown()
     }
   },
 
@@ -68,9 +74,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log('触底了');
     let homeSource = this.selectComponent('#homeSource')
     if (homeSource) {
-      homeSource._reachBottom()
+      // homeSource._reachBottom()
     }
 
   },
@@ -87,7 +94,7 @@ Page({
   //   return {
   //     title: '好用的电影电视剧查询工具',
   //     path: `/pages/index/index`,
-  //     imageUrl: 'https://636c-cloud1-3gv4om0jed457476-1306871317.tcb.qcloud.la/my-image.png?sign=c58fd939f0cae195421f0597b9c6bfa1&t=1630514985'
+  //     imageUrl: ''
   //   }
   // },
 
@@ -95,5 +102,6 @@ Page({
     wx.navigateTo({
       url: '/pages/add-m/add-m',
     })
-  }
+  },
+
 })

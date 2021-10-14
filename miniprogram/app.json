@@ -34,17 +34,17 @@
 
   ],
   "window": {
-    "backgroundColor": "#F8F8F8",
+    "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "navigationBarTitleText": "水果电影电视剧",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "朋友圈文案",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50
   },
   "tabBar": {
     "color": "#c7c7c7",
     "selectedColor": "#000000",
-    "backgroundColor": "#F8F8F8",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",

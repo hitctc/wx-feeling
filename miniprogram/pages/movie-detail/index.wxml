@@ -2,7 +2,7 @@
 <view class="movie-detail-page">
   <view class="head-banner" wx:if="{{false}}">
     <image class="banner-pic"
-      src="cloud://cloud1-3gv4om0jed457476.636c-cloud1-3gv4om0jed457476-1306871317/qx-2021-9-29.png" mode="aspectFit" />
+      src="" mode="aspectFit" />
   </view>
 
   <view class="head-banner1">

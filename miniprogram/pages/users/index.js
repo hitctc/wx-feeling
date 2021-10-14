@@ -38,7 +38,7 @@ Page({
     return {
       title: '好用的电影电视剧查询工具',
       path: `/pages/index/index`,
-      imageUrl: 'https://636c-cloud1-3gv4om0jed457476-1306871317.tcb.qcloud.la/my-image.png?sign=c58fd939f0cae195421f0597b9c6bfa1&t=1630514985'
+      imageUrl: ''
     }
   },
 

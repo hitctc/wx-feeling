@@ -5,11 +5,21 @@
   min-height: 100vh;
 
   background-color: #F8F8F8;
+
+  display: flex;
+}
+
+.index-page #sidebarC {
+  width: 200rpx;
+}
+
+
+.index-page #cardListC {
+  flex: 1;
 }
 
 .index-page .add-btn {
   position: fixed;
   bottom: 20rpx;
   right: 20rpx;
-
 }

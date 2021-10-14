@@ -1,9 +1,11 @@
 <!--pages/index/index.wxml-->
 <view class="index-page">
-首页
-	<nav-tab id="homeSource"></nav-tab>
+	<sidebar id="sidebarC"></sidebar>
+	<card-list id="cardListC"></card-list>
+
 	<welcome-g></welcome-g>
 
 	<button wx:if="{{userInfo.userType ==='level-1'}}" class="add-btn" type="warn" plain size="mini"
 		bindtap="jumpAddMovie">添加</button>
+
 </view>

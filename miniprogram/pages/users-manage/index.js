@@ -1,7 +1,7 @@
 // pages/users-manage/index.js
 let app = getApp()
 wx.cloud.init({
-  env: 'cloud1-3gv4om0jed457476'
+  env: 'feel-6gdrrxeye8840e66'
 })
 const db = wx.cloud.database()
 

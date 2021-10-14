@@ -1,0 +1,18 @@
+<!--components/index/nav-tab/index.wxml-->
+<view class="card-list-c">
+
+	<scroll-view class="card-list-scroll-view" scroll-y="{{true}}" bindscrolltolower='scrollToLower' lower-threshold="50"
+		upper-threshold='0'>
+		<view class="card-list-box">
+			<block wx:for="{{ sourceList }}" wx:key="index">
+				<view class="item">{{item.title}}</view>
+			</block>
+		</view>
+
+		<more-g moreVisible="{{isMore}}" isFinish="{{isFinish}}"></more-g>
+
+	</scroll-view>
+
+	<loading-g wx:if="{{ loadingVisible }}"></loading-g>
+
+</view>

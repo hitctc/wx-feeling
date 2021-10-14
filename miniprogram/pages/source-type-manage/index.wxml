@@ -5,12 +5,13 @@
     <view class="table">
       <view class="tr bg-w">
         <view class="th">分类名称</view>
+        <view class="th">是否可见</view>
         <view class="th">操作</view>
       </view>
-      <block wx:for="{{ allSourceType }}" wx:key="id">
-
+      <block wx:for="{{ allKeyType }}" wx:key="id">
         <view class="tr bg-g">
-          <view class="td">{{ item.sourceTypeName }}</view>
+          <view class="td">{{ item.name }}</view>
+          <view class="td">{{ item.isVisible }}</view>
           <view class="td">
             <van-button size="mini" bindtap="editSourceTypeNama" data-source-info="{{item}}">编辑</van-button>
           </view>
