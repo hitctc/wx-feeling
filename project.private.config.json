@@ -25,8 +25,26 @@
           "scene": null
         },
         {
-          "name": "pages/source-type-manage/index",
-          "pathName": "pages/source-type-manage/index",
+          "name": "pages/manage-key-type/index",
+          "pathName": "pages/manage-key-type/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/users-manage/index",
+          "pathName": "pages/users-manage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/manage-data/index",
+          "pathName": "pages/manage-data/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/manage-tag-type/index",
+          "pathName": "pages/manage-tag-type/index",
           "query": "",
           "scene": null
         }

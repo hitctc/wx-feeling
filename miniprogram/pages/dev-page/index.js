@@ -86,10 +86,10 @@ Page({
     })
   },
 
-  // 跳转管理资源类型
+  // 跳转key管理页面
   jumpSourceType() {
     wx.navigateTo({
-      url: '/pages/source-type-manage/index',
+      url: '/pages/manage-key-type/index',
     })
   },
 

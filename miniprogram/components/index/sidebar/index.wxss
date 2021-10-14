@@ -20,7 +20,7 @@
   line-height: 80rpx;
   background-color: #fff;
   text-align: center;
-  border-left: 4rpx solid #fff;
+  border-left: 8rpx solid #fff;
   border-right: 4rpx solid #fff;
 
   overflow: hidden;
@@ -28,6 +28,6 @@
 
 .sidebar-box .item.active {
   background-color: #f8f8f8;
-  border-left: 4rpx solid red;
+  border-left: 8rpx solid #6CFFE0;
   border-right: 4rpx solid #f8f8f8;
 }

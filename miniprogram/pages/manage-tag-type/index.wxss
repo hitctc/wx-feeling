@@ -4,6 +4,20 @@
   min-height: 100vh;
 }
 
+.users-manage-container .add-btn-box {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
+.users-manage-container .add-btn {
+  margin: 16rpx 0;
+  width: 100%;
+}
+
 
 
 .table {
@@ -26,6 +40,7 @@
   text-align: center;
   height: 100rpx;
   font-size: 30rpx;
+  border-bottom: 4rpx solid #4894c7;
 }
 
 .bg-w {
@@ -47,21 +62,7 @@
   font-size: 30rpx;
 }
 
-.tx {
-  width: 160rpx;
-}
-
-.avatar {
-  height: 100rpx;
-}
-
-.avatar .image {
-  width: 60rpx;
-  height: 60rpx;
-  margin: 0 20rpx;
-}
-
 .tr .td button {
   padding: 0 20rpx;
-  margin: 0 5rpx;
+  margin: 0 10rpx;
 }

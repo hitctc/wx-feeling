@@ -84,6 +84,7 @@ Page({
 
   },
 
+  // 获取所有用户
   getAllUsers() {
     let _self = this
     db.collection('users').get().then(res => {
@@ -93,6 +94,8 @@ Page({
       })
     })
   },
+
+  // 编辑用户信息
   editUser(e) {
     this.setData({
       editUserVisible: true,
@@ -100,9 +103,15 @@ Page({
       editUserType: e.currentTarget.dataset.userData.userType
     })
   },
+
+
+  // 确定提交接口
   confirmEditUser() {
     // 调用云函数
     let _self = this
+    wx.showLoading({
+      title: '修改中...',
+    })
     wx.cloud.callFunction({
       name: 'editUser',
       data: {
@@ -110,16 +119,22 @@ Page({
         userType: this.data.editUserType,
       }
     }).then(res => {
+      wx.hideLoading({})
       _self.getAllUsers()
       app.globalData.userInfo.userType = _self.data.editUserType
       wx.setStorage({
         key: 'userInfo',
         data: app.globalData.userInfo
       })
+      _showToast('修改完成')
     }).catch(console.error)
   },
+
+  // 取消
   onClose(e) {
   },
+
+  // 删除用户接口
   deleteUser(e) {
     let _self = this
     let oId = e.currentTarget.dataset.userData.oId
@@ -127,6 +142,9 @@ Page({
     Dialog.confirm({
       message: `删除需要走云函数。确认删除用户：${e.currentTarget.dataset.userData.nickName}？`,
     }).then(() => {
+      wx.showLoading({
+        title: `删除中...`,
+      })
       wx.cloud.callFunction({
         name: 'deleteUser',
         data: {
@@ -135,9 +153,17 @@ Page({
       }).then(res => {
         if (res.result) {
           _self.getAllUsers()
-          _showToast('删除完成~')
+          wx.hideLoading({
+            success: (res) => {
+              _showToast('删除完成~')
+            },
+          })
         } else {
-          _showToast('删除失败~')
+          wx.hideLoading({
+            success: (res1) => {
+              _showToast(`删除失败~${res}`)
+            },
+          })
         }
       }).catch(console.error)
     }).catch(() => {

@@ -4,8 +4,18 @@
   min-height: 100vh;
 }
 
+.users-manage-container .add-btn-box {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
 .users-manage-container .add-btn {
   margin: 16rpx 0;
+  width: 100%;
 }
 
 
@@ -18,7 +28,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  height: 70rpx;
+  height: 100rpx;
   align-items: center;
 }
 
@@ -28,8 +38,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 70rpx;
+  height: 100rpx;
   font-size: 30rpx;
+  border-bottom: 4rpx solid #4894c7;
 }
 
 .bg-w {
@@ -46,11 +57,12 @@
   background: #0063a5;
   color: #fff;
   display: flex;
-  height: 70rpx;
+  height: 100rpx;
   align-items: center;
   font-size: 30rpx;
 }
 
 .tr .td button {
-  width: 40rpx;
+  padding: 0 20rpx;
+  margin: 0 10rpx;
 }

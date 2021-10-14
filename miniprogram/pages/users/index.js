@@ -45,7 +45,7 @@ Page({
   // 添加
   onAdd() {
     wx.navigateTo({
-      url: '/pages/add-m/add-m',
+      url: '/pages/manage-data/index',
     })
   },
 

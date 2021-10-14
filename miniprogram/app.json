@@ -20,7 +20,6 @@
     "pages/trophy/index",
     "pages/users/index",
     "pages/mood-detail/index",
-    "pages/add-m/add-m",
     "pages/movie-detail/index",
     "pages/manager/manager",
     "pages/login",
@@ -28,7 +27,9 @@
     "pages/setting/setting",
     "pages/dev-page/index",
     "pages/users-manage/index",
-    "pages/source-type-manage/index",
+    "pages/manage-data/index",
+    "pages/manage-key-type/index",
+    "pages/manage-tag-type/index",
     "pages/manage-on-off/index",
     "pages/reward-page/index"
 
@@ -94,6 +95,9 @@
     "l-transition":"/miniprogram_npm/lin-ui/transition/index",
     "l-search-bar":"/miniprogram_npm/lin-ui/search-bar/index",
     "l-status-show":"/miniprogram_npm/lin-ui/status-show/index",
-    "l-card":"/miniprogram_npm/lin-ui/card/index"
+    "l-card":"/miniprogram_npm/lin-ui/card/index",
+    "l-input":"/miniprogram_npm/lin-ui/input/index",
+    "l-textarea":"/miniprogram_npm/lin-ui/textarea/index"
+
   }
 }

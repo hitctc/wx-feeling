@@ -164,7 +164,7 @@ Page({
   // 跳转添加按钮
   jumpAddMovie() {
     wx.navigateTo({
-      url: '/pages/add-m/add-m',
+      url: '/pages/manage-data/index',
     })
   },
   // 返回按钮

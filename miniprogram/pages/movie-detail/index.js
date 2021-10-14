@@ -65,7 +65,7 @@ Page({
     let item = JSON.parse(JSON.stringify(event.currentTarget.dataset.item))
     // 跳转页面，传递数据
     wx.navigateTo({
-      url: `/pages/add-m/add-m?pageType=change&_id=${item._id}`
+      url: `/pages/manage-data/index?pageType=change&_id=${item._id}`
     })
   },
   jumpHome() {

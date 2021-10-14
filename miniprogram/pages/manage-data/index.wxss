@@ -1,0 +1,133 @@
+/* pages/manage-data/index.less */
+.add-m-page {
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100rpx;
+  background-color: #fff;
+}
+
+.add-m-page .form-box {
+  width: 730rpx;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.form-box .data-body {
+  width: 100%;
+}
+
+.form-box .item {
+  width: 100%;
+  /* border-bottom: 2rpx solid #dddddd; */
+  padding: 10rpx 0;
+}
+
+.form-box .item .title-text {
+  font-size: 30rpx;
+  margin: 10rpx 0;
+  font-weight: bold;
+}
+
+.title-text .tip {
+  color: #EE0A24;
+}
+
+
+.form-box .type {
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.type .type-title {
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 18rpx 6rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.type .type-title button {
+  margin: 0 10rpx;
+  font-weight: initial;
+}
+
+.type .custom-class {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.custom-class .radio-styl {
+  width: 340rpx;
+  margin-top: 10rpx;
+  margin-bottom: 18rpx;
+  font-size: 28rpx;
+}
+
+.form-box .link {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.link .van-cell {
+  padding: 20rpx 0 !important;
+}
+
+.form-box .sub-btn {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.sub-btn .btn-styl {
+  width: 100%;
+  padding: 10rpx;
+  margin: 0;
+  background-color: #005C97;
+  color: #ffffff;
+  border: none;
+}
+
+.status-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-type .type-title {
+  margin-right: 30rpx;
+}
+
+.status-type .text {
+  margin: 0 20rpx;
+}
+
+
+.add-m-page .jump-btn {
+  z-index: 999;
+  position: fixed;
+  bottom: 10rpx;
+  left: 10rpx;
+
+  width: 750rpx;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+}
+
+.jump-btn button {
+  margin: 8rpx;
+  background-color: transparent;
+}

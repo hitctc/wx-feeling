@@ -17,8 +17,8 @@
           <view class="td">{{ item.nickName }}</view>
           <view class="td">{{ item.userType }}</view>
           <view class="td">
-            <van-button size="mini" bindtap="editUser" data-user-data="{{item}}">编辑</van-button>
-            <van-button size="mini" bindtap="deleteUser" data-user-data="{{item}}" type="danger">删除</van-button>
+            <button type="default" plain size="mini" bindtap="editUser" data-user-data="{{item}}">编辑</button>
+            <button type="warn"  size="mini" bindtap="deleteUser" data-user-data="{{item}}">删除</button>
           </view>
         </view>
         <view class="tr" wx:else>
@@ -28,8 +28,8 @@
           <view class="td">{{ item.nickName }}</view>
           <view class="td">{{ item.userType }}</view>
           <view class="td">
-            <van-button size="mini" bindtap="editUser" data-user-data="{{item}}">编辑</van-button>
-            <van-button size="mini" bindtap="deleteUser" data-user-data="{{item}}" type="danger">删除</van-button>
+            <button type="default" plain size="mini" bindtap="editUser" data-user-data="{{item}}">编辑</button>
+            <button type="warn" size="mini" bindtap="deleteUser" data-user-data="{{item}}">删除</button>
           </view>
         </view>
       </block>

@@ -21,12 +21,15 @@
   padding: 40rpx 30rpx;
   margin: 25rpx;
   border-radius: 10rpx;
-  background-color: #fff;
-  box-shadow: 0 0 4rpx rgb(202, 202, 202);
+  background-color: rgba(255, 255, 255, 0.39);
+  /* box-shadow: 0 0 4rpx rgb(202, 202, 202); */
+
+  box-shadow: 0px 4rpx 8rpx 0px rgba(167, 213, 254, 0.5);
 
   display: flex;
   justify-content: center;
   align-items: center;
+
 
 
 }

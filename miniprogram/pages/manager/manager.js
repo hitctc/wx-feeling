@@ -72,7 +72,7 @@ Page({
     let pageType = event.currentTarget.dataset.pageType
     if (pageType === '添加页') {
       wx.navigateTo({
-        url: '/pages/add-m/add-m',
+        url: '/pages/manage-data/index',
       })
     } else if (pageType === '首页') {
       wx.switchTab({

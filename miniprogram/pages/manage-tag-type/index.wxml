@@ -1,0 +1,35 @@
+<!--pages/users-manage/index.wxml-->
+<view class="users-manage-container">
+  <view class="add-btn-box">
+    <button size="mini" class="add-btn" plain type="primary" bindtap="addSourceType">添加标签</button>
+  </view>
+
+  <block>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">名称</view>
+        <view class="th">操作</view>
+      </view>
+      <block wx:for="{{ allTagType }}" wx:key="id">
+        <view class="tr bg-g">
+          <view class="td">{{ item.name }}</view>
+          <view class="td">
+            <button type="default" plain size="mini" bindtap="editKeyTypeNama" data-key-info="{{item}}">编辑</button>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </block>
+
+  <van-dialog use-slot title="标签名称" show="{{ dialogVisible }}" show-cancel-button show-confirm-button
+    bind:close="onClose" bind:confirm="confirmSourceType">
+    <van-cell-group>
+      <van-field model:value="{{ tagTypeName }}" label="名称" placeholder="请输入便签名称" />
+    </van-cell-group>
+  </van-dialog>
+
+  <van-dialog id="van-dialog" />
+
+
+</view>

@@ -100,7 +100,7 @@ Page({
 
   jumpAddMovie() {
     wx.navigateTo({
-      url: '/pages/add-m/add-m',
+      url: '/pages/manage-data/index',
     })
   },
 
