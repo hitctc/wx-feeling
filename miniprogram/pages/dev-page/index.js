@@ -93,6 +93,13 @@ Page({
     })
   },
 
+  // 跳转管理标签
+  jumpTag() {
+    wx.navigateTo({
+      url: '/pages/manage-tag-type/index',
+    })
+  },
+
   // 跳转管理开关页面
   jumpManageOnOff() {
     wx.navigateTo({

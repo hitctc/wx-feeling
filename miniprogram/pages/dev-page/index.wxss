@@ -5,6 +5,7 @@
   padding: 18rpx 30rpx;
 }
 
-.dev-container button {
-  margin: 0 10rpx 0 0;
+.dev-container .mini-btn {
+  display: block;
+  margin: 10rpx 0;
 }

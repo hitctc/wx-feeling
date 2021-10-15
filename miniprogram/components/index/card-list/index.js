@@ -22,9 +22,9 @@ Component({
    * 组件的初始数据
    */
   data: {
+    userInfo: {},
     page: 1,
-    active: 0,
-    sourceList: [],
+    pyqDataList: [],
     allSourceType: [],
     keyTypeNameActive: 'ALL',
     loadingVisible: true,
@@ -44,7 +44,11 @@ Component({
           loadingVisible: false
         })
       }, 5000)
-      this.getSource()
+      this.getPyqData()
+      let userInfoT = wx.getStorageSync('userInfo') || {}
+      this.setData({
+        userInfo: userInfoT
+      })
 
     }
   },
@@ -53,26 +57,25 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 点击tab修改
+    // 父组件派发的：点击sidebar事件
     onSidebar(item) {
       // onSidebar
       console.log('ACHUAN : onSidebar : item', item)
 
-      // this.setData({
-      //   page: 1,
-      //   sourceList: [],
-      //   loadingVisible: true,
-      //   active: event.detail.name,
-      //   keyTypeNameActive: event.detail.title,
-      //   isFinish: false
-      // })
-      // this.getSource()
+      this.setData({
+        page: 1,
+        pyqDataList: [],
+        isFinish: false,
+        loadingVisible: true,
+        keyTypeNameActive: item.name,
+      })
+      this.getPyqData()
     },
 
     // 获取所以资源
-    async getSource(hitBottom = false) {
+    async getPyqData(hitBottom = false) {
       let _self = this
-      console.log('ACHUAN : getSource : hitBottom', hitBottom)
+      console.log('ACHUAN : getPyqData : hitBottom', hitBottom)
 
       // 拿缓存数据来显示,不是底部加载,也不是下拉刷新
       // 无缓存,拿数据库数据
@@ -80,7 +83,7 @@ Component({
         page: _self.data.page,
         keyTypeNameActive: _self.data.keyTypeNameActive
       }
-      console.log('ACHUAN : getSource : args', args)
+      console.log('ACHUAN : getPyqData : args', args)
 
       wx.cloud.callFunction({
         name: 'getPyqData',
@@ -88,7 +91,7 @@ Component({
       }).then(res => {
         // globalData
         let dataT = JSON.parse(JSON.stringify(res.result.data))
-        console.log('ACHUAN : getSource : dataT', dataT)
+        console.log('ACHUAN : getPyqData : dataT', dataT)
         // 处理数据
         _self._handingSource(dataT)
       })
@@ -97,10 +100,10 @@ Component({
     // 数据获取后操作数据
     _handingSource(data) {
       // 合并数据
-      let sourceListT = JSON.parse(JSON.stringify(this.data.sourceList)).concat(data)
+      let pyqDataListT = JSON.parse(JSON.stringify(this.data.pyqDataList)).concat(data)
 
       // 是否为最新的标记
-      sourceListT.forEach(item => {
+      pyqDataListT.forEach(item => {
         var dayjs = require("../../../utils/day.js")
         var timestamp = (new Date()).valueOf();
         let dateIssuedT = item.dateIssued
@@ -110,17 +113,17 @@ Component({
       });
 
       this.setData({
-        sourceList: sourceListT,
+        pyqDataList: pyqDataListT,
         isMore: false,
         loadingVisible: false,
         isFinish: data.length === 0
       })
-      console.log('ACHUAN : _handingSource : sourceList', this.data.sourceList)
+      console.log('ACHUAN : _handingSource : pyqDataList', this.data.pyqDataList)
 
 
 
       // 缓存前10条数据
-      wx.setStorageSync(this.data.keyTypeNameActive, this.data.sourceList.slice(0, 10))
+      wx.setStorageSync(this.data.keyTypeNameActive, this.data.pyqDataList.slice(0, 10))
     },
 
     // 触底加载下一页,父组件触底后调用
@@ -129,7 +132,7 @@ Component({
         page: this.data.page + 1,
         isMore: true
       })
-      this.getSource(true)
+      this.getPyqData(true)
     },
 
     // 下拉刷新
@@ -138,7 +141,7 @@ Component({
         page: 1,
         isDown: true,
       })
-      this.getSource()
+      this.getPyqData()
     },
 
     /** 
@@ -152,8 +155,37 @@ Component({
         page: this.data.page + 1,
         isMore: true
       })
-      this.getSource(true)
+      this.getPyqData(true)
     },
+
+    // 跳转详情
+    // 复制成功
+    onCopy(event) {
+      // 点击复制
+      const item = event.currentTarget.dataset.item
+      let content = item.content
+      if (content === '') {
+        _showToast('无可复制内容~')
+        return
+      }
+      wx.setClipboardData({
+        data: content,
+        success: function (res) {
+          // todo 复制成功之后走一次接口，记录被复制的次数
+          _showToast(`已复制：【${content}】`)
+        }
+      })
+    },
+
+    // 跳转详情页
+    jumpDetail(event) {
+      let item = JSON.parse(JSON.stringify(event.currentTarget.dataset.item))
+      console.log('ACHUAN : jumpDetail : item', item)
+      // 跳转页面，传递数据
+      wx.navigateTo({
+        url: `/pages/manage-data/index?pageType=change&_id=${item._id}`
+      })
+    }
 
 
   }

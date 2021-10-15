@@ -75,7 +75,9 @@ Page({
   onLoad: function (options) {
     const _self = this
     const pageType = options.pageType || 'add' // change or add
+    console.log('ACHUAN : pageType', pageType)
     const _id = options._id || ''
+    console.log('ACHUAN : _id', _id)
     _self._getKeyType() // 获取keytype数据
     _self._getAllTagType() // 获取tagtype数据
     _self._initFormatDate() // 初始化时间
@@ -199,7 +201,7 @@ Page({
     if (_self.data.pageType == 'change') {
       wx.showModal({
         title: '提示',
-        content: '当前是修改页面, 是否直接提交为[新增]',
+        content: '当前是修改页面, 是否直接提交为【新增】',
         success(res) {
           if (res.confirm) {
             _showToast('努力新增中...')
@@ -413,41 +415,31 @@ Page({
 
   // 处理资源数据
   _handlePyqDataList(res) {
-    const _self = this
+    console.log('ACHUAN : _handlePyqDataList : res', res)
     let resT = JSON.parse(JSON.stringify(res))
 
     let args = {
-      sourceType: resT.keyTypeArr,
+
+      content: resT.content,
+      imageUrl: resT.imageUrl,
+      keyTypeArr: resT.keyTypeArr,
+      selectTagTypeArr: resT.selectTagTypeArr,
       title: resT.title,
-      aliasTitle: resT.aliasTitle || '',
-      shortTitle: resT.shortTitle || '',
-      sortTitle: resT.sortTitle || '',
-      language: resT.language || '',
-      caption: resT.caption || '',
-      content: resT.content || '',
-      premiere: resT.premiere || '',
-      number: resT.number || '',
-      durationTime: resT.durationTime || '',
-      sum: parseInt(resT.sum) || 10,
-      IMDbsum: parseInt(resT.IMDbsum) || 10,
-      director: resT.director || '',
-      scriptwriter: resT.scriptwriter || '',
-      protagonist: resT.protagonist || '',
-      movieYears: resT.movieYears || '',
-      movieDpi: resT.movieDpi || '',
-      movieTag: resT.movieTag || '',
-      music: resT.music || '',
-      photography: resT.photography || '',
-      filmEditing: resT.filmEditing || '',
-      fineArts: resT.fineArts || '',
-      awards: resT.awards || '',
-      likesCount: parseInt(resT.likesCount) || 0,
-      badsCount: parseInt(resT.badsCount) || 0,
+      shortTitle: resT.shortTitle,
+      author: resT.author,
+      nickName: resT.nickName,
+      likesCount: resT.likesCount,
+      collectCount: parseInt(resT.collectCount),
+      commentCount: parseInt(resT.commentCount),
+      copyCount: parseInt(resT.copyCount),
+      lookCount: parseInt(resT.lookCount),
+      tagText: resT.tagText,
       dateIssued: resT.dateIssued,
+
       statusIssued: typeof (resT.statusIssued) == 'undefined' ? true : resT.statusIssued,
       highlightMark: typeof (resT.highlightMark) == 'undefined' ? true : resT.highlightMark,
-      movieIsOut: typeof (resT.movieIsOut) == 'undefined' ? true : resT.movieIsOut,
 
+      // 日期
       year: parseInt(resT.dateIssued.substring(0, 4)),
       month: resT.dateIssued.substring(5, 7),
       day: resT.dateIssued.substring(8, 10),

@@ -47,6 +47,12 @@
           "pathName": "pages/manage-tag-type/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/manage-data/index",
+          "pathName": "pages/manage-data/index",
+          "query": "pageType=change&_id=fa24ce1a61698ee100401e8356336903",
+          "scene": null
         }
       ]
     }

@@ -28,8 +28,8 @@ exports.main = async (event, context) => {
   let errMsg = ''
   let page = event.page || 1
   console.log('第', page, '页');
-  let keyTypeNameActiveT = event.keyTypeNameActive || "热门"
-  if (keyTypeNameActiveT === '热门') {
+  let keyTypeNameActiveT = event.keyTypeNameActive || "ALL"
+  if (keyTypeNameActiveT === 'ALL') {
     await db.collection('pyq-data')
       .orderBy('dateIssued', 'desc')
       // 跳过前几次查询的

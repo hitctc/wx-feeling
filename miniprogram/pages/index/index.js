@@ -104,6 +104,7 @@ Page({
     })
   },
 
+  // 子组件派发的点击sidebar事件
   onSidebar(item) {
     let cardListC = this.selectComponent('#cardListC')
     if (cardListC) {

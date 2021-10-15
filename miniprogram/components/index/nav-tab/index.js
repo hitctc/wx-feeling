@@ -1,7 +1,6 @@
 // components/index/nav-tab/index.js
 let app = getApp()
 import envData from "../../../envList.js";
-console.log('ACHUAN :  envData.envList.envId', envData.envList.envId)
 
 wx.cloud.init({
   env: envData.envList.envId

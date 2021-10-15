@@ -68,6 +68,7 @@ Page({
       url: `/pages/manage-data/index?pageType=change&_id=${item._id}`
     })
   },
+
   jumpHome() {
     // 跳转页面，传递数据
     wx.switchTab({
