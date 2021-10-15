@@ -36,89 +36,29 @@ Page({
    */
   data: {
     _id: '', // 更改数据是用id查寻数据
-    // 资源数据
-    sourceList: [{
-      name: '百度网盘',
-      link: '',
-      code: '',
-      intactLink: ''
-    }, {
-      name: '迅雷云盘',
-      link: '',
-      code: '',
-      intactLink: ''
-    }, {
-      name: '阿里网盘',
-      link: '',
-      code: '',
-      intactLink: ''
-    }],
-    // 资源单独列表
-    // 资源1
-    sourceName1: '百度网盘',
-    sourceBdLinkAll: '',
-    sourceBdLink: '',
-    sourceBdCode: '',
-    // 资源2
-    sourceName2: '迅雷云盘',
-    sourceXlLinkAll: '',
-    sourceXlLink: '',
-    sourceXlCode: '',
 
-    // 资源3
-    sourceName3: '阿里网盘',
-    sourceAlLinkAll: '',
-    sourceAlLink: '',
-    sourceAlCode: '',
-
-    // 资源4
-    sourceName4: '磁力链接',
-    sourceClLinkAll: '',
-    sourceClLink: '',
-    sourceClCode: '',
-
-    // 资源5
-    sourceName5: '其它',
-    sourceQtLinkAll: '',
-    sourceQtLink: '',
-    sourceQtCode: '',
-
-    keyTypeArr: [], // keyType集合：最新，热门等
-    title: '', // 标题
-    aliasTitle: '', // 别名、译名
-    shortTitle: '', // 短标题
-    sortTitle: '', // 类别，例子：剧情，悬疑，推理等
-    language: '', // 语言
-    caption: '', // 语言字幕
     content: '', // 内容，简介
-    premiere: '', // 首播，上映时间
-    number: '', // 集数
-    durationTime: '', // 时长，片长
-    sum: 10, // 豆瓣评分
-    IMDbsum: 10, //  IMDb评分
-    director: '', // 导演
-    scriptwriter: '', // 编剧
-    producer: '', // 制片人
-    protagonist: '', // 主演
-    movieYears: '', // 年代
-    movieDpi: '', // 分辨率
-    movieTag: '', // 标签，例如，温情，真实，社会，剧情等
-    music: '', // 音乐
-    photography: '', // 摄影
-    filmEditing: '', // 剪辑
-    fineArts: '', // 美术
-    awards: '', // 奖项
+    imageUrl: '', // 图片
+    keyTypeArr: ['ALL', '最新'], // keyType集合：最新，热门等
+    selectTagTypeArr: [], // tagType
+    title: '', // 标题
+    shortTitle: '', // 短标题
+    author: '', // 作者
+    nickName: '', // 微信name
     likesCount: 0, // 点赞数
-    badsCount: 0, // 点踩数
+    collectCount: 0, // 收藏数
+    commentCount: 0, // 评论数
+    copyCount: 0, // 复制数
+    lookCount: 0, // 看过数
+    tagText: '', // 标签
     dateIssued: '', // 发布/更新时间
     highlightMark: true, // 高亮标记
     statusIssued: true, // 发布状态
-    movieIsOut: true, // 是否出局
 
     pageType: '', // 页面类型 change add
     allKeyType: [], // 所有资源类型
     allTagType: [], // 所有资源类型
-    selectTagTypeArr: [],
+
     // 微信日期选择控件
     years,
     year: date.getFullYear(),
@@ -138,19 +78,16 @@ Page({
     const _id = options._id || ''
     _self._getKeyType() // 获取keytype数据
     _self._getAllTagType() // 获取tagtype数据
+    _self._initFormatDate() // 初始化时间
+    _self.setData({
+      pageType,
+      _id,
+    })
     if (options.pageType === 'change') {
-      _self.setData({
-        pageType,
-        _id,
-      })
-      _self.getSourceSingleData()
-      _self._initFormatDate()
-
-    } else {
-      _self._initFormatDate()
-      // _initFormatDate
+      _self.getSingleData()
     }
   },
+
   // 选择日期改变
   bindChangeDate(e) {
     const val = e.detail.value // dateValue
@@ -182,14 +119,6 @@ Page({
     console.log('ACHUAN : selectKeyType : keyTypeArr', this.data.selectTagTypeArr)
   },
 
-  // 改变状态
-  onChange(event) {
-    // statusIssued
-    // 需要手动对 checked 状态进行更新
-    this.setData({
-      statusIssued: event.detail
-    });
-  },
   // 是否高亮开关改变
   onHighlightMarkChange(event) {
     this.setData({
@@ -204,25 +133,11 @@ Page({
     });
   },
 
-  // 是否出局开关
-  onChangeMovieIsOut(event) {
-    this.setData({
-      movieIsOut: event.detail.value
-    });
-  },
-
-  // 跳转页面
+  // 跳转首页
   jumpPage(event) {
-    let pageType = event.currentTarget.dataset.pageType
-    if (pageType === '添加页') {
-      wx.navigateTo({
-        url: '/pages/manager/manager',
-      })
-    } else if (pageType === '首页') {
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
-    }
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
 
   // 跳转管理key
@@ -232,32 +147,37 @@ Page({
     })
   },
 
-  // 跳转标记
+  // 跳转标记管理
   jumpTagType() {
     wx.navigateTo({
       url: '/pages/manage-tag-type/index',
     })
   },
-  // 修改提交,可以新增可以修改提交
+
+  // 修改提交,可以是新增,可以是修改
   onSubChange() {
     const _self = this
     const pageType = _self.data.pageType
     if (_self.data.keyTypeArr.length == 0) {
-      _showToast('必须选择【资源类型】')
+      _showToast('必须选择【keyType】')
       return
     }
-    if (_self.data.title == '') {
-      _showToast('【标题】不能为空')
+    if (_self.data.selectTagTypeArr.length == 0) {
+      _showToast('必须选择【标签】')
+      return
+    }
+    if (_self.data.content == '') {
+      _showToast('【内容】不能为空')
       return
     }
     // 修改
     if (pageType == 'change') {
-      _showToast('修改')
+      _showToast('努力修改中...')
       _self.confirmChangeSource()
     } else {
       // 新增提交逻辑
-      _showToast('新增')
-      _self.confirmAddSource()
+      _showToast('努力新增中...')
+      _self.confirmAddData()
     }
   },
 
@@ -265,22 +185,40 @@ Page({
   onSubAdd() {
     const _self = this
     if (_self.data.keyTypeArr.length == 0) {
-      _showToast('必须选择【资源类型】')
+      _showToast('必须选择【keyType】')
       return
     }
-    if (_self.data.title == '') {
-      _showToast('【标题】不能为空')
+    if (_self.data.selectTagTypeArr.length == 0) {
+      _showToast('必须选择【标签】')
       return
     }
-    _self.confirmAddSource()
+    if (_self.data.content == '') {
+      _showToast('【内容】不能为空')
+      return
+    }
+    if (_self.data.pageType == 'change') {
+      wx.showModal({
+        title: '提示',
+        content: '当前是修改页面, 是否直接提交为[新增]',
+        success(res) {
+          if (res.confirm) {
+            _showToast('努力新增中...')
+            _self.confirmAddData()
+          } else if (res.cancel) {
+            _showToast('努力取消中...')
+          }
+        }
+      })
+    } else {
+      _self.confirmAddData()
+    }
   },
 
-  // 获取所以
+  // 获取所以Tag标签
   _getAllTagType() {
     let _self = this
-
     wx.showLoading({
-      title: '努力获取所有标签中...',
+      title: '努力获取标签中...',
     })
     wx.cloud.callFunction({
       name: 'getTagType'
@@ -296,88 +234,69 @@ Page({
   },
 
   // 新增时提交逻辑
-  confirmAddSource() {
+  confirmAddData() {
     const _self = this
+
+    // content: '', // 内容，简介
+    // imageUrl: '', // 图片
+    // keyTypeArr: [], // keyType集合：最新，热门等
+    // selectTagTypeArr: [], // tagType
+    // title: '', // 标题
+    // shortTitle: '', // 短标题
+    // author: '', // 作者
+    // nickName: '', // 微信name
+    // likesCount: 0, // 点赞数
+    // collectCount: 0, // 收藏数
+    // commentCount: 0, // 评论数
+    // copyCount: 0, // 复制数
+    // lookCount: 0, // 看过数
+    // tagText: '', // 标签
+    // dateIssued: '', // 发布/更新时间
+    // highlightMark: true, // 高亮标记
+    // statusIssued: true, // 发布状态
+    let isAdd = true
+
     let args = {
-      sourceList: [{
-        // 默认：百度
-        name: _self.data.sourceName1,
-        linkAll: _self.data.sourceBdLinkAll,
-        link: _self.data.sourceBdLink,
-        code: _self.data.sourceBdCode
-      }, {
-        // 默认：迅雷
-        name: _self.data.sourceName2,
-        linkAll: _self.data.sourceXlLinkAll,
-        link: _self.data.sourceXlLink,
-        code: _self.data.sourceXlCode
-      }, {
-        // 默认：阿里
-        name: _self.data.sourceName3,
-        linkAll: _self.data.sourceAlLinkAll,
-        link: _self.data.sourceAlLink,
-        code: _self.data.sourceAlCode
-      }, {
-        // 默认：磁力
-        name: _self.data.sourceName4,
-        linkAll: _self.data.sourceClLinkAll,
-        link: _self.data.sourceClLink,
-        code: _self.data.sourceClCode
-      }, {
-        // 默认：其它
-        name: _self.data.sourceName5,
-        linkAll: _self.data.sourceQtLinkAll,
-        link: _self.data.sourceQtLink,
-        code: _self.data.sourceQtCode
-      }],
-      sourceType: _self.data.keyTypeArr,
-      title: _self.data.title,
-      aliasTitle: _self.data.aliasTitle,
-      shortTitle: _self.data.shortTitle,
-      sortTitle: _self.data.sortTitle,
-      language: _self.data.language,
-      caption: _self.data.caption,
+
       content: _self.data.content,
-      premiere: _self.data.premiere,
-      number: _self.data.number,
-      durationTime: _self.data.durationTime,
-      sum: parseInt(_self.data.sum),
-      IMDbsum: parseInt(_self.data.IMDbsum),
-      director: _self.data.director,
-      scriptwriter: _self.data.scriptwriter,
-      protagonist: _self.data.protagonist,
-      movieYears: _self.data.movieYears,
-      movieDpi: _self.data.movieDpi,
-      movieTag: _self.data.movieTag,
-      music: _self.data.music,
-      photography: _self.data.photography,
-      filmEditing: _self.data.filmEditing,
-      fineArts: _self.data.fineArts,
-      awards: _self.data.awards,
-      likesCount: parseInt(_self.data.likesCount),
-      badsCount: parseInt(_self.data.badsCount),
+      imageUrl: _self.data.imageUrl,
+      keyTypeArr: _self.data.keyTypeArr,
+      selectTagTypeArr: _self.data.selectTagTypeArr,
+      title: _self.data.title,
+      shortTitle: _self.data.shortTitle,
+      author: _self.data.author,
+      nickName: _self.data.nickName,
+      likesCount: _self.data.likesCount,
+      collectCount: parseInt(_self.data.collectCount),
+      commentCount: parseInt(_self.data.commentCount),
+      copyCount: parseInt(_self.data.copyCount),
+      lookCount: parseInt(_self.data.lookCount),
+      tagText: _self.data.tagText,
       dateIssued: _self.data.dateIssued,
-      statusIssued: _self.data.statusIssued,
       highlightMark: _self.data.highlightMark,
-      movieIsOut: _self.data.movieIsOut,
+      statusIssued: _self.data.statusIssued,
     }
+    console.log('ACHUAN : confirmAddData : args', args)
     wx.showLoading({
       title: '加载中...',
     })
-    db.collection('resource').add({
-      // data 字段表示需新增的 JSON 数据
-      data: args
-    }).then((res) => {
-      wx.hideLoading({
-        success: (res) => {},
-      })
-      if (res) {
+
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'handleData',
+      data: {
+        isAdd,
+        args,
+      }
+    }).then(res => {
+      console.log('ACHUAN : confirmAddData : res', res)
+      wx.hideLoading({})
+      if (res.result.errMsg.indexOf('ok') > -1) {
         Dialog.confirm({
           message: '新增成功',
           confirmButtonText: "确定",
           cancelButtonText: "继续添加"
         }).then(() => {
-          // 滚动到顶部
           wx.pageScrollTo({
             scrollTop: 0
           })
@@ -385,16 +304,9 @@ Page({
           wx.navigateTo({
             url: '/pages/manage-data/index',
           })
-          // var pages = getCurrentPages(); //当前页面
-          // var beforePage = pages[pages.length - 2]; //前一页
-          // beforePage.onLoad(); // 执行前一个页面的onLoad方法
-          // wx.navigateBack({
-          //   delta: 1
-          // });
         });
       }
-      // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-    })
+    }).catch(console.error)
   },
   // 修改时的提交逻辑
   confirmChangeSource() {
@@ -403,75 +315,34 @@ Page({
       title: '加载中...',
     })
     let _id = _self.data._id
+    let isAdd = false
     let args = {
-      sourceList: [{
-        // 默认：百度
-        name: _self.data.sourceName1,
-        linkAll: _self.data.sourceBdLinkAll,
-        link: _self.data.sourceBdLink,
-        code: _self.data.sourceBdCode
-      }, {
-        // 默认：迅雷
-        name: _self.data.sourceName2,
-        linkAll: _self.data.sourceXlLinkAll,
-        link: _self.data.sourceXlLink,
-        code: _self.data.sourceXlCode
-      }, {
-        // 默认：阿里
-        name: _self.data.sourceName3,
-        linkAll: _self.data.sourceAlLinkAll,
-        link: _self.data.sourceAlLink,
-        code: _self.data.sourceAlCode
-      }, {
-        // 默认：磁力
-        name: _self.data.sourceName4,
-        linkAll: _self.data.sourceClLinkAll,
-        link: _self.data.sourceClLink,
-        code: _self.data.sourceClCode
-      }, {
-        // 默认：其它
-        name: _self.data.sourceName5,
-        linkAll: _self.data.sourceQtLinkAll,
-        link: _self.data.sourceQtLink,
-        code: _self.data.sourceQtCode
-      }],
-      sourceType: _self.data.keyTypeArr,
-      title: _self.data.title,
-      aliasTitle: _self.data.aliasTitle,
-      shortTitle: _self.data.shortTitle,
-      sortTitle: _self.data.sortTitle,
-      language: _self.data.language,
-      caption: _self.data.caption,
       content: _self.data.content,
-      premiere: _self.data.premiere,
-      number: _self.data.number,
-      durationTime: _self.data.durationTime,
-      sum: parseInt(_self.data.sum),
-      IMDbsum: parseInt(_self.data.IMDbsum),
-      director: _self.data.director,
-      scriptwriter: _self.data.scriptwriter,
-      protagonist: _self.data.protagonist,
-      movieYears: _self.data.movieYears,
-      movieDpi: _self.data.movieDpi,
-      movieTag: _self.data.movieTag,
-      music: _self.data.music,
-      photography: _self.data.photography,
-      filmEditing: _self.data.filmEditing,
-      fineArts: _self.data.fineArts,
-      awards: _self.data.awards,
-      likesCount: parseInt(_self.data.likesCount),
-      badsCount: parseInt(_self.data.badsCount),
+      imageUrl: _self.data.imageUrl,
+      keyTypeArr: _self.data.keyTypeArr,
+      selectTagTypeArr: _self.data.selectTagTypeArr,
+      title: _self.data.title,
+      shortTitle: _self.data.shortTitle,
+      author: _self.data.author,
+      nickName: _self.data.nickName,
+      likesCount: _self.data.likesCount,
+      collectCount: parseInt(_self.data.collectCount),
+      commentCount: parseInt(_self.data.commentCount),
+      copyCount: parseInt(_self.data.copyCount),
+      lookCount: parseInt(_self.data.lookCount),
+      tagText: _self.data.tagText,
       dateIssued: _self.data.dateIssued,
-      statusIssued: _self.data.statusIssued,
       highlightMark: _self.data.highlightMark,
-      movieIsOut: _self.data.movieIsOut,
+      statusIssued: _self.data.statusIssued,
+
     }
 
     // 调用云函数
     wx.cloud.callFunction({
-      name: 'changeSource',
+      name: 'handleData',
       data: {
         _id,
+        isAdd,
         args,
       }
     }).then(res => {
@@ -510,16 +381,16 @@ Page({
     }).catch(console.error)
   },
 
-  // 获取单条数据
-  async getSourceSingleData() {
+  // 修改时获取单条数据
+  async getSingleData() {
     const _self = this
     let _id = this.data._id
     wx.showLoading({
       title: '加载中...',
     })
-    await db.collection('resource').doc(_id).get().then(res => {
+    await db.collection('pyq-data').doc(_id).get().then(res => {
       // res.data 包含该记录的数据
-      let args = _self._handleSourceList(res.data)
+      let args = _self._handlePyqDataList(res.data)
       wx.hideLoading()
       _self.setData(args)
       // 设置顶部导航bar的title
@@ -541,106 +412,11 @@ Page({
   },
 
   // 处理资源数据
-  _handleSourceList(res) {
+  _handlePyqDataList(res) {
     const _self = this
     let resT = JSON.parse(JSON.stringify(res))
-    let forLen = 5 - resT.sourceList.length
-    let sourceName1 = '百度网盘'
-    let sourceBdLinkAll = ''
-    let sourceBdLink = ''
-    let sourceBdCode = ''
-    // 资源2
-    let sourceName2 = '迅雷云盘'
-    let sourceXlLinkAll = ''
-    let sourceXlLink = ''
-    let sourceXlCode = ''
-    // 资源3
-    let sourceName3 = '阿里网盘'
-    let sourceAlLinkAll = ''
-    let sourceAlLink = ''
-    let sourceAlCode = ''
-    // 资源4
-    let sourceName4 = '磁力链接'
-    let sourceClLinkAll = ''
-    let sourceClLink = ''
-    let sourceClCode = ''
-    // 资源5
-    let sourceName5 = '其它'
-    let sourceQtLinkAll = ''
-    let sourceQtLink = ''
-    let sourceQtCode = ''
-    for (let i = 0; i < forLen; i++) {
-      resT.sourceList.push({
-        name: '',
-        linkAll: '',
-        link: '',
-        code: '',
-      })
-    }
-    resT.sourceList.forEach((item, index) => {
-      resT.sourceList[index].name = item.name || ''
-      resT.sourceList[index].linkAll = item.linkAll || ''
-      resT.sourceList[index].link = item.link || ''
-      resT.sourceList[index].code = item.code || ''
-      if (index === 0) {
-        sourceName1 = item.name || '百度网盘'
-        sourceBdLinkAll = item.linkAll
-        sourceBdLink = item.link
-        sourceBdCode = item.code
-      }
-      if (index === 1) {
-        sourceName2 = item.name || '迅雷云盘'
-        sourceXlLinkAll = item.linkAll
-        sourceXlLink = item.link
-        sourceXlCode = item.code
-      }
-      if (index === 2) {
-        sourceName3 = item.name || '阿里网盘'
-        sourceAlLinkAll = item.linkAll
-        sourceAlLink = item.link
-        sourceAlCode = item.code
-      }
-      if (index === 3) {
-        sourceName4 = item.name || '磁力链接'
-        sourceClLinkAll = item.linkAll
-        sourceClLink = item.link
-        sourceClCode = item.code
-      }
-      if (index === 4) {
-        sourceName5 = item.name || '其它'
-        sourceQtLinkAll = item.linkAll
-        sourceQtLink = item.link
-        sourceQtCode = item.code
-      }
-    });
-    let args = {
-      // 资源单独列表
-      // 资源1
-      sourceName1,
-      sourceBdLinkAll,
-      sourceBdLink,
-      sourceBdCode,
-      // 资源2
-      sourceName2,
-      sourceXlLinkAll,
-      sourceXlLink,
-      sourceXlCode,
-      // 资源3
-      sourceName3,
-      sourceAlLinkAll,
-      sourceAlLink,
-      sourceAlCode,
-      // 资源4
-      sourceName4,
-      sourceClLinkAll,
-      sourceClLink,
-      sourceClCode,
-      // 资源5
-      sourceName5,
-      sourceQtLinkAll,
-      sourceQtLink,
-      sourceQtCode,
 
+    let args = {
       sourceType: resT.keyTypeArr,
       title: resT.title,
       aliasTitle: resT.aliasTitle || '',

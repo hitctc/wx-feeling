@@ -25,7 +25,8 @@ Page({
     allKeyType: [],
     dialogVisible: false,
     isAddKeyType: true,
-    keyTypeName: ''
+    keyTypeName: '',
+    order: ''
   },
 
   /**
@@ -35,53 +36,20 @@ Page({
     this.getAllKeyType()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // editUp
+  editUp(event) {
+    console.log('ACHUAN : editKeyTypeNama : event', event)
+    let keyInfo = event.currentTarget.dataset.keyInfo
+    let order = keyInfo.order || event.currentTarget.dataset.index + 1
+    console.log('ACHUAN : editUp : order', order)
+    console.log('ACHUAN : editUp : keyInfo', keyInfo)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  editDown(event) {
+    let keyInfo = event.currentTarget.dataset.keyInfo
+    let order = keyInfo.order || event.currentTarget.dataset.index + 1
+    console.log('ACHUAN : editUp : order', order)
+    console.log('ACHUAN : editUp : keyInfo', keyInfo)
   },
 
   // 添加类型
@@ -90,7 +58,7 @@ Page({
     this.setData({
       dialogVisible: true,
       isAddKeyType: true,
-      keyTypeName: '',
+      keyTypeName: ''
     })
   },
 
@@ -116,7 +84,7 @@ Page({
       keyInfo: keyInfo,
       keyTypeName: keyInfo.name
     })
-    
+
   },
   // 修改或新增确定资源类型按钮
   confirmSourceType() {
@@ -167,7 +135,7 @@ Page({
   },
 
 
-  onClose(e) { },
+  onClose(e) {},
 
   // 改变key是否可见
   visibleChange(event) {

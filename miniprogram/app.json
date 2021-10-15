@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index1/index",
     "pages/search/index",
     "pages/about/index",
     "pages/userConsole/userConsole",

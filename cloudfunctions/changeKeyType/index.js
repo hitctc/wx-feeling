@@ -15,7 +15,8 @@ exports.main = async (event, context) => {
       // data 传入需要局部更新的数据
       data: {
         name: event.name,
-        isVisible: event.isVisible
+        isVisible: event.isVisible,
+        order: event.order,
       }
     })
   } catch (e) {

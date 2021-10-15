@@ -1,9 +1,9 @@
 <!--pages/index/index.wxml-->
 <view class="index-page">
-	<sidebar id="sidebarC"></sidebar>
-	<card-list id="cardListC"></card-list>
+	<sidebar id="sidebarC" bind:onSidebar="onSidebar"></sidebar>
+	<card-list id="cardListC" ></card-list>
 
-	<welcome-g></welcome-g>
+	<welcome-g wx:if="{{false}}"></welcome-g>
 
 	<button wx:if="{{userInfo.userType ==='level-1'}}" class="add-btn" type="warn" plain size="mini"
 		bindtap="jumpAddMovie">添加</button>

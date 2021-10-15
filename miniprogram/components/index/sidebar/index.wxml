@@ -3,7 +3,7 @@
 	<scroll-view scroll-y>
 		<view class="sidebar-box">
 			<block wx:for="{{ keyTypeList }}" wx:key="index">
-				<view class="item {{index===active ? 'active':''}}" bindtap="onSidebar" data-index="{{index}}">{{item.name}}
+				<view class="item {{index===active ? 'active':''}}" bindtap="onSidebar" data-index="{{index}}" data-item="{{item}}">{{item.name}}
 				</view>
 			</block>
 		</view>

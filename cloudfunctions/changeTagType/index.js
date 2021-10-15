@@ -14,7 +14,9 @@ exports.main = async (event, context) => {
     return await db.collection('tag-type').doc(event._id).update({
       // data 传入需要局部更新的数据
       data: {
-        name: event.name
+        name: event.name,
+        category: event.category,
+        order: event.order
       }
     })
   } catch (e) {

@@ -26,7 +26,7 @@ Component({
     active: 0,
     sourceList: [],
     allSourceType: [],
-    sourceTypeNameActive: '首页',
+    keyTypeNameActive: 'ALL',
     loadingVisible: true,
     isMore: false,
     isFinish: false,
@@ -54,40 +54,37 @@ Component({
    */
   methods: {
     // 点击tab修改
-    onChangeTab(event) {
-      this.setData({
-        page: 1,
-        sourceList: [],
-        loadingVisible: true,
-        active: event.detail.name,
-        sourceTypeNameActive: event.detail.title,
-        isFinish: false
-      })
-      this.getSource()
+    onSidebar(item) {
+      // onSidebar
+      console.log('ACHUAN : onSidebar : item', item)
+
+      // this.setData({
+      //   page: 1,
+      //   sourceList: [],
+      //   loadingVisible: true,
+      //   active: event.detail.name,
+      //   keyTypeNameActive: event.detail.title,
+      //   isFinish: false
+      // })
+      // this.getSource()
     },
+
     // 获取所以资源
     async getSource(hitBottom = false) {
+      let _self = this
       console.log('ACHUAN : getSource : hitBottom', hitBottom)
 
-      let _self = this
-      // let onOffList = []
-      // 先拿到开关数据数据
-      // await db.collection('on-off').get().then(res => {
-      //   // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-      //   onOffList = res.data
-      //   _self.setData({
-      //     onOffList: res.data
-      //   })
-      // })
       // 拿缓存数据来显示,不是底部加载,也不是下拉刷新
-
       // 无缓存,拿数据库数据
+      let args = {
+        page: _self.data.page,
+        keyTypeNameActive: _self.data.keyTypeNameActive
+      }
+      console.log('ACHUAN : getSource : args', args)
+
       wx.cloud.callFunction({
-        name: 'getSource',
-        data: {
-          page: _self.data.page,
-          sourceTypeName: _self.data.sourceTypeNameActive
-        },
+        name: 'getPyqData',
+        data: args,
       }).then(res => {
         // globalData
         let dataT = JSON.parse(JSON.stringify(res.result.data))
@@ -123,7 +120,7 @@ Component({
 
 
       // 缓存前10条数据
-      wx.setStorageSync(this.data.sourceTypeNameActive, this.data.sourceList.slice(0, 10))
+      wx.setStorageSync(this.data.keyTypeNameActive, this.data.sourceList.slice(0, 10))
     },
 
     // 触底加载下一页,父组件触底后调用

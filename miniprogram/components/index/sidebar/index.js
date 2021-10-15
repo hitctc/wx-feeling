@@ -39,9 +39,11 @@ Component({
     onSidebar(event) {
       console.log('ACHUAN : onSidebar : event', event)
       let index = event.currentTarget.dataset.index
+      let item = event.currentTarget.dataset.item
       this.setData({
         active: index
       })
+      this.triggerEvent('onSidebar', item)
     },
 
     // 获取所有资源类型

@@ -7,12 +7,12 @@
       <!-- lin组件，基本信息 -->
       <view class="item">
         <view class="title-text"><text class="tip">*</text>内容：</view>
-        <l-textarea maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
+        <l-textarea model:value="{{content}}" maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
       </view>
 
       <view class="item">
         <view class="title-text">图片：</view>
-        <l-textarea maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
+        <l-textarea model:value="{{imageUrl}}" maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
       </view>
 
       <!-- key类型 -->
@@ -37,7 +37,7 @@
         <van-checkbox-group class="custom-class" value="{{ selectTagTypeArr }}" bind:change="selectTagType"
           direction="horizontal">
           <van-checkbox wx:for="{{allTagType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}"
-            shape="square" checked-color="#353535">
+            shape="square" checked-color="#353535" style="background-color: {{item.category =='哀' ? '#25c3aa' : item.category =='喜'? '#c93339' : item.category =='惧'? '#05529b' : item.category =='恶'? '#87f3fe' : item.category =='怒'? '#fd8b52' : item.category =='乐'? '#fd8b10' : item.category =='爱'? '#fd1b52' : ''}};">
             {{item.name}}
           </van-checkbox>
         </van-checkbox-group>
@@ -45,51 +45,51 @@
 
       <view class="item">
         <view class="title-text">标题：</view>
-        <l-input placeholder="标题" hide-label="{{true}}" clear="{{true}}" />
+        <l-input model:value="{{title}}" placeholder="标题" hide-label="{{true}}" clear="{{true}}" />
       </view>
 
       <view class="item">
         <view class="title-text">短标题：</view>
-        <l-input placeholder="短标题" hide-label="{{true}}" clear="{{true}}" />
+        <l-input model:value="{{shortTitle}}" placeholder="短标题" hide-label="{{true}}" clear="{{true}}" />
       </view>
 
       <view class="item">
         <view class="title-text">作者（笔名）：</view>
-        <l-input placeholder="作者（笔名）" hide-label="{{true}}" clear="{{true}}" />
+        <l-input model:value="{{author}}" placeholder="作者（笔名）" hide-label="{{true}}" clear="{{true}}" />
       </view>
 
       <view class="item">
         <view class="title-text">微信名称：</view>
-        <l-input placeholder="微信名称" hide-label="{{true}}" clear="{{true}}" />
+        <l-input model:value="{{nickName}}" placeholder="微信名称" hide-label="{{true}}" clear="{{true}}" />
       </view>
       <view class="item">
         <view class="title-text">点赞数：</view>
-        <l-input placeholder="点赞数" hide-label="{{true}}" clear="{{true}}" type="number" />
+        <l-input model:value="{{likesCount}}" placeholder="点赞数" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
 
       <view class="item">
         <view class="title-text">收藏数：</view>
-        <l-input placeholder="收藏数" hide-label="{{true}}" clear="{{true}}" type="number" />
+        <l-input model:value="{{collectCount}}" placeholder="收藏数" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
 
       <view class="item">
         <view class="title-text">评论数：</view>
-        <l-input placeholder="收藏数" hide-label="{{true}}" clear="{{true}}" type="number" />
+        <l-input model:value="{{commentCount}}" placeholder="收藏数" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
 
       <view class="item">
         <view class="title-text">复制数量（以此排名）：</view>
-        <l-input placeholder="复制数量（以此排名）" hide-label="{{true}}" clear="{{true}}" type="number" />
+        <l-input model:value="{{copyCount}}" placeholder="复制数量（以此排名）" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
 
       <view class="item">
         <view class="title-text">x人看过（数量）：</view>
-        <l-input placeholder="几人看过" hide-label="{{true}}" clear="{{true}}" type="number" />
+        <l-input model:value="{{lookCount}}" placeholder="几人看过" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
 
       <view class="item">
         <view class="title-text">标签：</view>
-        <l-textarea maxlength="1000" placeholder="标签..." auto-height="{{true}}" />
+        <l-textarea model:value="{{tagText}}" maxlength="1000" placeholder="标签..." auto-height="{{true}}" />
       </view>
     </view>
 

@@ -104,4 +104,12 @@ Page({
     })
   },
 
+  onSidebar(item) {
+    let cardListC = this.selectComponent('#cardListC')
+    if (cardListC) {
+      cardListC.onSidebar(item.detail)
+    }
+
+  }
+
 })

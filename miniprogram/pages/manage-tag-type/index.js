@@ -21,7 +21,8 @@ Page({
     allTagType: [],
     dialogVisible: false,
     isAddTagType: true,
-    tagTypeName: ''
+    tagTypeName: '',
+    category: ''
   },
 
   /**
@@ -31,20 +32,21 @@ Page({
     this.getAllTagType()
   },
 
-  // 添加类型
+  // 新增
   addSourceType() {
     // typeName
     this.setData({
       dialogVisible: true,
       isAddTagType: true,
       tagTypeName: '',
+      category: '',
+      order: 1
     })
   },
 
   // 获取所以
   getAllTagType() {
     let _self = this
-
     wx.showLoading({
       title: '努力获取所有标签中...',
     })
@@ -70,7 +72,9 @@ Page({
       dialogVisible: true,
       isAddTagType: false,
       tagInfo: tagInfo,
-      tagTypeName: tagInfo.name
+      tagTypeName: tagInfo.name,
+      category: tagInfo.category || '1',
+      order: tagInfo.order || 1
     })
 
   },
@@ -78,6 +82,10 @@ Page({
   confirmSourceType() {
     // 调用云函数
     let _self = this
+    if (_self.data.category == '') {
+      _showToast('类别不能为空')
+      return
+    }
     // 新增
     if (_self.data.isAddTagType) {
       wx.showLoading({
@@ -85,6 +93,8 @@ Page({
       })
       var args = {
         name: _self.data.tagTypeName,
+        category: _self.data.category,
+        order: parseInt(_self.data.order)
       };
       db.collection('tag-type').add({
         data: args
@@ -101,6 +111,8 @@ Page({
       let args = {
         _id,
         name: _self.data.tagTypeName,
+        category: _self.data.category,
+        order: parseInt(_self.data.order)
       };
       console.log('ACHUAN : confirmSourceType : args', args)
 
@@ -120,6 +132,8 @@ Page({
     }
   },
 
-  onClose(e) { },
+  onClose(e) {
+    // _showToast('取消')
+  },
 
 })

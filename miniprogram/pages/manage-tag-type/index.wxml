@@ -8,11 +8,16 @@
     <view class="table">
       <view class="tr bg-w">
         <view class="th">名称</view>
+        <view class="th">类别</view>
+        <view class="th">顺序</view>
         <view class="th">操作</view>
       </view>
       <block wx:for="{{ allTagType }}" wx:key="id">
-        <view class="tr bg-g">
+        <view class="tr bg-g"
+          style="background-color: {{item.category =='哀' ? '#25c3aa' : item.category =='喜'? '#c93339' : item.category =='惧'? '#05529b' : item.category =='恶'? '#87f3fe' : item.category =='怒'? '#fd8b52' : ''}};">
           <view class="td">{{ item.name }}</view>
+          <view class="td">{{ item.category || '喜' }}</view>
+          <view class="td">{{ item.order || 1 }}</view>
           <view class="td">
             <button type="default" plain size="mini" bindtap="editKeyTypeNama" data-key-info="{{item}}">编辑</button>
           </view>
@@ -25,7 +30,9 @@
   <van-dialog use-slot title="标签名称" show="{{ dialogVisible }}" show-cancel-button show-confirm-button
     bind:close="onClose" bind:confirm="confirmSourceType">
     <van-cell-group>
-      <van-field model:value="{{ tagTypeName }}" label="名称" placeholder="请输入便签名称" />
+      <van-field model:value="{{ tagTypeName }}" label="标签名称" placeholder="标签名称" />
+      <van-field model:value="{{ category }}" label="类别" placeholder="类别" />
+      <van-field model:value="{{ order }}" label="顺序" placeholder="顺序" />
     </van-cell-group>
   </van-dialog>
 
