@@ -78,6 +78,17 @@ Page({
     })
   },
 
+  // 跳转水果电影电视剧
+  jumpMovie() {
+    wx.navigateToMiniProgram({
+      appId: 'wx6294b4749e40b1c8',
+      path: ' /pages/index/index',
+      success(res) {
+        console.log('success -> res打开成功 ----------- this.data.article', res)
+      }
+    })
+  },
+
   // 点击赞赏木
   handleZs() {
     this.setData({

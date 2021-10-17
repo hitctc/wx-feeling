@@ -30,13 +30,13 @@
     "pages/manage-key-type/index",
     "pages/manage-tag-type/index",
     "pages/manage-on-off/index",
-    "pages/reward-page/index"
-
+    "pages/reward-page/index",
+    "pages/random-feel/index"
   ],
   "window": {
-    "backgroundColor": "#fff",
+    "backgroundColor": "#537FF3",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#537FF9",
     "navigationBarTitleText": "朋友圈文案",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50
@@ -53,7 +53,7 @@
         "iconPath": "/images/tab/home.png"
       },
       {
-        "pagePath": "pages/search/index",
+        "pagePath": "pages/random-feel/index",
         "selectedIconPath": "/images/tab/search-active.png",
         "text": "",
         "iconPath": "/images/tab/search.png"
@@ -89,14 +89,12 @@
     "van-calendar": "@vant/weapp/calendar/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-loading": "@vant/weapp/loading/index",
-
-    "l-loading":"/miniprogram_npm/lin-ui/loading/index",
-    "l-transition":"/miniprogram_npm/lin-ui/transition/index",
-    "l-search-bar":"/miniprogram_npm/lin-ui/search-bar/index",
-    "l-status-show":"/miniprogram_npm/lin-ui/status-show/index",
-    "l-card":"/miniprogram_npm/lin-ui/card/index",
-    "l-input":"/miniprogram_npm/lin-ui/input/index",
-    "l-textarea":"/miniprogram_npm/lin-ui/textarea/index"
-
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-transition": "/miniprogram_npm/lin-ui/transition/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
+    "l-status-show": "/miniprogram_npm/lin-ui/status-show/index",
+    "l-card": "/miniprogram_npm/lin-ui/card/index",
+    "l-input": "/miniprogram_npm/lin-ui/input/index",
+    "l-textarea": "/miniprogram_npm/lin-ui/textarea/index"
   }
 }

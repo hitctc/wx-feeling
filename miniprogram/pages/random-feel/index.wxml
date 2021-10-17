@@ -1,0 +1,26 @@
+<!--pages/random-feel/index.wxml-->
+<!-- 随机心情 -->
+<view class="random-food-page">
+  <image class="back {{state=='停止'?'hide':''}}" src="https://cdnj.mingxuandesign.com/src/static/random.jpg"
+    mode="widthFix"></image>
+  <view class="big-title {{bigtitlehide?'hide':''}}">今天吃什么?</view>
+
+  <navigator class="centerFood {{show?'show':''}}" url="/pages/food-detail/food-detail?artId={{random.artId}}">
+    <view class="title">{{random.name}}</view>
+    <view class="label">
+      <view class="item">
+        <image mode="aspectFill" src="/images/visitCount2.png"></image>
+        <text>{{random.visitCount}}</text>
+      </view>
+    </view>
+  </navigator>
+
+  <view class="random-board" wx:if="{{!show}}">
+    <view class="random-item " wx:for="{{randoms}}" wx:key="this"
+      style="animation: item 3s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh">
+      {{item.name}}</view>
+  </view>
+
+  <view class="button" bindtap="onButton">{{state}}</view>
+
+</view>

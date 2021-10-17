@@ -1,0 +1,136 @@
+/* pages/random-feel/index.wxss */
+.random-food-page {
+  width: 750rpx;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  width: 750rpx;
+  height: 100vh;
+  position: absolute;
+  filter: blur(0px);
+  opacity: 1;
+  transition: all 2s;
+}
+
+.big-title {
+  position: absolute;
+  top: 30vh;
+  font-size: 60rpx;
+  color: #f9be58;
+  font-weight: bold;
+  letter-spacing: 20rpx;
+  filter: blur(0px);
+  opacity: 1;
+  transition: all 2s;
+}
+
+.hide {
+  filter: blur(1px);
+  opacity: 0;
+}
+
+.random-board {
+  width: 750rpx;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
+.random-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+@keyframes item {
+  0% {
+    filter: blur(2px);
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  50% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    filter: blur(2px);
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.centerFood {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -10vh;
+  filter: blur(3px);
+  transition: all 2s;
+  opacity: 0;
+}
+
+.show {
+  filter: blur(0px);
+  transform: translateY(-50rpx);
+  opacity: 1;
+}
+
+.title {
+  margin-top: 80rpx;
+  font-size: 50rpx;
+  color: #f9be58;
+  font-weight: bold;
+  letter-spacing: 10rpx;
+
+}
+
+.label {
+  margin-top: 20rpx;
+  font-size: 36rpx;
+  width: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(205, 205, 205);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.button {
+  font-size: 40rpx;
+  font-weight: bold;
+  letter-spacing: 10rpx;
+  color: white;
+  background-color: #f9be58;
+  border-radius: 50rpx;
+  width: 400rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 200rpx;
+}

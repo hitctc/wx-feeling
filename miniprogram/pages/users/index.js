@@ -49,13 +49,6 @@ Page({
     })
   },
 
-  // 管理
-  onManager() {
-    wx.navigateTo({
-      url: '/pages/manager/manager',
-    })
-  },
-
   // 跳转介绍页
   jumpJs() {
     wx.navigateTo({

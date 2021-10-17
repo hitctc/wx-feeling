@@ -53,6 +53,12 @@
           "pathName": "pages/manage-data/index",
           "query": "pageType=change&_id=fa24ce1a61698ee100401e8356336903",
           "scene": null
+        },
+        {
+          "name": "pages/random-feel/index",
+          "pathName": "pages/random-feel/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

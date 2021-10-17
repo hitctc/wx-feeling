@@ -19,7 +19,7 @@
 
   width: cacl(100% - 50rpx);
   padding: 40rpx 30rpx;
-  margin: 25rpx;
+  margin: 0 25rpx 25rpx 25rpx;
   border-radius: 10rpx;
   background-color: rgba(255, 255, 255, 0.39);
   /* box-shadow: 0 0 4rpx rgb(202, 202, 202); */
@@ -34,11 +34,29 @@
 }
 
 .card-list-box .item .jump-detail-btn {
+  z-index: 99;
   position: absolute;
   bottom: 0;
   right: 0;
 
-  padding: 0 8rpx;
+  padding: 0 20rpx;
   margin: 0;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+
+.card-list-box .item .tag-text {
+  z-index: 98;
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  width: 80%;
+  margin: 0;
+  color: #535353;
 
 }

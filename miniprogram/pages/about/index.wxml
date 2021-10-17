@@ -2,6 +2,10 @@
 <view class="container">
   <view class="main">
     <view class="shadow-styl">
+      <button class="btn-styl" bindtap="jumpMovie">水果电影电视剧</button>
+    </view>
+
+    <view class="shadow-styl">
       <button class="btn-styl" bindtap="jumpdm">简洁弹幕字幕</button>
     </view>
 

@@ -32,16 +32,9 @@
 
     <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">
       <button class="btn-styl" bind:tap="onAdd">
-        添加影视
+        添加
       </button>
     </view>
-
-    <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">
-      <button class="btn-styl" bind:tap="onManager">
-        管理影视
-      </button>
-    </view>
-
 
   </view>
 </view>

@@ -46,7 +46,7 @@ Component({
       this.triggerEvent('onSidebar', item)
     },
 
-    // 获取所有资源类型
+    // 获取所有key类型
     _getSourceType() {
       let _self = this
       const db = wx.cloud.database()
