@@ -27,7 +27,7 @@
     </view>
 
     <view class="shadow-styl">
-      <button class="btn-styl" open-type="contact">留言建议</button>
+      <button class="btn-styl" open-type="contact">建言反馈</button>
     </view>
 
     <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">

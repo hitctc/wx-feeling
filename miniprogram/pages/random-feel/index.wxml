@@ -1,11 +1,14 @@
 <!--pages/random-feel/index.wxml-->
 <!-- 随机心情 -->
 <view class="random-food-page">
+  <!-- 背景图 -->
   <image class="back {{state=='停止'?'hide':''}}" src="https://cdnj.mingxuandesign.com/src/static/random.jpg"
     mode="widthFix"></image>
-  <view class="big-title {{bigtitlehide?'hide':''}}">今天吃什么?</view>
+  <view class="big-title {{bigtitlehide?'hide':''}}">FEEL?</view>
 
-  <navigator class="centerFood {{show?'show':''}}" url="/pages/food-detail/food-detail?artId={{random.artId}}">
+  <!-- 跳转目标 -->
+  <navigator class="centerFood {{randomVisible?'randomVisible':''}}"
+    url="/pages/food-detail/food-detail?artId={{random.artId}}">
     <view class="title">{{random.name}}</view>
     <view class="label">
       <view class="item">
@@ -15,12 +18,15 @@
     </view>
   </navigator>
 
-  <view class="random-board" wx:if="{{!show}}">
+  <!-- 随机 -->
+  <view class="random-board" wx:if="{{!randomVisible}}">
     <view class="random-item " wx:for="{{randoms}}" wx:key="this"
-      style="animation: item 3s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh">
+      style="animation: item 5s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh"
+      catchtap="onFeel" data-item="{{item}}">
       {{item.name}}</view>
+
   </view>
 
-  <view class="button" bindtap="onButton">{{state}}</view>
+  <view class="start-button" bindtap="onButton">{{state}}</view>
 
 </view>

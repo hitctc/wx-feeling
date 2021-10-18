@@ -22,7 +22,7 @@
   position: absolute;
   top: 30vh;
   font-size: 60rpx;
-  color: #f9be58;
+  color: #5a81f1;
   font-weight: bold;
   letter-spacing: 20rpx;
   filter: blur(0px);
@@ -92,7 +92,7 @@
 .title {
   margin-top: 80rpx;
   font-size: 50rpx;
-  color: #f9be58;
+  color: #5a81f1;
   font-weight: bold;
   letter-spacing: 10rpx;
 
@@ -119,12 +119,12 @@
   margin-right: 10rpx;
 }
 
-.button {
+.start-button {
   font-size: 40rpx;
   font-weight: bold;
   letter-spacing: 10rpx;
   color: white;
-  background-color: #f9be58;
+  background-color: #5a81f1;
   border-radius: 50rpx;
   width: 400rpx;
   height: 80rpx;
@@ -132,5 +132,5 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  bottom: 200rpx;
+  bottom: 100rpx;
 }
