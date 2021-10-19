@@ -9,6 +9,8 @@ wx.cloud.init({
 })
 const db = wx.cloud.database()
 
+
+
 import {
   _showToast
 } from '../../utils/wxShowToast';
@@ -22,6 +24,25 @@ Page({
     state: '开始',
     randomVisible: false, // 
     bigtitlehide: false,
+    userInfo: {},
+    pyqDataList: [{
+        content: "活的潇洒一点 让笑容成为心情 而不是表情",
+        selectTagTypeArr: ['1', '2'],
+      },
+      {
+        content: "活的潇洒一点 让笑容成为心情 而不是表情",
+        selectTagTypeArr: ['1', '2'],
+
+      },
+    ],
+  },
+
+  onLoad() {
+    let userInfoT = wx.getStorageSync('userInfo') || {}
+    this.setData({
+      userInfo: userInfoT
+    })
+
   },
 
   // 开始随机
@@ -68,7 +89,7 @@ Page({
       return arr;
     }
 
-    var keyTypeListT = shuffle(JSON.parse(JSON.stringify(keyTypeList.concat(tagTypeList)))); //结果不唯一
+    var keyTypeListT = shuffle(JSON.parse(JSON.stringify(keyTypeList.concat(tagTypeList)))); // 打乱数组，结果不唯一
     // 循环出随机的坐标位置和字体大小
     for (var i = 0; i < keyTypeListT.length; i++) {
       console.log(Math.floor(Math.random() * 70));

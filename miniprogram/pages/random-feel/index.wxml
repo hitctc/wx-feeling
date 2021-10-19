@@ -1,10 +1,12 @@
 <!--pages/random-feel/index.wxml-->
 <!-- 随机心情 -->
-<view class="random-food-page">
+<view class="random-feel-page">
   <!-- 背景图 -->
-  <image class="back {{state=='停止'?'hide':''}}" src="https://cdnj.mingxuandesign.com/src/static/random.jpg"
-    mode="widthFix"></image>
-  <view class="big-title {{bigtitlehide?'hide':''}}">FEEL?</view>
+  <image class="back"
+    src="https://6665-feel-6gdrrxeye8840e66-1304594986.tcb.qcloud.la/bg1.jpg?sign=7aa74a2003238c10e17ea8c885958723&t=1634632086"
+    mode="aspectFill"></image>
+
+  <view class="big-title {{bigtitlehide?'hide':''}}">FEEL</view>
 
   <!-- 跳转目标 -->
   <navigator class="centerFood {{randomVisible?'randomVisible':''}}"
@@ -28,5 +30,20 @@
   </view>
 
   <view class="start-button" bindtap="onButton">{{state}}</view>
+
+  <!-- 选择的key对应的句子 -->
+  <view class="card-box">
+    <view class="title">心情</view>
+    <block>
+      <view class="item" wx:for="{{ pyqDataList }}" wx:key="index">
+        <view class="content" bindtap="onCopy" data-item="{{item}}">
+          {{item.content}}
+          <button wx:if="{{userInfo.userType ==='level-1'}}" type="default" size="mini" class="jump-detail-btn" plain
+            catchtap="jumpDetail" data-item="{{item}}">编辑</button>
+          <view class="tag-text">标签：{{item.selectTagTypeArr}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
 
 </view>
