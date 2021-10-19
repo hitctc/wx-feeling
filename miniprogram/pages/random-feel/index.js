@@ -26,15 +26,17 @@ Page({
     bigtitlehide: false,
     userInfo: {},
     pyqDataList: [{
-        content: "活的潇洒一点 让笑容成为心情 而不是表情",
-        selectTagTypeArr: ['1', '2'],
-      },
-      {
-        content: "活的潇洒一点 让笑容成为心情 而不是表情",
-        selectTagTypeArr: ['1', '2'],
-
-      },
+      content: "活的潇洒一点 让笑容成为心情 而不是表情",
+      selectTagTypeArr: ['1', '2'],
+    },
+    {
+      content: "活的潇洒一点 让笑容成为心情 而不是表情",
+      selectTagTypeArr: ['1', '2'],
+    },
     ],
+    feelCardVisible: false,
+    keyVal: '',
+    headingText: 'FEEL',
   },
 
   onLoad() {
@@ -45,7 +47,7 @@ Page({
 
   },
 
-  // 开始随机
+  // 开始随机心情关键词
   async refreshRandom() {
     wx.showLoading({
       title: '正在搜寻中...',
@@ -77,19 +79,7 @@ Page({
 
     wx.hideLoading({})
 
-    // 随机心情
-    function shuffle(arr) {
-      var len = arr.length;
-      for (var i = 0; i < len - 1; i++) {
-        var index = parseInt(Math.random() * (len - i));
-        var temp = arr[index];
-        arr[index] = arr[len - i - 1];
-        arr[len - i - 1] = temp;
-      }
-      return arr;
-    }
-
-    var keyTypeListT = shuffle(JSON.parse(JSON.stringify(keyTypeList.concat(tagTypeList)))); // 打乱数组，结果不唯一
+    var keyTypeListT = _self.shuffle(JSON.parse(JSON.stringify(keyTypeList.concat(tagTypeList)))); // 打乱数组，结果不唯一
     // 循环出随机的坐标位置和字体大小
     for (var i = 0; i < keyTypeListT.length; i++) {
       console.log(Math.floor(Math.random() * 70));
@@ -105,7 +95,6 @@ Page({
     _self.setData({
       randoms: keyTypeListT
     })
-
 
     animate = setInterval(function () {
       // 计时器让randoms显示出来
@@ -130,6 +119,8 @@ Page({
         }
       }
     }, 900)
+    console.log('ACHUAN : animate', animate)
+
   },
 
   // 开始随机按钮
@@ -140,6 +131,7 @@ Page({
         state: '停止',
         bigtitlehide: true,
         randomVisible: false,
+        feelCardVisible: false,
         randoms: []
       })
       this.refreshRandom()
@@ -148,18 +140,115 @@ Page({
       this.setData({
         state: '开始',
         randomVisible: true,
-        random: this.data.randoms[random_index]
+        randoms: [],
+        bigtitlehide: false,
+        headingText: 'FEEL',
       })
       if (animate) {
         clearInterval(animate)
       }
+      console.log('ACHUAN : onButton : animate', animate)
       nowAnimate = 0
     }
   },
 
   // 点击心情
   onFeel(event) {
+    const _self = this
     console.log('ACHUAN : onFeel : event', event)
+    // 重置相关信息
+    this.setData({
+      state: '开始',
+      randomVisible: false,
+    })
+    console.log('ACHUAN : onFeel : animate', animate)
+    // 清除计时器
+    setTimeout(() => {
+      clearInterval(animate)
+    }, 500)
+    // 现在动画的样式
+    nowAnimate = 0
+
+    let val = event.currentTarget.dataset.item.name // 点击的name
+    let category = event.currentTarget.dataset.item.category // 类别
+    if (val == '') {
+      _showToast('关键词为空...')
+      return
+    }
+    wx.showLoading({
+      title: `【${val}】搜索中...`,
+    })
+
+    let _ = db.command
+    db.collection('pyq-data')
+      .where(_.or([{
+        // 标题
+        title: db.RegExp({ // 使用正则查询，实现对搜索的模糊查询
+          regexp: val,
+          options: 'i', //大小写不区分
+        }),
+      },
+      { // 内容
+        content: db.RegExp({
+          regexp: val,
+          options: 'i',
+        }),
+      },
+      { // keyTypeArr
+        keyTypeArr: db.RegExp({
+          regexp: val,
+          options: 'i',
+        }),
+      },
+      { // selectTagTypeArr
+        selectTagTypeArr: db.RegExp({
+          regexp: val,
+          options: 'i',
+        }),
+      }
+      ])).get()
+      .then(res => {
+        console.log('ACHUAN : onFeel : res', res)
+        let resT = _self.shuffle(JSON.parse(JSON.stringify(res.data)))
+        console.log('ACHUAN : onFeel : resT', resT)
+        wx.hideLoading({})
+        this.setData({
+          feelCardVisible: resT.length > 0,
+          pyqDataList: resT.slice(0, 10),
+          keyVal: val,
+          headingText: 'FEEL',
+          bigtitlehide: false
+        })
+        if (resT.length === 0) {
+          this.setData({
+            headingText: `${val}-关键词没有信息，换一个关键字搜索试试`,
+            bigtitlehide: false
+          })
+        }
+      })
+      .catch(res => {
+        wx.hideLoading({
+          success: (res) => {
+            _showToast('搜索失败，联系客服')
+          },
+        })
+        this.setData({
+          feelCardVisible: false,
+        })
+      })
+
+  },
+
+  // 随机打乱数组
+  shuffle(arr) {
+    var len = arr.length;
+    for (var i = 0; i < len - 1; i++) {
+      var index = parseInt(Math.random() * (len - i));
+      var temp = arr[index];
+      arr[index] = arr[len - i - 1];
+      arr[len - i - 1] = temp;
+    }
+    return arr;
   },
 
   onHide() {
@@ -171,6 +260,25 @@ Page({
     })
     clearInterval(animate)
 
+  },
+
+  // 跳转详情
+  // 复制成功
+  onCopy(event) {
+    // 点击复制
+    const item = event.currentTarget.dataset.item
+    let content = item.content
+    if (content === '') {
+      _showToast('无可复制内容~')
+      return
+    }
+    wx.setClipboardData({
+      data: content,
+      success: function (res) {
+        // todo 复制成功之后走一次接口，记录被复制的次数
+        _showToast(`已复制：${content}`)
+      }
+    })
   },
 
 })

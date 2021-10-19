@@ -49,6 +49,7 @@
 }
 
 .big-title {
+  z-index: 99;
   position: absolute;
   top: 30vh;
   font-size: 60rpx;
@@ -58,11 +59,17 @@
   filter: blur(0px);
   opacity: 1;
   transition: all 2s;
+  text-align: center;
 }
 
 .hide {
   filter: blur(1px);
   opacity: 0;
+}
+
+.show {
+  filter: blur(0px);
+  opacity: 1;
 }
 
 .random-board {
@@ -169,6 +176,7 @@
   width: 660rpx;
   height: 70vh;
 
+  z-index: 100;
   position: absolute;
   top: 46%;
   left: 50%;
@@ -183,10 +191,19 @@
   width: 100%;
   font-size: 36rpx;
   font-weight: bold;
-  padding: 18rpx 0;
+  padding: 18rpx 0 6rpx 0;
   text-align: center;
   margin: 0;
   color: #5a81f1;
+}
+
+.card-box .tip {
+  width: 100%;
+  font-size: 22rpx;
+  padding: 2rpx 0;
+  text-align: center;
+  margin: 0;
+  color: #c2c2c2;
 }
 
 .card-box .item {
@@ -194,14 +211,32 @@
   width: calc(100% - 50rpx);
   margin: 25rpx;
   padding: 20rpx;
-  box-shadow: 0 0 20rpx 5rpx #fff;
+  box-shadow: 0 0 5rpx 2rpx #fff;
   border-radius: 10rpx;
 }
 
 .card-box .item .content {
+  width: 100%;
   font-size: 28rpx;
+  color: #2c2c2c;
 }
 
 .card-box .item .content .tag-text {
+  width: 100%;
   color: #5e5e5e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.tag-text .content-text {
+  width: 80%;
+}
+
+.card-box .item .content .jump-detail-btn {
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+  margin: 0;
 }

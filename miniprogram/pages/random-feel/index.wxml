@@ -6,7 +6,7 @@
     src="https://6665-feel-6gdrrxeye8840e66-1304594986.tcb.qcloud.la/bg1.jpg?sign=7aa74a2003238c10e17ea8c885958723&t=1634632086"
     mode="aspectFill"></image>
 
-  <view class="big-title {{bigtitlehide?'hide':''}}">FEEL</view>
+  <view class="big-title {{bigtitlehide?'hide':'show'}}">{{headingText}}</view>
 
   <!-- 跳转目标 -->
   <navigator class="centerFood {{randomVisible?'randomVisible':''}}"
@@ -32,15 +32,19 @@
   <view class="start-button" bindtap="onButton">{{state}}</view>
 
   <!-- 选择的key对应的句子 -->
-  <view class="card-box">
-    <view class="title">心情</view>
+  <view class="card-box" wx:if="{{feelCardVisible}}">
+    <view class="title">心情-{{keyVal}}</view>
+    <view class="tip">至多随机10条</view>
+
     <block>
       <view class="item" wx:for="{{ pyqDataList }}" wx:key="index">
         <view class="content" bindtap="onCopy" data-item="{{item}}">
           {{item.content}}
-          <button wx:if="{{userInfo.userType ==='level-1'}}" type="default" size="mini" class="jump-detail-btn" plain
-            catchtap="jumpDetail" data-item="{{item}}">编辑</button>
-          <view class="tag-text">标签：{{item.selectTagTypeArr}}</view>
+          <view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}">
+            <text class="content-text">标签：{{item.selectTagTypeArr}}</text>
+            <button type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpDetail" data-item="{{item}}">
+              编辑</button>
+          </view>
         </view>
       </view>
     </block>
