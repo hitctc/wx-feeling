@@ -54,12 +54,9 @@ Page({
       count: 1,
       success: chooseResult => {
         const filePath = chooseResult.tempFilePaths[0]
-        console.log('ACHUAN : uploadImg : chooseResult', chooseResult)
         // 上传图片name
         // filePath.match(/\.[^.]+?$/)[0]}文件名后缀
         const cloudPath = `img/${new Date().getTime()}-${Math.floor(Math.random() * 1000)}${filePath.match(/\.[^.]+?$/)[0]}`
-
-        console.log('ACHUAN : uploadImg : cloudPath', cloudPath)
 
         // 将图片上传至云存储空间
         wx.cloud.uploadFile({
@@ -71,7 +68,6 @@ Page({
             env: this.data.envId
           }
         }).then(res => {
-          console.log('ACHUAN : uploadImg : res', res)
           this.setData({
             haveGetImgSrc: true,
             imgSrc: res.fileID,
@@ -79,7 +75,6 @@ Page({
             cloudPath: cloudPath,
             imagePath: filePath,
           })
-          console.log(this.data);
           wx.hideLoading()
         }).catch((e) => {
           wx.hideLoading()
@@ -115,8 +110,6 @@ Page({
 
   // 编辑数据
   onEdit(event) {
-    console.log('ACHUAN : onEdit : event', event)
-
     const item = event.currentTarget.dataset.item
     this.setData({
       addEditDialogVisibel: true,
@@ -127,8 +120,6 @@ Page({
       _id: item._id,
       isAdd: false,
     })
-
-    console.log(this.data);
 
   },
 
@@ -156,7 +147,6 @@ Page({
       isVisible: this.data.addEditVisible,
       imgSrc: this.data.addEditImgSrc,
     }
-    console.log('ACHUAN : confirmBgData : args', args)
     wx.showLoading({
       title: '努力操作中...',
     })
@@ -170,7 +160,6 @@ Page({
         args,
       }
     }).then(res => {
-      console.log('ACHUAN : confirmAddData : res', res)
       wx.hideLoading({})
       _showToast('努力的管理背景图完成了...')
       _self._getAllBg()
@@ -180,7 +169,6 @@ Page({
 
   // 改变key是否可见
   visibleChange(event) {
-    console.log('ACHUAN : visibleChange : event', event)
     let _self = this
     let item = event.currentTarget.dataset.item
     let _id = item._id

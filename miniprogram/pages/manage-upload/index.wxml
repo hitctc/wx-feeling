@@ -29,7 +29,8 @@
     </view>
 
     <!-- cover -->
-    <l-card type="cover" image="{{item.imgSrc}}" title="" l-class="cover-styl" wx:for="{{allBgData}}" wx:key="index" image-mode="aspectFit">
+    <l-card type="cover" image="{{item.imgSrc}}" title="" l-class="cover-styl" wx:for="{{allBgData}}" wx:key="index"
+      image-mode="aspectFit">
       <view class="content home-bg">
         <view class="title-tip">名称：{{item.name}}</view>
         <view class="url">路径：{{item.imgSrc}}</view>
@@ -48,7 +49,8 @@
   </view>
 
 
-  <l-dialog show="{{addEditDialogVisibel}}" type="confirm" show-title="{{true}}" title="背景图操作" bind:linconfirm="confirmBgData">
+  <l-dialog show="{{addEditDialogVisibel}}" type="confirm" show-title="{{true}}" title="背景图操作"
+    bind:linconfirm="confirmBgData">
     <view style="width: 100%;">
       <l-input label="名称：" placeholder="名称" model:value="{{addEditName}}" label-width="130" />
       <l-input label="路径：" placeholder="路径" model:value="{{addEditImgSrc}}" label-width="130" />
