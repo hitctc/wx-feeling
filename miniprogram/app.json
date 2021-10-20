@@ -54,9 +54,9 @@
       },
       {
         "pagePath": "pages/random-feel/index",
-        "selectedIconPath": "/images/tab/search-active.png",
+        "selectedIconPath": "/images/tab/bubble-chart-active.png",
         "text": "",
-        "iconPath": "/images/tab/search.png"
+        "iconPath": "/images/tab/bubble-chart.png"
       },
       {
         "pagePath": "pages/about/index",
@@ -95,6 +95,7 @@
     "l-status-show": "/miniprogram_npm/lin-ui/status-show/index",
     "l-card": "/miniprogram_npm/lin-ui/card/index",
     "l-input": "/miniprogram_npm/lin-ui/input/index",
-    "l-textarea": "/miniprogram_npm/lin-ui/textarea/index"
+    "l-textarea": "/miniprogram_npm/lin-ui/textarea/index",
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index"
   }
 }

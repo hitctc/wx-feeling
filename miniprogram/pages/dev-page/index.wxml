@@ -1,10 +1,11 @@
 <!--pages/dev-page/index.wxml-->
 <view class="dev-container">
-    <button class="mini-btn" type="primary" bindtap="jumpUsersManage">用户管理</button>
-    <button class="mini-btn" type="primary" bindtap="jumpServiceExample">云开发例子</button>
-    <button class="mini-btn" type="primary" bindtap="jumpFell">感觉心情</button>
-    <button class="mini-btn" type="primary" bindtap="jumpSourceType">管理+keyType</button>
-    <button class="mini-btn" type="primary" bindtap="jumpTag">管理+标签</button>
-    <button class="mini-btn" type="primary" bindtap="jumpManageOnOff">管理开关</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpUsersManage">用户管理</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpServiceExample">云开发例子</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpFell">感觉心情</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpSourceType">管理+keyType</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpTag">管理+标签</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpManageOnOff">管理开关</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpManageUpload">管理背景图片</button>
 
 </view>

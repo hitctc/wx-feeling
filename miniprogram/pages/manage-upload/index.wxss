@@ -1,0 +1,101 @@
+/* pages/manage-upload/index.wxss */
+.manage-upload-page {
+  width: 750rpx;
+  min-height: 100vh;
+}
+
+.manage-upload-page .title {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 20rpx;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.manage-upload-page ._box {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #dadada;
+}
+
+._box .title {
+  font-size: 34rpx;
+  padding: 0;
+  margin-bottom: 10rpx;
+}
+
+._box .upload-button {
+  margin-bottom: 20rpx;
+}
+
+._box .code_box {
+  width: 100%;
+}
+
+.code_box .code_img {
+  width: 100%;
+}
+
+.code_box .img_info {
+  margin-top: 20rpx;
+}
+
+.img_info .img_info_title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.img_info_title button {
+  margin: 0;
+}
+
+.manage-upload-page .bg-data-box {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 20rpx;
+
+}
+
+.bg-data-box .title {
+  font-size: 38rpx;
+  padding: 0;
+  margin-bottom: 10rpx;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.bg-data-box .home-bg {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.home-bg .title-tip,
+.home-bg .url,
+.home-bg .visible {
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+
+.home-bg .visible  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bg-data-box button {
+  margin: 10rpx 0;
+}
+
+.bg-data-box .cover-styl {
+  width: 100%;
+  margin-bottom: 18rpx;
+}

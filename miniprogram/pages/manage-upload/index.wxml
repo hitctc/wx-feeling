@@ -1,0 +1,58 @@
+<!--pages/manage-upload/index.wxml-->
+<view class="manage-upload-page">
+  <view class="title">背景图管理</view>
+
+  <view class="_box">
+    <view class="title">上传图片</view>
+    <view class="upload-button" bindtap="uploadImg">
+      <button type="default" plain>上传一张图片</button>
+    </view>
+
+    <view wx:if="{{imgSrc}}" class="code_box">
+      <image class="code_img" src="{{imgSrc}}"></image>
+      <view class="img_info">
+        <view class="img_info_title">
+          <text>文件路径（File ID）：</text>
+          <button type="default" plain size="mini" bindtap="clearImgSrc" wx:if="{{haveGetImgSrc}}">清空</button>
+        </view>
+        <!-- 文件路径（File ID） -->
+        <view class="img_info_detail" bindtap="onCopy" data-img-src="{{imgSrc}}">{{imgSrc}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="bg-data-box">
+    <view class="title">
+      <text>背景图</text>
+      <button type="default" plain size="mini" bindtap="onAdd">添加</button>
+    </view>
+
+    <!-- cover -->
+    <l-card type="cover" image="{{item.imgSrc}}" title="" l-class="cover-styl" wx:for="{{allBgData}}" wx:key="index" image-mode="aspectFit">
+      <view class="content home-bg">
+        <view class="title-tip">名称：{{item.name}}</view>
+        <view class="url">路径：{{item.imgSrc}}</view>
+        <view class="visible">
+          <text>是否可见：</text>
+          <view class="td body-view">
+            <switch checked="{{item.isVisible}}" bindchange="visibleChange" data-item="{{item}}" />
+          </view>
+        </view>
+        <view style="width: 100%; text-align: right;">
+          <button type="default" plain size="mini" bindtap="onEdit" data-item="{{item}}">编辑名称和图片地址</button>
+        </view>
+      </view>
+    </l-card>
+
+  </view>
+
+
+  <l-dialog show="{{addEditDialogVisibel}}" type="confirm" show-title="{{true}}" title="背景图操作" bind:linconfirm="confirmBgData">
+    <view style="width: 100%;">
+      <l-input label="名称：" placeholder="名称" model:value="{{addEditName}}" label-width="130" />
+      <l-input label="路径：" placeholder="路径" model:value="{{addEditImgSrc}}" label-width="130" />
+    </view>
+  </l-dialog>
+
+</view>

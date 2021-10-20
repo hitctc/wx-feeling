@@ -105,5 +105,11 @@ Page({
     wx.navigateTo({
       url: '/pages/manage-on-off/index',
     })
-  }
+  },
+
+  jumpManageUpload() {
+    wx.navigateTo({
+      url: '/pages/manage-upload/index',
+    })
+  },
 })

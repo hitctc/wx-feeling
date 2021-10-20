@@ -22,18 +22,10 @@ Page({
    */
   data: {
     state: '开始',
-    randomVisible: false, // 
-    bigtitlehide: false,
+    randomVisible: false, // 随机可见 
+    bigtitlehide: false, // 大标题隐藏
     userInfo: {},
-    pyqDataList: [{
-      content: "活的潇洒一点 让笑容成为心情 而不是表情",
-      selectTagTypeArr: ['1', '2'],
-    },
-    {
-      content: "活的潇洒一点 让笑容成为心情 而不是表情",
-      selectTagTypeArr: ['1', '2'],
-    },
-    ],
+    pyqDataList: [],
     feelCardVisible: false,
     keyVal: '',
     headingText: 'FEEL',
@@ -118,7 +110,7 @@ Page({
           _self.refreshRandom()
         }
       }
-    }, 900)
+    }, 800)
     console.log('ACHUAN : animate', animate)
 
   },
@@ -130,16 +122,15 @@ Page({
       this.setData({
         state: '停止',
         bigtitlehide: true,
-        randomVisible: false,
+        randomVisible: true,
         feelCardVisible: false,
         randoms: []
       })
       this.refreshRandom()
     } else if (this.data.state == '停止') {
-      var random_index = Math.floor(Math.random() * this.data.randoms.length)
       this.setData({
         state: '开始',
-        randomVisible: true,
+        randomVisible: false, // 随机可见
         randoms: [],
         bigtitlehide: false,
         headingText: 'FEEL',
@@ -182,30 +173,30 @@ Page({
     let _ = db.command
     db.collection('pyq-data')
       .where(_.or([{
-        // 标题
-        title: db.RegExp({ // 使用正则查询，实现对搜索的模糊查询
-          regexp: val,
-          options: 'i', //大小写不区分
-        }),
-      },
-      { // 内容
-        content: db.RegExp({
-          regexp: val,
-          options: 'i',
-        }),
-      },
-      { // keyTypeArr
-        keyTypeArr: db.RegExp({
-          regexp: val,
-          options: 'i',
-        }),
-      },
-      { // selectTagTypeArr
-        selectTagTypeArr: db.RegExp({
-          regexp: val,
-          options: 'i',
-        }),
-      }
+          // 标题
+          title: db.RegExp({ // 使用正则查询，实现对搜索的模糊查询
+            regexp: val,
+            options: 'i', //大小写不区分
+          }),
+        },
+        { // 内容
+          content: db.RegExp({
+            regexp: val,
+            options: 'i',
+          }),
+        },
+        { // keyTypeArr
+          keyTypeArr: db.RegExp({
+            regexp: val,
+            options: 'i',
+          }),
+        },
+        { // selectTagTypeArr
+          selectTagTypeArr: db.RegExp({
+            regexp: val,
+            options: 'i',
+          }),
+        }
       ])).get()
       .then(res => {
         console.log('ACHUAN : onFeel : res', res)
@@ -219,6 +210,7 @@ Page({
           headingText: 'FEEL',
           bigtitlehide: false
         })
+        console.log(this.data.pyqDataList);
         if (resT.length === 0) {
           this.setData({
             headingText: `${val}-关键词没有信息，换一个关键字搜索试试`,
@@ -278,6 +270,16 @@ Page({
         // todo 复制成功之后走一次接口，记录被复制的次数
         _showToast(`已复制：${content}`)
       }
+    })
+  },
+
+  // 跳转编辑
+  jumpEdit(event) {
+    let item = JSON.parse(JSON.stringify(event.currentTarget.dataset.item))
+    console.log('ACHUAN : jumpDetail : item', item)
+    // 跳转页面，传递数据
+    wx.navigateTo({
+      url: `/pages/manage-data/index?pageType=change&_id=${item._id}`
     })
   },
 

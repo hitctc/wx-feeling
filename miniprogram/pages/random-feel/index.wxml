@@ -9,7 +9,7 @@
   <view class="big-title {{bigtitlehide?'hide':'show'}}">{{headingText}}</view>
 
   <!-- 跳转目标 -->
-  <navigator class="centerFood {{randomVisible?'randomVisible':''}}"
+  <navigator class="centerFood {{!randomVisible?'randomVisible':''}}"
     url="/pages/food-detail/food-detail?artId={{random.artId}}">
     <view class="title">{{random.name}}</view>
     <view class="label">
@@ -21,9 +21,9 @@
   </navigator>
 
   <!-- 随机 -->
-  <view class="random-board" wx:if="{{!randomVisible}}">
+  <view class="random-board" wx:if="{{randomVisible}}">
     <view class="random-item " wx:for="{{randoms}}" wx:key="this"
-      style="animation: item 5s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh"
+      style="animation: item 4s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh"
       catchtap="onFeel" data-item="{{item}}">
       {{item.name}}</view>
 
@@ -42,7 +42,7 @@
           {{item.content}}
           <view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}">
             <text class="content-text">标签：{{item.selectTagTypeArr}}</text>
-            <button type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpDetail" data-item="{{item}}">
+            <button type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpEdit" data-item="{{item}}">
               编辑</button>
           </view>
         </view>

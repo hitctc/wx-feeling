@@ -59,6 +59,12 @@
           "pathName": "pages/random-feel/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/manage-upload/index",
+          "pathName": "pages/manage-upload/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
