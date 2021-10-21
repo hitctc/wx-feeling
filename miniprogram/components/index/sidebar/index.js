@@ -58,18 +58,20 @@ Component({
     // 获取所有key类型
     _getSourceType() {
       let _self = this
-      const db = wx.cloud.database()
-
-      db.collection('key-type').get().then(res => {
-        console.log('ACHUAN : db.collection : res', res)
-        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-        let resT = res.data.filter(item => item.isVisible)
+      wx.cloud.callFunction({
+        name: 'handleKeyType',
+        data: {
+          handleType: 'get'
+        }
+      }).then((res) => {
+        let resT = JSON.parse(JSON.stringify(res.result))
+        let resTT = resT.data.filter(item => item.isVisible && item.category == 'home')
         _self.setData({
-          keyTypeList: resT
+          keyTypeList: resTT
         })
-      }).catch(err => {
-        console.error('ACHUAN : db.collection : err', err)
       })
+
+
     },
 
   }

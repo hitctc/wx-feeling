@@ -1,0 +1,24 @@
+<!--pages/about/index.wxml-->
+<view class="container">
+  <view class="main">
+    <block>
+      <view class="shadow-styl" wx:for="{{keyTypeList}}" wx:key="index">
+        <view class="button button-3d button-box button-jumbo btn-styl" data-item="{{item}}" bindtap="onKey">{{item.name}}</view>
+      </view>
+    </block>
+
+    <view class="shadow-styl" wx:if="{{keyTypeList.length > 0}}">
+      <view class="button button-3d button-box button-jumbo btn-styl" bindtap="handleZs">赞赏支持</view>
+    </view>
+
+  </view>
+
+  <l-transition show="{{ isZsVisible }}" duration="1000">
+    <view class="zs-pic-box">
+      <image src="../../images/zs.jpg" mode="widthFix" class="zs-pic" show-menu-by-long press="true" />
+      <button type="default" size="mini" class="close-btn" bindtap="handleClose">关闭</button>
+    </view>
+  </l-transition>
+
+
+</view>

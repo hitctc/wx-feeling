@@ -5,17 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isZsVisible: false
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 设置顶部导航bar的title
-    wx.setNavigationBarTitle({
-      title: '相关'
-    })
+
   },
 
   /**
@@ -65,42 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  // 跳转弹幕
-  jumpdm() {
-    wx.navigateToMiniProgram({
-      appId: 'wx2ba3390eef60894c',
-      path: ' /pages/zm-index/index',
-      success(res) {
-        console.log('success -> res打开成功 ----------- this.data.article', res)
-      }
-    })
-  },
-
-  // 跳转水果电影电视剧
-  jumpMovie() {
-    wx.navigateToMiniProgram({
-      appId: 'wx6294b4749e40b1c8',
-      path: ' /pages/index/index',
-      success(res) {
-        console.log('success -> res打开成功 ----------- this.data.article', res)
-      }
-    })
-  },
-
-  // 点击赞赏木
-  handleZs() {
-    this.setData({
-      isZsVisible: true
-    })
-  },
-
-  // 关闭赞赏码
-  handleClose() {
-    this.setData({
-      isZsVisible: false
-    })
-  },
-
+  }
 })

@@ -1,0 +1,14 @@
+<!--pages/page-card/index.wxml-->
+<view class="page-card-container">
+  <view class="title">
+    {{title}}
+  </view>
+  <view class="_box">
+    <block>
+      <view class="item" wx:for="{{pyqDataList}}" wx:key="index" bindtap="onCopy" data-item="{{item}}">
+        <view class="content">{{item.content}}</view>
+        <view class="author">- {{item.author}}</view>
+      </view>
+    </block>
+  </view>
+</view>

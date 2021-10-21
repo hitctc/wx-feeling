@@ -1,4 +1,4 @@
-// pages/users-manage/index.js
+// pages/manage-users/index.js
 let app = getApp()
 wx.cloud.init({
   env: 'feel-6gdrrxeye8840e66'

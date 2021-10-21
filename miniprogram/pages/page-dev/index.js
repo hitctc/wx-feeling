@@ -1,4 +1,4 @@
-// pages/dev-page/index.js
+// pages/page-dev/index.js
 
 Page({
 
@@ -68,7 +68,7 @@ Page({
   // 跳转用户管理页面
   jumpUsersManage() {
     wx.navigateTo({
-      url: '/pages/users-manage/index',
+      url: '/pages/manage-users/index',
     })
   },
 

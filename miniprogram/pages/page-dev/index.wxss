@@ -1,4 +1,4 @@
-/* pages/dev-page/index.wxss */
+/* pages/page-dev/index.wxss */
 .dev-container {
   width: 750rpx;
   box-sizing: border-box;

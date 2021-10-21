@@ -36,8 +36,8 @@ Page({
    */
   onShareAppMessage: function (res) {
     return {
-      title: '好用的电影电视剧查询工具',
-      path: `/pages/index/index`,
+      title: '朋友圈文案',
+      path: `/pages/plate-index/index`,
       imageUrl: ''
     }
   },
@@ -52,7 +52,7 @@ Page({
   // 跳转介绍页
   jumpJs() {
     wx.navigateTo({
-      url: '/pages/reward-page/index',
+      url: '/pages/page-reward/index',
     })
   },
 
@@ -110,7 +110,7 @@ Page({
     if (tapcount >= 5) {
       _showToastMask('跳转dev~')
       wx.navigateTo({
-        url: '/pages/dev-page/index'
+        url: '/pages/page-dev/index'
       })
     }
 

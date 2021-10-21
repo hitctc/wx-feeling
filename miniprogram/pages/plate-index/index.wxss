@@ -1,4 +1,4 @@
-/* pages/index/index.less */
+/* pages/plate-index/index.less */
 .index-page {
   box-sizing: border-box;
   width: 750rpx;

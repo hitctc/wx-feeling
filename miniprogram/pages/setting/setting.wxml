@@ -1,4 +1,0 @@
-<!--pages/setting/setting.wxml-->
-<view class="setting-container">
-  <van-button color="#7232dd">用户管理</van-button>
-</view>

@@ -1,4 +1,4 @@
-<!--pages/dev-page/index.wxml-->
+<!--pages/page-dev/index.wxml-->
 <view class="dev-container">
     <button class="mini-btn" type="default" plain bindtap="jumpUsersManage">用户管理</button>
     <button class="mini-btn" type="default" plain bindtap="jumpServiceExample">云开发例子</button>

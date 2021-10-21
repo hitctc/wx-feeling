@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/plate-index/index.js
 wx.cloud.init({
   env: 'feel-6gdrrxeye8840e66',
 })

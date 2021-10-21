@@ -178,11 +178,11 @@ Page({
       wx.navigateBack()
     } else if (pages.length === 1) {
       wx.redirectTo({
-        url: '../index/index',
+        url: '../plate-index/index',
       })
     } else {
       wx.reLaunch({
-        url: '../index/index',
+        url: '../plate-index/index',
       })
     }
   }

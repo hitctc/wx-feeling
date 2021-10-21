@@ -1,0 +1,54 @@
+/* pages/page-card/index.wxss */
+
+.page-card-container {
+  width: 750rpx;
+  height: 100vh;
+
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  background-color: #f8f8f8;
+}
+
+.page-card-container .title {
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2c2c2c;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+
+.page-card-container ._box {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+._box .item {
+  box-sizing: border-box;
+
+  padding: 20rpx 30rpx;
+  width: 100%;
+
+  box-shadow: 0 4rpx 10rpx #cccccc;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+
+}
+
+.item .content {
+  font-size: 30rpx;
+  line-height: 1.4;
+}
+
+
+.item .author {
+  font-size: 29rpx;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4rpx;
+}

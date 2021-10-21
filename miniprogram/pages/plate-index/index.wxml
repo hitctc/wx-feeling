@@ -1,4 +1,4 @@
-<!--pages/index/index.wxml-->
+<!--pages/plate-index/index.wxml-->
 <view class="index-page">
 	<sidebar id="sidebarC" bind:onSidebar="onSidebar"></sidebar>
 	<card-list id="cardListC"></card-list>

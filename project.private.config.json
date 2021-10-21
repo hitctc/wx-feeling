@@ -19,8 +19,8 @@
           "query": ""
         },
         {
-          "name": "pages/dev-page/index",
-          "pathName": "pages/dev-page/index",
+          "name": "pages/page-dev/index",
+          "pathName": "pages/page-dev/index",
           "query": "",
           "scene": null
         },
@@ -31,8 +31,8 @@
           "scene": null
         },
         {
-          "name": "pages/users-manage/index",
-          "pathName": "pages/users-manage/index",
+          "name": "pages/manage-user/index",
+          "pathName": "pages/manage-user/index",
           "query": "",
           "scene": null
         },
@@ -64,6 +64,18 @@
           "name": "pages/manage-upload/index",
           "pathName": "pages/manage-upload/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/about/index",
+          "pathName": "pages/about/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/page-card/index",
+          "pathName": "pages/page-card/index",
+          "query": "name=彩虹屁",
           "scene": null
         }
       ]

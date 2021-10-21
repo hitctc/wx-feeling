@@ -138,7 +138,7 @@ Page({
   // 跳转首页
   jumpPage(event) {
     wx.switchTab({
-      url: '/pages/index/index',
+      url: '/pages/plate-index/index',
     })
   },
 

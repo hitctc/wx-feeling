@@ -120,8 +120,6 @@ Component({
       })
       console.log('ACHUAN : _handingSource : pyqDataList', this.data.pyqDataList)
 
-
-
       // 缓存前10条数据
       wx.setStorageSync(this.data.keyTypeNameActive, this.data.pyqDataList.slice(0, 10))
     },
@@ -172,7 +170,7 @@ Component({
         data: content,
         success: function (res) {
           // todo 复制成功之后走一次接口，记录被复制的次数
-          _showToast(`已复制：【${content}】`)
+          _showToast(`已复制：${content}`)
         }
       })
     },

@@ -1,6 +1,0 @@
-/* pages/setting/setting.wxss */
-.setting-container {
-  width: 750rpx;
-  box-sizing: border-box;
-  padding: 40rpx;
-}
