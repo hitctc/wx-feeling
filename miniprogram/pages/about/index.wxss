@@ -25,9 +25,9 @@
 
 .main .shadow-styl {
   width: 328rpx;
-  height: 328rpx;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-  border-radius: 64rpx;
+  height: 100rpx;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20rpx;
 
   box-sizing: border-box;
   display: flex;
@@ -47,20 +47,18 @@
 
 .main .shadow-styl .btn-styl {
   width: 275rpx;
-  height: 275rpx;
-  line-height: 280rpx;
-  /* box-shadow: 0rpx 2rpx 20rpx #adadad, 0rpx 0rpx 10rpx #8d8d8d inset; */
-  box-shadow: 0rpx 0rpx 20rpx #999;
-  border-radius: 48rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  box-shadow: 0rpx 0rpx 10rpx 10rpx rgb(136, 136, 136);
+  border-radius: 16rpx;
   font-weight: bold;
-  /* text-shadow: 2rpx 2rpx 4rpx #adadad; */
 
   font-size: 32rpx;
   border: none;
   background-color: transparent;
   color: #071529;
-}
 
+}
 
 .container .zs-pic-box {
   position: absolute;

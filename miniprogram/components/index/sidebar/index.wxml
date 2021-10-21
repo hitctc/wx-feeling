@@ -3,8 +3,16 @@
 	<scroll-view scroll-y>
 		<view class="sidebar-box">
 			<block wx:for="{{ keyTypeList }}" wx:key="index">
-				<view class="item {{index===active ? 'active':''}}" bindtap="onSidebar" data-index="{{index}}" data-item="{{item}}">{{item.name}}
+				<view wx:if="{{userInfo.userType == 'level-1' && item.name == 'ALL'}}"
+					class="item {{index===active ? 'active':''}}" bindtap="onSidebar" data-index="{{index}}" data-item="{{item}}">
+					{{item.name}}
 				</view>
+
+				<view wx:if="{{item.name != 'ALL'}}" class="item {{index===active ? 'active':''}}" bindtap="onSidebar"
+					data-index="{{index}}" data-item="{{item}}">
+					{{item.name}}
+				</view>
+
 			</block>
 		</view>
 	</scroll-view>

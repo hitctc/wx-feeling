@@ -26,6 +26,8 @@ Page({
     dialogVisible: false,
     isAddKeyType: true,
     keyTypeName: '',
+    keyTypeCategory: '',
+    keyTypeOrder: 100,
     order: ''
   },
 
@@ -36,39 +38,34 @@ Page({
     this.getAllKeyType()
   },
 
-  // editUp
-  editUp(event) {
-    console.log('ACHUAN : editKeyTypeNama : event', event)
-    let keyInfo = event.currentTarget.dataset.keyInfo
-    let order = keyInfo.order || event.currentTarget.dataset.index + 1
-    console.log('ACHUAN : editUp : order', order)
-    console.log('ACHUAN : editUp : keyInfo', keyInfo)
-  },
-
-  editDown(event) {
-    let keyInfo = event.currentTarget.dataset.keyInfo
-    let order = keyInfo.order || event.currentTarget.dataset.index + 1
-    console.log('ACHUAN : editUp : order', order)
-    console.log('ACHUAN : editUp : keyInfo', keyInfo)
-  },
-
   // 添加类型
   addSourceType() {
     // typeName
     this.setData({
       dialogVisible: true,
       isAddKeyType: true,
-      keyTypeName: ''
+      keyTypeName: '',
+      keyTypeCategory: '',
+      keyTypeOrder: this.data.allKeyType.length + 2,
     })
   },
 
   // 获取所以资源类型
   getAllKeyType() {
+    wx.showLoading()
     let _self = this
-    db.collection('key-type').get().then(res => {
-      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+    wx.sho
+    wx.cloud.callFunction({
+      name: 'handleKeyType',
+      data: {
+        handleType: 'get'
+      }
+    }).then((res) => {
+      console.log('ACHUAN : getAllKeyType : res', res)
+      let resT = JSON.parse(JSON.stringify(res.result))
+      wx.hideLoading()
       _self.setData({
-        allKeyType: res.data
+        allKeyType: resT.data
       })
     })
   },
@@ -82,13 +79,15 @@ Page({
       dialogVisible: true,
       isAddKeyType: false,
       keyInfo: keyInfo,
-      keyTypeName: keyInfo.name
+      keyTypeName: keyInfo.name,
+      keyTypeCategory: keyInfo.category || '-',
+      keyTypeOrder: keyInfo.order || this.data.allKeyType.length + 2
     })
 
   },
+
   // 修改或新增确定资源类型按钮
   confirmSourceType() {
-    // 调用云函数
     let _self = this
 
     // 新增
@@ -96,8 +95,11 @@ Page({
       wx.showLoading({
         title: '正在努力添加...',
       })
+      let order = parseInt(_self.data.keyTypeOrder)
       var args = {
         name: _self.data.keyTypeName,
+        category: _self.data.keyTypeCategory,
+        order,
         isVisible: true
       };
       db.collection('key-type').add({
@@ -113,14 +115,22 @@ Page({
       })
       let _id = _self.data.keyInfo._id
       let isVisible = _self.data.keyInfo.isVisible
+      let order = parseInt(_self.data.keyTypeOrder)
+
       let args = {
-        _id,
-        isVisible,
         name: _self.data.keyTypeName,
+        category: _self.data.keyTypeCategory || '-',
+        order,
+        isVisible,
       };
+
       wx.cloud.callFunction({
-        name: 'changeKeyType',
-        data: args
+        name: 'handleKeyType',
+        data: {
+          handleType: 'change',
+          _id,
+          args,
+        }
       }).then(res => {
         if (res) {
           wx.hideLoading({
@@ -134,20 +144,62 @@ Page({
     }
   },
 
+  deleteKeyTypeNama(event) {
+    const _self = this
+    let item = event.currentTarget.dataset.item
+    console.log('ACHUAN : deleteKeyTypeNama : item', item)
+    let _id = item._id
+    let name = item.name
+
+    wx.showModal({
+      title: '提示',
+      content: `是否删除，${name}`,
+      success(res) {
+        if (res.confirm) {
+          // 调用云函数
+          var args = {
+            _id,
+            handleType: 'delete',
+          };
+          console.log('ACHUAN : deleteTagTypea : args', args)
+          wx.showLoading()
+          wx.cloud.callFunction({
+            name: 'handleKeyType',
+            data: args
+          }).then(res => {
+            if (res) {
+              wx.hideLoading({
+                success: (res) => {
+                  _showToast(`${name} 删除完成了`)
+                },
+              })
+              _self.getAllKeyType()
+            }
+          }).catch(console.error)
+
+        } else if (res.cancel) {
+          console.warn('用户点击取消')
+        }
+      }
+    })
+  },
+
 
   onClose(e) {},
 
   // 改变key是否可见
   visibleChange(event) {
-    console.log('ACHUAN : visibleChange : event', event)
     let _self = this
     let item = event.currentTarget.dataset.item
     let _id = item._id
-    let name = item.name
+    let name = item.name || '-'
+    let category = item.category || '-'
+    let order = item.order || ''
     let switchVal = event.detail.value
     let args = {
-      _id,
       name,
+      category,
+      order,
       isVisible: switchVal,
     };
     // 调用云函数
@@ -155,8 +207,12 @@ Page({
       title: '正在努力修改是否可见...',
     })
     wx.cloud.callFunction({
-      name: 'changeKeyType',
-      data: args
+      name: 'handleKeyType',
+      data: {
+        handleType: 'change',
+        _id,
+        args,
+      }
     }).then(res => {
       if (res) {
         wx.hideLoading({

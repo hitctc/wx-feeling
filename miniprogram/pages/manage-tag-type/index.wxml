@@ -1,7 +1,7 @@
 <!--pages/users-manage/index.wxml-->
 <view class="users-manage-container">
   <view class="add-btn-box">
-    <button size="mini" class="add-btn" plain type="primary" bindtap="addSourceType">添加标签</button>
+    <button size="mini" class="add-btn" plain type="default" bindtap="addSourceType">添加标签</button>
   </view>
 
   <block>
@@ -14,12 +14,13 @@
       </view>
       <block wx:for="{{ allTagType }}" wx:key="id">
         <view class="tr bg-g"
-          style="background-color: {{item.category =='哀' ? '#25c3aa' : item.category =='喜'? '#c93339' : item.category =='惧'? '#05529b' : item.category =='恶'? '#87f3fe' : item.category =='怒'? '#fd8b52' : ''}};">
+          style="background-color: {{item.category =='哀' ? '#25c3aa33' : item.category =='喜'? '#c55559454' : item.category =='惧'? '#05529b44' : item.category =='恶'? '#87f3fe66' : item.category =='怒'? '#fd8b5277' : ''}};">
           <view class="td">{{ item.name }}</view>
           <view class="td">{{ item.category || '喜' }}</view>
           <view class="td">{{ item.order || 1 }}</view>
           <view class="td">
-            <button type="default" plain size="mini" bindtap="editKeyTypeNama" data-key-info="{{item}}">编辑</button>
+            <button type="default" plain size="mini" bindtap="editKeyTypeNama" data-key-info="{{item}}" class="btn-styl">编辑</button>
+            <button type="warn" size="mini" bindtap="deleteTagTypea" data-tag-info="{{item}}" class="btn-styl">删除</button>
           </view>
         </view>
       </block>

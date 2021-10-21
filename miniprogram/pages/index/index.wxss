@@ -2,10 +2,9 @@
 .index-page {
   box-sizing: border-box;
   width: 750rpx;
-  min-height: 100vh;
+  height: calc(100vh);
 
-  background-color: #537FF3;
-
+  background-color: #f8f8f8;
   display: flex;
 }
 
@@ -19,6 +18,7 @@
 }
 
 .index-page .add-btn {
+  z-index: 101;
   position: fixed;
   bottom: 20rpx;
   right: 20rpx;

@@ -2,14 +2,18 @@
 .sidebar-c {
   /*noinspection CssInvalidPropertyValue*/
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  min-height: 100vh;
+  /* background-color: rgba(184, 184, 184, 0.33); */
+  background-color: rgb(255, 255, 255);
+  height: calc(100vh - 80rpx);
   border-radius: 10rpx;
+  margin: 80rpx 0 0 0;
 }
 
 .sidebar-box {
+  box-sizing: border-box;
+
   width: 100%;
-  max-height: 100vh;
+  height: calc(100vh - 80rpx);
   overflow-y: auto;
   border-radius: 10rpx;
 }
@@ -31,8 +35,20 @@
   overflow: hidden;
 }
 
+.sidebar-box .item:first-child {
+  margin-top: 20rpx;
+}
+
+.sidebar-box .item:last-child {
+  margin-bottom: 20rpx;
+}
+
+
+
 .sidebar-box .item.active {
   background-color: rgba(248, 248, 248, 0.8);
-  border-left: 10rpx solid #6CFFE0;
-  border-right: 10rpx solid #6CFFE0;
+  box-shadow: 0 4rpx 12rpx 0 #398676;
+
+  border-left: 10rpx solid #398676;
+  border-right: 10rpx solid #398676;
 }

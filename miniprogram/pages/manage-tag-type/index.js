@@ -51,7 +51,10 @@ Page({
       title: '努力获取所有标签中...',
     })
     wx.cloud.callFunction({
-      name: 'getTagType'
+      name: 'handleTagType',
+      data: {
+        handleType: 'get'
+      }
     }).then(res => {
       console.log('ACHUAN : getAllTagType : res', res)
       if (res) {
@@ -78,6 +81,8 @@ Page({
     })
 
   },
+
+
   // 修改或新增确定资源类型按钮
   confirmSourceType() {
     // 调用云函数
@@ -108,7 +113,9 @@ Page({
         title: '正在努力修改名称...',
       })
       let _id = _self.data.tagInfo._id
+
       let args = {
+        handleType: 'change',
         _id,
         name: _self.data.tagTypeName,
         category: _self.data.category,
@@ -117,7 +124,7 @@ Page({
       console.log('ACHUAN : confirmSourceType : args', args)
 
       wx.cloud.callFunction({
-        name: 'changeTagType',
+        name: 'handleTagType',
         data: args
       }).then(res => {
         if (res) {
@@ -130,6 +137,51 @@ Page({
         }
       }).catch(console.error)
     }
+  },
+
+  // 删除tagType
+  deleteTagTypea(event) {
+    const _self = this
+    console.log('ACHUAN : deleteTagTypea : event', event)
+    let item = event.currentTarget.dataset.tagInfo
+    console.log('ACHUAN : deleteTagTypea : item', item)
+    let _id = item._id
+    let name = item.name
+
+    wx.showModal({
+      title: '提示',
+      content: `是否删除，${name}`,
+      success(res) {
+        if (res.confirm) {
+          // 调用云函数
+          // 新增
+          var args = {
+            _id,
+            handleType: 'delete',
+          };
+          console.log('ACHUAN : deleteTagTypea : args', args)
+          wx.showLoading({
+            title: '正在努力删除...',
+          })
+          wx.cloud.callFunction({
+            name: 'handleTagType',
+            data: args
+          }).then(res => {
+            if (res) {
+              wx.hideLoading({
+                success: (res) => {
+                  _showToast(`${name} 删除完成了`)
+                },
+              })
+              _self.getAllTagType()
+            }
+          }).catch(console.error)
+
+        } else if (res.cancel) {
+          console.warn('用户点击取消')
+        }
+      }
+    })
   },
 
   onClose(e) {

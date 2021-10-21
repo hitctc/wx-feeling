@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <view class="index-page">
 	<sidebar id="sidebarC" bind:onSidebar="onSidebar"></sidebar>
-	<card-list id="cardListC" ></card-list>
+	<card-list id="cardListC"></card-list>
 
 	<welcome-g wx:if="{{false}}"></welcome-g>
 

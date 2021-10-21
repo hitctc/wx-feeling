@@ -1,30 +1,29 @@
 <!--pages/users-manage/index.wxml-->
 <view class="users-manage-container">
   <view class="add-btn-box">
-    <button size="mini" class="add-btn" plain type="primary" bindtap="addSourceType">添加分类</button>
+    <button size="mini" class="add-btn" plain type="default" bindtap="addSourceType">添加分类</button>
   </view>
 
   <block>
     <view class="table">
       <view class="tr bg-w">
-        <view class="th">分类名称</view>
+        <view class="th">名称</view>
+        <view class="th">类别</view>
         <view class="th">顺序</view>
-        <view class="th">是否可见</view>
+        <view class="th">可见</view>
         <view class="th handle-th">操作</view>
       </view>
       <block wx:for="{{ allKeyType }}" wx:key="id">
         <view class="tr bg-g">
           <view class="td">{{ item.name }}</view>
+          <view class="td">{{ item.category || '-' }}</view>
           <view class="td">{{ item.order || index+1 }}</view>
           <view class="td body-view">
             <switch checked="{{item.isVisible}}" bindchange="visibleChange" data-item="{{item}}" />
           </view>
           <view class="td handle-td">
             <button type="default" plain size="mini" bindtap="editKeyTypeNama" data-key-info="{{item}}">编辑</button>
-            <button type="default" plain size="mini" bindtap="editUp" data-key-info="{{item}}" data-index="{{index}}"
-              disabled="{{index===0}}">上</button>
-            <button type="default" plain size="mini" bindtap="editDown" data-key-info="{{item}}" data-index="{{index}}"
-              disabled="{{index+1===allKeyType.length}}">下</button>
+            <button type="warn" size="mini" bindtap="deleteKeyTypeNama" data-item="{{item}}">删除</button>
           </view>
         </view>
       </block>
@@ -36,6 +35,8 @@
     bind:close="onClose" bind:confirm="confirmSourceType">
     <van-cell-group>
       <van-field model:value="{{ keyTypeName }}" label="名称" placeholder="请输入分类名称" />
+      <van-field model:value="{{ keyTypeCategory }}" label="类别" placeholder="请输入类别" />
+      <van-field model:value="{{ keyTypeOrder }}" label="顺序" placeholder="顺序" />
     </van-cell-group>
   </van-dialog>
 

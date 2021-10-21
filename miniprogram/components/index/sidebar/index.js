@@ -20,14 +20,23 @@ Component({
    * 组件的初始数据
    */
   data: {
-    active: 0,
+    active: 1,
     keyTypeList: [],
+    userInfo: {},
   },
 
   lifetimes: {
     ready() {
       // 页面显示的时候会调用一次数据，因此不用重复调用
+      let userInfoT = wx.getStorageSync('userInfo') || {}
+      console.log('ACHUAN : ready : userInfoT', userInfoT)
+      this.setData({
+        userInfo: userInfoT
+      })
+
       this._getSourceType()
+
+
     }
   },
 

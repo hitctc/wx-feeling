@@ -2,67 +2,82 @@
 .users-manage-container {
   width: 750rpx;
   min-height: 100vh;
+
+  position: relative;
+  padding-bottom: 100rpx;
 }
 
 .users-manage-container .add-btn-box {
+  z-index: 101;
+  position: fixed;
+  bottom: 20rpx;
+  left: 0;
+
   box-sizing: border-box;
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 10rpx;
 }
-
-.users-manage-container .add-btn {
-  margin: 16rpx 0;
-  width: 100%;
-}
-
-
 
 .table {
   border: 0px solid darkgray;
 }
 
 .tr {
-  display: flex;
   width: 100%;
-  justify-content: center;
   height: 100rpx;
+
+  display: flex;
+  justify-content: center;
   align-items: center;
+  border-bottom: 2rpx solid #add4ee;
+
 }
 
 .td {
-  width: 50%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   height: 100rpx;
   font-size: 30rpx;
-  border-bottom: 4rpx solid #4894c7;
+  padding: 0 10rpx
 }
 
 .bg-w {
-  background: snow;
+  background: #0063a5;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bg-g {
+  width: 100%;
   background: #6fb2df;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .th {
   width: 50%;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   background: #0063a5;
   color: #fff;
-  display: flex;
   height: 100rpx;
-  align-items: center;
   font-size: 30rpx;
+  padding: 0 10rpx
 }
 
 .tr .td button {
   padding: 0 20rpx;
   margin: 0 10rpx;
+}
+
+.td .btn-styl {
+  font-size: 24rpx;
 }

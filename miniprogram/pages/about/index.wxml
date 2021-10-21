@@ -1,6 +1,31 @@
 <!--pages/about/index.wxml-->
 <view class="container">
+  <view class="button button-3d button-primary button-rounded">按钮</view>
   <view class="main">
+    <view class="shadow-styl">
+      <button class="btn-styl ">惊艳情话</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl " bindtap="jumpMovie">心动夏天</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="jumpMovie">毕业赠言</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="jumpMovie">动漫语录</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="jumpMovie">彩虹屁</button>
+    </view>
+
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="jumpMovie">毒毒鸡汤</button>
+    </view>
+
     <view class="shadow-styl">
       <button class="btn-styl" bindtap="jumpMovie">水果电影电视剧</button>
     </view>

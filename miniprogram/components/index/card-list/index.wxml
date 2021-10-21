@@ -8,7 +8,7 @@
 				<view class="item" bindtap="onCopy" data-item="{{item}}">
 					{{item.content}}
 					<button wx:if="{{userInfo.userType ==='level-1'}}" type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpDetail" data-item="{{item}}">编辑</button>
-					<view class="tag-text">标签：{{item.selectTagTypeArr}}</view>
+					<view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}" >标签：{{item.selectTagTypeArr}}</view>
 				</view>
 			</block>
 		</view>
