@@ -9,32 +9,41 @@
       <view class="level">{{userInfo.userType || 'level-999'}}</view>
     </view>
     <view class="login-btn-box">
-      <button type="default" bindtap="onLoginSts" size="mini" class="btn-styl">{{oId!=''?'退出':'登录'}}</button>
+      <button type="default" bindtap="onLoginSts" size="mini" class="btn-styl">
+        {{oId!=''?'退出':'登录'}}
+      </button>
     </view>
   </view>
-
   <view class="main">
     <view class="shadow-styl">
-      <button class="btn-styl" open-type="share">
-        感谢分享
-      </button>
+      <button class="btn-styl" bind:tap="jumpMovie">水果电影电视剧</button>
     </view>
-
     <view class="shadow-styl">
-      <button class="btn-styl" bind:tap="jumpJs">
-        关于介绍
-      </button>
+      <button class="btn-styl" bind:tap="jumpDm">简洁弹幕字幕</button>
     </view>
-
+    <view class="shadow-styl">
+      <button class="btn-styl" open-type="share">分享</button>
+    </view>
+    <view class="shadow-styl">
+      <button class="btn-styl" bind:tap="jumpJs">介绍</button>
+    </view>
+    <view class="shadow-styl">
+      <button class="btn-styl" open-type="contact">合作</button>
+    </view>
     <view class="shadow-styl">
       <button class="btn-styl" open-type="contact">建言反馈</button>
     </view>
-
-    <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">
-      <button class="btn-styl" bind:tap="onAdd">
-        添加
-      </button>
+    <view class="shadow-styl">
+      <button class="btn-styl" bindtap="handleZs">赞赏</button>
     </view>
-
+    <view class="shadow-styl primary" wx:if="{{userInfo.userType==='level-1'}}">
+      <button class="btn-styl" bind:tap="onAdd">添加页面</button>
+    </view>
   </view>
+  <l-transition show="{{ isZsVisible }}" duration="1000">
+    <view class="zs-pic-box">
+      <image src="../../images/zs.jpg" mode="widthFix" class="zs-pic" show-menu-by-long press="true" />
+      <button type="default" size="mini" class="close-btn" bindtap="handleClose">关闭</button>
+    </view>
+  </l-transition>
 </view>

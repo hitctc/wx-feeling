@@ -116,18 +116,19 @@
 .add-m-page .jump-btn {
   z-index: 999;
   position: fixed;
-  bottom: 10rpx;
-  left: 10rpx;
+  top: 36%;
+  right: 0rpx;
 
-  width: 750rpx;
+  width: 150rpx;
 
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* flex-direction: column; */
+  flex-direction: column;
 }
 
 .jump-btn button {
-  margin: 8rpx;
+  padding: 0;
+  margin: 10rpx 0;
   background-color: transparent;
 }

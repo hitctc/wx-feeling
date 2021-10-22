@@ -12,7 +12,8 @@ Page({
    */
   data: {
     oId: '',
-    userInfo: {}
+    userInfo: {},
+    isZsVisible: false,
   },
 
   /**
@@ -53,6 +54,41 @@ Page({
   jumpJs() {
     wx.navigateTo({
       url: '/pages/page-reward/index',
+    })
+  },
+
+  // 点击赞赏木
+  handleZs() {
+    this.setData({
+      isZsVisible: true
+    })
+  },
+
+  // 关闭赞赏码
+  handleClose() {
+    this.setData({
+      isZsVisible: false
+    })
+  },
+
+  // 跳转弹幕
+  jumpDm() {
+    wx.navigateToMiniProgram({
+      appId: 'wx2ba3390eef60894c',
+      path: ' /pages/zm-index/index',
+      success(res) {
+        console.info('success -> res打开成功 ----------- this.data.article', res)
+      }
+    })
+  },
+
+  jumpMovie() {
+    wx.navigateToMiniProgram({
+      appId: 'wx6294b4749e40b1c8',
+      path: ' /pages/index/index',
+      success(res) {
+        console.info('success -> res打开成功 ----------- this.data.article', res)
+      }
     })
   },
 

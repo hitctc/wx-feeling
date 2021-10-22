@@ -1,0 +1,26 @@
+/* pages/manage-boot-up/index.wxss */
+.manage-boot-up-container {
+  box-sizing: border-box;
+
+  width: 750rpx;
+  min-height: 100vh;
+
+  padding: 20rpx 30rpx;
+  padding-bottom: 100rpx;
+
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: bold;
+  margin: 10rpx 0;
+}
+
+.content {
+  border-bottom: 2rpx solid #555555;
+  padding-bottom: 20rpx;
+}
+
+.sub-btn {
+  margin-top: 30rpx;
+}

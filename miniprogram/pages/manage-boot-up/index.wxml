@@ -1,0 +1,24 @@
+<!-- pages/manage-boot-up/index.wxml -->
+<view class="manage-boot-up-container">
+  <view class="title">title</view>
+  <view class="content">
+    <l-textarea auto-height="{{true}}" model:value="{{title}}" />
+  </view>
+  <view class="title">shortTitle</view>
+  <view class="content">
+    <l-textarea auto-height="{{true}}" model:value="{{shortTitle}}" />
+  </view>
+  <view class="title">content</view>
+  <view class="content">
+    <l-textarea auto-height="{{true}}" model:value="{{content}}" />
+  </view>
+  <view class="title">tip</view>
+  <view class="content">
+    <l-textarea auto-height="{{true}}" model:value="{{tip}}" />
+  </view>
+  <view class="title">imgSrc</view>
+  <view class="content">
+    <l-textarea auto-height="{{true}}" maxlength="2000" model:value="{{imgSrc}}" />
+  </view>
+  <button class="sub-btn" plain type="default" bindtap="subChange">提交</button>
+</view>

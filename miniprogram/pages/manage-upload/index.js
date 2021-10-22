@@ -213,7 +213,6 @@ Page({
       _self.setData({
         allBgData: res.data
       })
-      console.log(this.data.allBgData);
     })
   },
 })

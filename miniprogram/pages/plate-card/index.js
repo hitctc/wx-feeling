@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     // 设置顶部导航bar的title
     wx.setNavigationBarTitle({
-      title: '相关'
+      title: '文案'
     })
     this._getKeyType()
   },
@@ -26,7 +26,7 @@ Page({
       appId: 'wx2ba3390eef60894c',
       path: ' /pages/zm-index/index',
       success(res) {
-        console.log('success -> res打开成功 ----------- this.data.article', res)
+        console.info('success -> res打开成功 ----------- this.data.article', res)
       }
     })
   },
@@ -37,7 +37,7 @@ Page({
       appId: 'wx6294b4749e40b1c8',
       path: ' /pages/index/index',
       success(res) {
-        console.log('success -> res打开成功 ----------- this.data.article', res)
+        console.info('success -> res打开成功 ----------- this.data.article', res)
       }
     })
   },
@@ -57,9 +57,7 @@ Page({
   },
 
   onKey(event) {
-    console.log('ACHUAN : onKey : event', event)
     const item = event.currentTarget.dataset.item
-    console.log('ACHUAN : onKey : item', item)
 
     wx.navigateTo({
       url: `/pages/page-card/index?name=${item.name}`,
@@ -69,7 +67,7 @@ Page({
   // 获取所有key类型
   _getKeyType() {
     let _self = this
-    wx.showLoading()
+    wx.showLoading({})
     wx.cloud.callFunction({
       name: 'handleKeyType',
       data: {

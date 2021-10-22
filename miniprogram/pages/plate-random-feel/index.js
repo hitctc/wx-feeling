@@ -74,7 +74,6 @@ Page({
     var keyTypeListT = _self.shuffle(JSON.parse(JSON.stringify(keyTypeList.concat(tagTypeList)))); // 打乱数组，结果不唯一
     // 循环出随机的坐标位置和字体大小
     for (var i = 0; i < keyTypeListT.length; i++) {
-      console.log(Math.floor(Math.random() * 70));
       var fontsize = 30 + Math.floor(Math.random() * 40)
       var x = Math.floor(Math.random() * 80)
       var y = Math.floor(Math.random() * 70)
@@ -94,10 +93,8 @@ Page({
         ['randoms[' + nowAnimate + '].show']: true
       })
       nowAnimate++
-      console.log('ACHUAN : nowAnimate', nowAnimate)
       // 长度相等的时候
       if (nowAnimate == _self.data.randoms.length) {
-        console.log('ACHUAN : animate', animate)
         if (animate) {
           clearInterval(animate)
           _self.setData({
@@ -111,7 +108,6 @@ Page({
         }
       }
     }, 800)
-    console.log('ACHUAN : animate', animate)
 
   },
 
@@ -138,7 +134,6 @@ Page({
       if (animate) {
         clearInterval(animate)
       }
-      console.log('ACHUAN : onButton : animate', animate)
       nowAnimate = 0
     }
   },
@@ -146,13 +141,11 @@ Page({
   // 点击心情
   onFeel(event) {
     const _self = this
-    console.log('ACHUAN : onFeel : event', event)
     // 重置相关信息
     this.setData({
       state: '开始',
       randomVisible: false,
     })
-    console.log('ACHUAN : onFeel : animate', animate)
     // 清除计时器
     setTimeout(() => {
       clearInterval(animate)
@@ -199,9 +192,7 @@ Page({
         }
       ])).get()
       .then(res => {
-        console.log('ACHUAN : onFeel : res', res)
         let resT = _self.shuffle(JSON.parse(JSON.stringify(res.data)))
-        console.log('ACHUAN : onFeel : resT', resT)
         wx.hideLoading({})
         this.setData({
           feelCardVisible: resT.length > 0,
@@ -210,7 +201,6 @@ Page({
           headingText: 'FEEL',
           bigtitlehide: false
         })
-        console.log(this.data.pyqDataList);
         if (resT.length === 0) {
           this.setData({
             headingText: `${val}-关键词没有信息，换一个关键字搜索试试`,
@@ -276,7 +266,6 @@ Page({
   // 跳转编辑
   jumpEdit(event) {
     let item = JSON.parse(JSON.stringify(event.currentTarget.dataset.item))
-    console.log('ACHUAN : jumpDetail : item', item)
     // 跳转页面，传递数据
     wx.navigateTo({
       url: `/pages/manage-data/index?pageType=change&_id=${item._id}`

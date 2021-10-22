@@ -8,6 +8,7 @@
       <view class="item" wx:for="{{pyqDataList}}" wx:key="index" bindtap="onCopy" data-item="{{item}}">
         <view class="content">{{item.content}}</view>
         <view class="author">- {{item.author}}</view>
+        <view class="tip" wx:if="{{item.isNew}}">NEW</view>
       </view>
     </block>
   </view>

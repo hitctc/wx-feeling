@@ -13,11 +13,9 @@ const _ = db.command
 exports.main = async (event, context) => {
   try {
     if (event.handleType == 'card') {
-      console.log(event)
       // 先取出集合记录总数
       const countResult = await db.collection('pyq-data').count()
       const total = countResult.total
-      console.log("总条数", total);
 
       // 计算有多少页
       let dataArr = []
@@ -34,7 +32,6 @@ exports.main = async (event, context) => {
         .limit(total)
         .get()
         .then(res => {
-          console.log(res);
           dataArr = dataArr.concat(res.data)
           errMsg = res.errMsg
         })
@@ -44,18 +41,26 @@ exports.main = async (event, context) => {
         errMsg: errMsg,
       }
     }
-
-    if (event.isAdd) {
+    if (event.handleType === 'add') {
       // 新增
       return await db.collection('pyq-data').add({
         // data 传入需要局部更新的数据
         data: event.args
       })
-    } else if (!event.isAdd) {
+    } else if (event.handleType === 'change') {
       // 修改替换
       return await db.collection('pyq-data').doc(event._id).update({
         // data 传入需要局部更新的数据
         data: event.args
+      })
+    } else if (event.handleType === 'changeCopy') {
+      // 修改copy的数量
+      return await db.collection('pyq-data').doc(event._id).update({
+        // data 传入需要局部更新的数据
+        data: {
+          copyCount: event.copyCount,
+          lookCount: event.lookCount
+        }
       })
     }
   } catch (e) {

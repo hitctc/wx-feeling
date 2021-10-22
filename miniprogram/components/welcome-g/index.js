@@ -5,7 +5,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    bootUpInfo: {
+      type: Object
+    }
   },
 
   /**
@@ -30,7 +32,7 @@ Component({
       const _self = this
       setTimeout(() => {
         this.show(_self, 'maskVisible', 0)
-      }, 800)
+      }, 1500)
     }
   },
 

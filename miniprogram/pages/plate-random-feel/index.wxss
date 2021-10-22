@@ -53,7 +53,7 @@
   position: absolute;
   top: 30vh;
   font-size: 60rpx;
-  color: #c7c7c7;
+  color: #e6e6e6;
   font-weight: bold;
   letter-spacing: 20rpx;
   filter: blur(0px);
@@ -162,6 +162,7 @@
   letter-spacing: 10rpx;
   color: #f7f7f7;
   background-color: #5a81f1;
+  box-shadow: 0 0 14rpx 2rpx #5685ee;
   border-radius: 50rpx;
   width: 400rpx;
   height: 80rpx;

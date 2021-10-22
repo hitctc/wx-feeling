@@ -11,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    bootUpInfo: {}
   },
 
   /**
@@ -22,6 +23,7 @@ Page({
     this.setData({
       userInfo: userInfoT
     })
+    this.getBootUpData()
   },
 
   /**
@@ -74,7 +76,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('触底了');
     let homeSource = this.selectComponent('#homeSource')
     if (homeSource) {
       // homeSource._reachBottom()
@@ -111,6 +112,24 @@ Page({
       cardListC.onSidebar(item.detail)
     }
 
-  }
+  },
+
+  // 获取开机信息
+  getBootUpData() {
+    let _self = this
+    wx.cloud.callFunction({
+      name: 'handleBootUp',
+      data: {
+        handleType: 'get'
+      }
+    }).then((res) => {
+      let resT = JSON.parse(JSON.stringify(res.result))
+      wx.hideLoading()
+      _self.setData({
+        bootUpInfo: resT.data[0],
+      })
+    })
+
+  },
 
 })

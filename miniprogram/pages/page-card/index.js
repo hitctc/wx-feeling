@@ -1,5 +1,7 @@
 // pages/page-card/index.js
-import { _showToast } from "../../utils/wxShowToast.js";
+import {
+  _showToast
+} from "../../utils/wxShowToast.js";
 
 Page({
 
@@ -15,9 +17,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('ACHUAN : options', options)
     let name = options.name
-    console.log('ACHUAN : name', name)
+
+    wx.setNavigationBarTitle({
+      title: `文案${name}`
+    })
 
     this.setData({
       title: name
@@ -38,7 +42,6 @@ Page({
     // 点击复制
     const item = event.currentTarget.dataset.item
     let content = item.content
-    console.log('ACHUAN : onCopy : content', content)
     if (content === '') {
       _showToast('无可复制内容~')
       return
@@ -58,7 +61,6 @@ Page({
     let args = {
       name: _self.data.title
     }
-    console.log('ACHUAN : getPyqData : args', args)
 
     wx.cloud.callFunction({
       name: 'handleData',
@@ -67,10 +69,8 @@ Page({
         handleType: 'card'
       },
     }).then(res => {
-      console.log('ACHUAN : _getPyqData : res', res)
       // globalData
       let dataT = JSON.parse(JSON.stringify(res.result.data))
-      console.log('ACHUAN : getPyqData : dataT', dataT)
       // 处理数据
       _self._handingSource(dataT)
     })
@@ -86,15 +86,14 @@ Page({
       var dayjs = require("../../utils/day.js")
       var timestamp = (new Date()).valueOf();
       let dateIssuedT = item.dateIssued
-      let day7 = dayjs(dateIssuedT).add(7, 'day') // 7天后
-      let timestamp7 = dayjs(day7.$d).valueOf() // 7天后的时间戳
-      item.isNew = timestamp7 > timestamp
+      let day3 = dayjs(dateIssuedT).add(3, 'day') // 3天后
+      let timestamp3 = dayjs(day3.$d).valueOf() // 3天后的时间戳
+      item.isNew = timestamp3 > timestamp
     });
 
     this.setData({
       pyqDataList: pyqDataListT,
       loadingVisible: false,
     })
-    console.log(this.data.pyqDataList);
   },
 })

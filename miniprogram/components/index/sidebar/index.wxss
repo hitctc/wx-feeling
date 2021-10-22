@@ -47,8 +47,8 @@
 
 .sidebar-box .item.active {
   background-color: rgba(248, 248, 248, 0.8);
-  box-shadow: 0 4rpx 12rpx 0 #398676;
+  box-shadow: 0 6rpx 10rpx 0 #5685ee;
 
-  border-left: 10rpx solid #398676;
-  border-right: 10rpx solid #398676;
+  border-left: 10rpx solid #5685ee;
+  border-right: 10rpx solid #5685ee;
 }

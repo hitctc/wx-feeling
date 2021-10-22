@@ -1,4 +1,4 @@
-<!--pages/manage-data/index.wxml-->
+<!-- pages/manage-data/index.wxml -->
 <!-- 添加、更新art -->
 <view class="add-m-page">
   <view class="form-box">
@@ -6,58 +6,54 @@
     <view class="data-body">
       <!-- lin组件，基本信息 -->
       <view class="item">
-        <view class="title-text"><text class="tip">*</text>内容：</view>
+        <view class="title-text">
+          <text class="tip">*</text>
+          内容：
+        </view>
         <l-textarea model:value="{{content}}" maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
       </view>
-
-      <view class="item">
-        <view class="title-text">图片：</view>
-        <l-textarea model:value="{{imageUrl}}" maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
-      </view>
-
-      <!-- key类型 -->
-      <view class="type">
-        <view class="type-title"><text style="color: #EE0A24;">*</text>keyType（键值类型）
-          <button type="default" plain size="mini" bindtap="jumpKeyType">管理keyType</button>
-        </view>
-        <van-checkbox-group class="custom-class" value="{{ keyTypeArr }}" bind:change="selectKeyType"
-          direction="horizontal">
-          <van-checkbox wx:for="{{allKeyType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}"
-            shape="square" checked-color="#353535">
-            {{item.name}}
-          </van-checkbox>
-        </van-checkbox-group>
-      </view>
-
-      <!-- 打标签 -->
-      <view class="type">
-        <view class="type-title"><text style="color: #EE0A24;">*</text>打标签（通过标签来随机）
-          <button type="default" plain size="mini" bindtap="jumpTagType">管理标签</button>
-        </view>
-        <van-checkbox-group class="custom-class" value="{{ selectTagTypeArr }}" bind:change="selectTagType"
-          direction="horizontal">
-          <van-checkbox wx:for="{{allTagType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}"
-            shape="square" checked-color="#353535" style="background-color: {{item.category =='哀' ? '#25c3aa' : item.category =='喜'? '#c93339' : item.category =='惧'? '#05529b' : item.category =='恶'? '#87f3fe' : item.category =='怒'? '#fd8b52' : item.category =='乐'? '#fd8b10' : item.category =='爱'? '#fd1b52' : ''}};">
-            {{item.name}}
-          </van-checkbox>
-        </van-checkbox-group>
-      </view>
-
-      <view class="item">
-        <view class="title-text">标题：</view>
-        <l-input model:value="{{title}}" placeholder="标题" hide-label="{{true}}" clear="{{true}}" />
-      </view>
-
-      <view class="item">
-        <view class="title-text">短标题：</view>
-        <l-input model:value="{{shortTitle}}" placeholder="短标题" hide-label="{{true}}" clear="{{true}}" />
-      </view>
-
       <view class="item">
         <view class="title-text">作者（笔名）：</view>
         <l-input model:value="{{author}}" placeholder="作者（笔名）" hide-label="{{true}}" clear="{{true}}" />
       </view>
-
+      <!-- key类型 -->
+      <view class="type">
+        <view class="type-title">
+          <text style="color: #EE0A24;">*</text>
+          keyType（键值类型）
+          <button type="default" plain size="mini" bindtap="jumpKeyType">管理keyType</button>
+        </view>
+        <van-checkbox-group class="custom-class" value="{{ keyTypeArr }}" bind:change="selectKeyType" direction="horizontal">
+          <van-checkbox wx:for="{{allKeyType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}" shape="square" checked-color="#353535">
+            {{item.name}}
+          </van-checkbox>
+        </van-checkbox-group>
+      </view>
+      <!-- 打标签 -->
+      <view class="type">
+        <view class="type-title">
+          <text style="color: #EE0A24;">*</text>
+          打标签（通过标签来随机）
+          <button type="default" plain size="mini" bindtap="jumpTagType">管理标签</button>
+        </view>
+        <van-checkbox-group class="custom-class" value="{{ selectTagTypeArr }}" bind:change="selectTagType" direction="horizontal">
+          <van-checkbox wx:for="{{allTagType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}" shape="square" checked-color="#353535" style="background-color: {{item.category =='哀' ? '#25c3aa11' : item.category =='喜'? '#c9334445' : item.category =='惧'? '#05529b44' : item.category =='怒'? '#fd8b5255' : item.category =='乐'? '#fd8b1099' : item.category =='爱'? '#fd1b5223' : ''}};">
+            {{item.name}}
+          </van-checkbox>
+        </van-checkbox-group>
+      </view>
+      <view class="item">
+        <view class="title-text">图片：</view>
+        <l-textarea model:value="{{imageUrl}}" maxlength="1000" placeholder="内容..." auto-height="{{true}}" />
+      </view>
+      <view class="item">
+        <view class="title-text">标题：</view>
+        <l-input model:value="{{title}}" placeholder="标题" hide-label="{{true}}" clear="{{true}}" />
+      </view>
+      <view class="item">
+        <view class="title-text">短标题：</view>
+        <l-input model:value="{{shortTitle}}" placeholder="短标题" hide-label="{{true}}" clear="{{true}}" />
+      </view>
       <view class="item">
         <view class="title-text">微信名称：</view>
         <l-input model:value="{{nickName}}" placeholder="微信名称" hide-label="{{true}}" clear="{{true}}" />
@@ -66,73 +62,77 @@
         <view class="title-text">点赞数：</view>
         <l-input model:value="{{likesCount}}" placeholder="点赞数" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
-
       <view class="item">
         <view class="title-text">收藏数：</view>
         <l-input model:value="{{collectCount}}" placeholder="收藏数" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
-
       <view class="item">
         <view class="title-text">评论数：</view>
         <l-input model:value="{{commentCount}}" placeholder="收藏数" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
-
       <view class="item">
         <view class="title-text">复制数量（以此排名）：</view>
         <l-input model:value="{{copyCount}}" placeholder="复制数量（以此排名）" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
-
       <view class="item">
         <view class="title-text">x人看过（数量）：</view>
         <l-input model:value="{{lookCount}}" placeholder="几人看过" hide-label="{{true}}" clear="{{true}}" type="number" />
       </view>
-
       <view class="item">
         <view class="title-text">标签：</view>
         <l-textarea model:value="{{tagText}}" maxlength="1000" placeholder="标签..." auto-height="{{true}}" />
       </view>
     </view>
-
     <!-- 选择日期： -->
     <view class="item date-body">
-      <view class="title-text"><text class="tip">*</text>选择日期：<text>{{year}}-{{month}}-{{day}}</text></view>
-      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{dateValue}}"
-        bindchange="bindChangeDate">
+      <view class="title-text">
+        <text class="tip">*</text>
+        选择日期：
+        <text>{{year}}-{{month}}-{{day}}</text>
+      </view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{dateValue}}" bindchange="bindChangeDate">
         <picker-view-column>
-          <view wx:for="{{years}}" wx:key="years" style="line-height: 50px; text-align: center;">{{item}}年</view>
-        </picker-view-column>
-        <picker-view-column>
-          <view wx:for="{{months}}" wx:key="months" style="line-height: 50px; text-align: center;">{{item}}月
+          <view wx:for="{{years}}" wx:key="years" style="line-height: 50px; text-align: center;">
+            {{item}}年
           </view>
         </picker-view-column>
         <picker-view-column>
-          <view wx:for="{{days}}" wx:key="days" style="line-height: 50px; text-align: center;">{{item}}日</view>
+          <view wx:for="{{months}}" wx:key="months" style="line-height: 50px; text-align: center;">
+            {{item}}月
+          </view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" wx:key="days" style="line-height: 50px; text-align: center;">
+            {{item}}日
+          </view>
         </picker-view-column>
       </picker-view>
     </view>
-
     <!-- 高亮标记 -->
     <view class="type status-type">
       <view class="type-title">高亮标记</view>
       <switch name="switch" checked="{{highlightMark}}" bind:change="onHighlightMarkChange" color="#353535" />
     </view>
-
     <!-- 发布状态 -->
     <view class="type status-type">
       <view class="type-title">发布状态</view>
       <switch name="switch" checked="{{statusIssued}}" bind:change="onChangeStatusIssued" color="#353535" />
     </view>
-
   </view>
-
   <van-dialog id="van-dialog" />
-
   <!-- 底部操作按钮 -->
   <view class="jump-btn">
-    <button class="mini-btn" type="warn" plain size="mini" bindtap="onSubAdd">新增提交</button>
-    <button class="mini-btn" type="warn" plain size="mini" bindtap="onSubChange">修改提交</button>
-    <button class="mini-btn" type="default" plain size="mini" bindtap="jumpPage" data-page-type="首页">首页</button>
-
+    <button class="mini-btn" type="warn" plain size="mini" bindtap="onSubAdd" wx:if="{{pageType==='add'}}">
+      新增提交
+    </button>
+    <button class="mini-btn" type="warn" plain size="mini" bindtap="onSubChange" wx:if="{{pageType==='change'}}">
+      修改提交
+    </button>
+    <button class="mini-btn" type="default" plain size="mini" bindtap="jumpAddPage" data-page-type="首页" wx:if="{{pageType==='change'}}">
+      添加页面
+    </button>
+    <button class="mini-btn" type="default" plain size="mini" bindtap="jumpPage" data-page-type="首页">
+      首页
+    </button>
   </view>
-
 </view>

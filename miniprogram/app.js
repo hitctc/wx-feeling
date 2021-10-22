@@ -35,7 +35,7 @@ App({
     // const updateManager = wx.getUpdateManager()
     // updateManager.onCheckForUpdate(function (res) {
     //   // 请求完新版本信息的回调
-    //   console.log('更新了?', res.hasUpdate)
+    //   console.info('更新了?', res.hasUpdate)
     // })
 
     // updateManager.onUpdateReady(function () {
@@ -60,7 +60,7 @@ App({
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {
         // 请求完新版本信息的回调
-        console.log('更新了新版本?', res.hasUpdate)
+        console.info('更新了新版本?', res.hasUpdate)
         if (res.hasUpdate) {
           updateManager.onUpdateReady(function () {
             wx.showModal({

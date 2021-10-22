@@ -77,6 +77,12 @@
           "pathName": "pages/page-card/index",
           "query": "name=彩虹屁",
           "scene": null
+        },
+        {
+          "name": "pages/manage-boot-up/index",
+          "pathName": "pages/manage-boot-up/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

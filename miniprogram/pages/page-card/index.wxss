@@ -37,6 +37,8 @@
   border-radius: 10rpx;
   margin-bottom: 20rpx;
 
+  position: relative;
+
 }
 
 .item .content {
@@ -51,4 +53,16 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 4rpx;
+}
+
+.item .tip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 10rpx;
+  background-color: red;
+  font-size: 22rpx;
+  font-style: oblique;
+  padding: 0rpx 8rpx;
+  color: #f8f8f8;
 }

@@ -29,7 +29,6 @@ Component({
     ready() {
       // 页面显示的时候会调用一次数据，因此不用重复调用
       let userInfoT = wx.getStorageSync('userInfo') || {}
-      console.log('ACHUAN : ready : userInfoT', userInfoT)
       this.setData({
         userInfo: userInfoT
       })
@@ -46,7 +45,6 @@ Component({
   methods: {
     // 点击侧边栏
     onSidebar(event) {
-      console.log('ACHUAN : onSidebar : event', event)
       let index = event.currentTarget.dataset.index
       let item = event.currentTarget.dataset.item
       this.setData({

@@ -3,9 +3,9 @@
 	<sidebar id="sidebarC" bind:onSidebar="onSidebar"></sidebar>
 	<card-list id="cardListC"></card-list>
 
-	<welcome-g wx:if="{{false}}"></welcome-g>
+	<welcome-g wx:if="{{true}}" bootUpInfo="{{bootUpInfo}}"></welcome-g>
 
 	<button wx:if="{{userInfo.userType ==='level-1'}}" class="add-btn" type="warn" plain size="mini"
-		bindtap="jumpAddMovie">添加</button>
+		bindtap="jumpAddMovie">添加页面</button>
 
 </view>

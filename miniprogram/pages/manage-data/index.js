@@ -75,9 +75,7 @@ Page({
   onLoad: function (options) {
     const _self = this
     const pageType = options.pageType || 'add' // change or add
-    console.log('ACHUAN : pageType', pageType)
     const _id = options._id || ''
-    console.log('ACHUAN : _id', _id)
     _self._getKeyType() // 获取keytype数据
     _self._getAllTagType() // 获取tagtype数据
     _self._initFormatDate() // 初始化时间
@@ -110,7 +108,6 @@ Page({
     this.setData({
       keyTypeArr: event.detail
     })
-    console.log('ACHUAN : selectKeyType : keyTypeArr', this.data.keyTypeArr)
   },
 
   // 选择标签
@@ -118,7 +115,6 @@ Page({
     this.setData({
       selectTagTypeArr: event.detail
     })
-    console.log('ACHUAN : selectKeyType : keyTypeArr', this.data.selectTagTypeArr)
   },
 
   // 是否高亮开关改变
@@ -153,6 +149,15 @@ Page({
   jumpTagType() {
     wx.navigateTo({
       url: '/pages/manage-tag-type/index',
+    })
+  },
+
+  // 跳转添加页面
+
+  jumpAddPage() {
+    // ${new Date().getTime()}-${Math.floor(Math.random() * 1000)}
+    wx.navigateTo({
+      url: `/pages/manage-data/index?_timestamp=${new Date().getTime()}-${Math.floor(Math.random() * 1000)}`,
     })
   },
 
@@ -225,7 +230,6 @@ Page({
     wx.cloud.callFunction({
       name: 'getTagType'
     }).then(res => {
-      console.log('ACHUAN : getAllTagType : res', res)
       if (res) {
         _self.setData({
           allTagType: res.result.data
@@ -256,7 +260,6 @@ Page({
     // dateIssued: '', // 发布/更新时间
     // highlightMark: true, // 高亮标记
     // statusIssued: true, // 发布状态
-    let isAdd = true
 
     let args = {
 
@@ -278,27 +281,26 @@ Page({
       highlightMark: _self.data.highlightMark,
       statusIssued: _self.data.statusIssued,
     }
-    console.log('ACHUAN : confirmAddData : args', args)
     wx.showLoading({
-      title: '加载中...',
+      title: '新增中...',
     })
 
     // 调用云函数
     wx.cloud.callFunction({
       name: 'handleData',
       data: {
-        isAdd,
+        handleType: 'add',
         args,
       }
     }).then(res => {
-      console.log('ACHUAN : confirmAddData : res', res)
       wx.hideLoading({})
       if (res.result.errMsg.indexOf('ok') > -1) {
         Dialog.confirm({
-          message: '新增成功',
+          message: '新增完成',
           confirmButtonText: "确定",
           cancelButtonText: "继续添加"
         }).then(() => {
+          _showToast("回到了顶部")
           wx.pageScrollTo({
             scrollTop: 0
           })
@@ -310,14 +312,14 @@ Page({
       }
     }).catch(console.error)
   },
+
   // 修改时的提交逻辑
   confirmChangeSource() {
     let _self = this
     wx.showLoading({
-      title: '加载中...',
+      title: '修改中...',
     })
     let _id = _self.data._id
-    let isAdd = false
     let args = {
       content: _self.data.content,
       imageUrl: _self.data.imageUrl,
@@ -343,20 +345,21 @@ Page({
     wx.cloud.callFunction({
       name: 'handleData',
       data: {
+        handleType: 'change',
         _id,
-        isAdd,
         args,
       }
     }).then(res => {
       wx.hideLoading({
-        success: (res) => {},
+        success: (res) => { },
       })
       if (res.result.errMsg.indexOf('ok') > -1) {
         Dialog.confirm({
-          message: '编辑成功',
+          message: '修改完成',
           confirmButtonText: "确定",
           cancelButtonText: "继续添加"
         }).then(() => {
+          _showToast("回到了顶部")
           wx.pageScrollTo({
             scrollTop: 0
           })
@@ -388,7 +391,7 @@ Page({
     const _self = this
     let _id = this.data._id
     wx.showLoading({
-      title: '加载中...',
+      title: '获取单条数据...',
     })
     await db.collection('pyq-data').doc(_id).get().then(res => {
       // res.data 包含该记录的数据
@@ -415,7 +418,6 @@ Page({
 
   // 处理资源数据
   _handlePyqDataList(res) {
-    console.log('ACHUAN : _handlePyqDataList : res', res)
     let resT = JSON.parse(JSON.stringify(res))
 
     let args = {

@@ -40,11 +40,11 @@
   bottom: 0;
   right: 0;
 
-  padding: 0 20rpx;
+  padding: 0 10rpx;
   margin: 0;
   height: 50rpx;
   line-height: 50rpx;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 
 .card-list-box .item .tag-text {
@@ -60,4 +60,24 @@
   margin: 0;
   color: #535353;
 
+}
+
+.card-list-box .item .copy-count {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 30rpx;
+  font-size: 20rpx;
+}
+
+.item .tip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 10rpx;
+  background-color: red;
+  font-size: 22rpx;
+  font-style: oblique;
+  padding: 0rpx 8rpx;
+  color: #f8f8f8;
 }

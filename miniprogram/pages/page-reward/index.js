@@ -70,8 +70,6 @@ Page({
   },
   // 组件加载成功
   bindload(status, errMsg) {
-    console.log(status);
-    console.log(errMsg);
   },
 
   // 点击复制公众号
@@ -94,7 +92,7 @@ Page({
       appId: 'wx2ba3390eef60894c',
       path: ' /pages/zm-index/index',
       success(res) {
-        console.log('success -> res打开成功 ----------- this.data.article', res)
+        console.info('success -> res打开成功 ----------- this.data.article', res)
       }
     })
   },
@@ -103,7 +101,7 @@ Page({
       appId: 'wx6294b4749e40b1c8',
       path: ' /pages/index/index',
       success(res) {
-        console.log('success -> res打开成功 ----------- this.data.article', res)
+        console.info('success -> res打开成功 ----------- this.data.article', res)
       }
     })
   },
@@ -122,7 +120,9 @@ Page({
     })
   },
   jumpPyq() {
-    _showToast('朋友圈文案开发中')
+    wx.switchTab({
+      url: '/pages/plate-index/index'
+    })
   },
   jumpTcq() {
     _showToast('提词器开发中')

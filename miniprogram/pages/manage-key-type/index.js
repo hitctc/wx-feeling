@@ -54,14 +54,12 @@ Page({
   getAllKeyType() {
     wx.showLoading()
     let _self = this
-    wx.sho
     wx.cloud.callFunction({
       name: 'handleKeyType',
       data: {
         handleType: 'get'
       }
     }).then((res) => {
-      console.log('ACHUAN : getAllKeyType : res', res)
       let resT = JSON.parse(JSON.stringify(res.result))
       wx.hideLoading()
       _self.setData({
@@ -72,7 +70,6 @@ Page({
 
   // 编辑
   editKeyTypeNama(event) {
-    console.log('ACHUAN : editKeyTypeNama : event', event)
     let keyInfo = event.currentTarget.dataset.keyInfo
 
     this.setData({
@@ -147,7 +144,6 @@ Page({
   deleteKeyTypeNama(event) {
     const _self = this
     let item = event.currentTarget.dataset.item
-    console.log('ACHUAN : deleteKeyTypeNama : item', item)
     let _id = item._id
     let name = item.name
 
@@ -161,7 +157,6 @@ Page({
             _id,
             handleType: 'delete',
           };
-          console.log('ACHUAN : deleteTagTypea : args', args)
           wx.showLoading()
           wx.cloud.callFunction({
             name: 'handleKeyType',

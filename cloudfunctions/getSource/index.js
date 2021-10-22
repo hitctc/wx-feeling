@@ -7,27 +7,21 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
 
-console.log('ACHUAN : cloud.DYNAMIC_CURRENT_ENV', cloud.DYNAMIC_CURRENT_ENV)
-
 
 // 云函数入口函数
 const db = cloud.database()
 // 每次最多获取多少条记录,最大值为100
 const MAX_LIMIT = 20
 exports.main = async (event, context) => {
-  console.log(event);
   // 先取出集合记录总数
   const countResult = await db.collection('resource').count()
   const total = countResult.total
-  console.log("总条数", total);
 
   // 计算有多少页
   const total_times = Math.ceil(total / MAX_LIMIT)
-  console.log(total_times);
   let dataArr = []
   let errMsg = ''
   let page = event.page || 1
-  console.log('第', page, '页');
   let sourceTypeNameT = event.sourceTypeName || "首页"
   if (sourceTypeNameT === '首页') {
     await db.collection('resource')
@@ -37,7 +31,6 @@ exports.main = async (event, context) => {
       .limit(MAX_LIMIT)
       .get()
       .then(res => {
-        console.log(res);
         dataArr = dataArr.concat(res.data)
         errMsg = res.errMsg
       })
@@ -51,7 +44,6 @@ exports.main = async (event, context) => {
       .limit(MAX_LIMIT)
       .get()
       .then(res => {
-        console.log(res);
         dataArr = dataArr.concat(res.data)
         errMsg = res.errMsg
       })
@@ -72,7 +64,6 @@ exports.main = async (event, context) => {
   //   const promise = db.collection('resource').orderBy('dateIssued', 'desc').skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
   //   tasks.push(promise)
   // }
-  // console.log(tasks);
   // 等待所有
   // return (await Promise.all(tasks)).reduce((acc, cur) => {
   //   return {

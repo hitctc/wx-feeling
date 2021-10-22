@@ -25,6 +25,7 @@
     "pages/manage-key-type/index",
     "pages/manage-tag-type/index",
     "pages/manage-on-off/index",
+    "pages/manage-boot-up/index",
     "pages/page-reward/index",
     "pages/plate-random-feel/index",
     "pages/plate-card/index",

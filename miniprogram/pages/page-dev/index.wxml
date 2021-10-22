@@ -7,5 +7,6 @@
     <button class="mini-btn" type="default" plain bindtap="jumpTag">管理+标签</button>
     <button class="mini-btn" type="default" plain bindtap="jumpManageOnOff">管理开关</button>
     <button class="mini-btn" type="default" plain bindtap="jumpManageUpload">管理背景图片</button>
+    <button class="mini-btn" type="default" plain bindtap="jumpManageBootUp">管理开机内容</button>
 
 </view>

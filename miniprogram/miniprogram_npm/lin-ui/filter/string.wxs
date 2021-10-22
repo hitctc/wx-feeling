@@ -2,7 +2,7 @@ var is = require("./is.wxs");
 
 function _isString(targetString, funName) {
     if (!is.isString(targetString)) {
-        console.log('[WXS:String]' + funName + ',targetString must be string');
+        console.info('[WXS:String]' + funName + ',targetString must be string');
         return false;
     }
     return true;

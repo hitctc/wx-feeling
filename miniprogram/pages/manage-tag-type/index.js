@@ -56,7 +56,6 @@ Page({
         handleType: 'get'
       }
     }).then(res => {
-      console.log('ACHUAN : getAllTagType : res', res)
       if (res) {
         _self.setData({
           allTagType: res.result.data
@@ -68,9 +67,7 @@ Page({
 
   // 编辑
   editKeyTypeNama(event) {
-    console.log('ACHUAN : editKeyTypeNama : event', event)
     let tagInfo = event.currentTarget.dataset.keyInfo
-    console.log('ACHUAN : editKeyTypeNama : tagInfo', tagInfo)
     this.setData({
       dialogVisible: true,
       isAddTagType: false,
@@ -121,7 +118,6 @@ Page({
         category: _self.data.category,
         order: parseInt(_self.data.order)
       };
-      console.log('ACHUAN : confirmSourceType : args', args)
 
       wx.cloud.callFunction({
         name: 'handleTagType',
@@ -142,9 +138,7 @@ Page({
   // 删除tagType
   deleteTagTypea(event) {
     const _self = this
-    console.log('ACHUAN : deleteTagTypea : event', event)
     let item = event.currentTarget.dataset.tagInfo
-    console.log('ACHUAN : deleteTagTypea : item', item)
     let _id = item._id
     let name = item.name
 
@@ -159,7 +153,6 @@ Page({
             _id,
             handleType: 'delete',
           };
-          console.log('ACHUAN : deleteTagTypea : args', args)
           wx.showLoading({
             title: '正在努力删除...',
           })
