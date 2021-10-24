@@ -37,7 +37,7 @@
           <button type="default" plain size="mini" bindtap="jumpTagType">管理标签</button>
         </view>
         <van-checkbox-group class="custom-class" value="{{ selectTagTypeArr }}" bind:change="selectTagType" direction="horizontal">
-          <van-checkbox wx:for="{{allTagType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}" shape="square" checked-color="#353535" style="background-color: {{item.category =='哀' ? '#25c3aa11' : item.category =='喜'? '#c9334445' : item.category =='惧'? '#05529b44' : item.category =='怒'? '#fd8b5255' : item.category =='乐'? '#fd8b1099' : item.category =='爱'? '#fd1b5223' : ''}};">
+          <van-checkbox wx:for="{{allTagType}}" wx:key="_id" custom-class="radio-styl" name="{{item.name}}" shape="square" checked-color="#353535" style="background-color: {{item.category =='哀' ? '#25c3aa11' : item.category =='喜'? '#c9334445' : item.category =='惧'? '#05529b44' : item.category =='怒'? '#fd8b5255' : item.category =='乐'? '#fd8b1099' : item.category =='爱'? '#fd1b5223' : '#fd8b1056'}};">
             {{item.name}}
           </van-checkbox>
         </van-checkbox-group>

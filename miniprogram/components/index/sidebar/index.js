@@ -63,13 +63,11 @@ Component({
         }
       }).then((res) => {
         let resT = JSON.parse(JSON.stringify(res.result))
-        let resTT = resT.data.filter(item => item.isVisible && item.category == 'home')
+        let resTT = resT.data.filter(item => item.isVisible && (item.category == 'home' || item.category == 'all'))
         _self.setData({
           keyTypeList: resTT
         })
       })
-
-
     },
 
   }

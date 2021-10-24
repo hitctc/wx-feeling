@@ -153,7 +153,6 @@ Page({
   },
 
   // 跳转添加页面
-
   jumpAddPage() {
     // ${new Date().getTime()}-${Math.floor(Math.random() * 1000)}
     wx.navigateTo({
@@ -405,15 +404,28 @@ Page({
     })
   },
 
-  // 获取资源列表
+  // 获取key
   _getKeyType() {
     let _self = this
-    db.collection('key-type').get().then(res => {
-      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+
+    wx.cloud.callFunction({
+      name: 'handleKeyType',
+      data: {
+        handleType: 'get'
+      }
+    }).then((res) => {
+      let resT = JSON.parse(JSON.stringify(res.result))
       _self.setData({
-        allKeyType: res.data
+        allKeyType: resT.data
       })
     })
+    // 只能获取20条
+    // db.collection('key-type').get().then(res => {
+    //   // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+    //   _self.setData({
+    //     allKeyType: res.data
+    //   })
+    // })
   },
 
   // 处理资源数据
