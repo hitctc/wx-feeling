@@ -27,6 +27,23 @@
   margin-top: 20rpx;
 }
 
+
+.page-card-container .status-show-styl {
+  width: 100%;
+  height: calc(100vh - 120rpx);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-card-container .desc-styl {
+  text-align: center;
+  line-height: 1.8;
+  padding: 0 30rpx;
+}
+
 ._box .item {
   box-sizing: border-box;
 
@@ -65,4 +82,5 @@
   font-style: oblique;
   padding: 0rpx 8rpx;
   color: #f8f8f8;
+  opacity: 0.7;
 }

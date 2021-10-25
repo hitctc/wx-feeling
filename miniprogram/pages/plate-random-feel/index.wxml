@@ -1,16 +1,11 @@
-<!--pages/random-feel/index.wxml-->
+<!-- pages/random-feel/index.wxml -->
 <!-- 随机心情 -->
 <view class="random-feel-page">
   <!-- 背景图 -->
-  <image class="back"
-    src="https://6665-feel-6gdrrxeye8840e66-1304594986.tcb.qcloud.la/bg1.jpg?sign=7aa74a2003238c10e17ea8c885958723&t=1634632086"
-    mode="aspectFill"></image>
-
+  <image class="back" src="https://6665-feel-6gdrrxeye8840e66-1304594986.tcb.qcloud.la/bg1.jpg?sign=7aa74a2003238c10e17ea8c885958723&t=1634632086" mode="aspectFill"></image>
   <view class="big-title {{bigtitlehide?'hide':'show'}}">{{headingText}}</view>
-
   <!-- 跳转目标 -->
-  <navigator class="centerFood {{!randomVisible?'randomVisible':''}}"
-    url="/pages/food-detail/food-detail?artId={{random.artId}}">
+  <navigator class="centerFood {{!randomVisible?'randomVisible':''}}" url="/pages/food-detail/food-detail?artId={{random.artId}}">
     <view class="title">{{random.name}}</view>
     <view class="label">
       <view class="item">
@@ -19,23 +14,19 @@
       </view>
     </view>
   </navigator>
-
-  <!-- 随机 -->
+  <!-- 随机冒出 -->
   <view class="random-board" wx:if="{{randomVisible}}">
-    <view class="random-item " wx:for="{{randoms}}" wx:key="this"
-      style="animation: item 4s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh"
-      catchtap="onFeel" data-item="{{item}}">
-      {{item.name}}</view>
-
+    <block wx:for="{{randoms}}" wx:key="index">
+      <view class="random-item " wx:if="{{item.show}}" style="animation: item 4s linear {{item.show?'running':'paused'}};font-size:{{item.fontsize}}rpx;left:{{item.x}}vw;top:{{item.y}}vh" catchtap="onFeel" data-item="{{item}}">
+        {{item.name}}
+      </view>
+    </block>
   </view>
-
   <view class="start-button" bindtap="onButton">{{state}}</view>
-
   <!-- 选择的key对应的句子 -->
   <view class="card-box" wx:if="{{feelCardVisible}}">
     <view class="title">心情-{{keyVal}}</view>
     <view class="tip">至多随机10条</view>
-
     <block>
       <view class="item" wx:for="{{ pyqDataList }}" wx:key="index">
         <view class="content" bindtap="onCopy" data-item="{{item}}">
@@ -43,11 +34,12 @@
           <view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}">
             <text class="content-text">标签：{{item.selectTagTypeArr}}</text>
             <button type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpEdit" data-item="{{item}}">
-              编辑</button>
+              编辑
+            </button>
           </view>
         </view>
       </view>
     </block>
   </view>
-
+  <loading-g wx:if="{{ loadingVisible }}"></loading-g>
 </view>

@@ -6,7 +6,8 @@ Page({
    */
   data: {
     isZsVisible: false,
-    keyTypeList: []
+    keyTypeList: [],
+    loadingVisible: false
   },
 
   /**
@@ -67,7 +68,9 @@ Page({
   // 获取所有key类型
   _getKeyType() {
     let _self = this
-    wx.showLoading({})
+    _self.setData({
+      loadingVisible: true
+    })
     wx.cloud.callFunction({
       name: 'handleKeyType',
       data: {
@@ -78,7 +81,8 @@ Page({
       let resTT = resT.data.filter(item => item.isVisible && item.category == 'plate')
       wx.hideLoading()
       _self.setData({
-        keyTypeList: resTT
+        keyTypeList: resTT,
+        loadingVisible: false
       })
     })
   },

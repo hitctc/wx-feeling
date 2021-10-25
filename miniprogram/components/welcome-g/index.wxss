@@ -21,6 +21,7 @@
 }
 
 .welcome-mask .text1 {
+  height: 160rpx;
   font-size: 100rpx;
   /* padding: 10rpx 0; */
   font-weight: bold;
@@ -28,6 +29,7 @@
 }
 
 .welcome-mask .text2 {
+  height: 100rpx;
   font-size: 26rpx;
   /* text-shadow: 2rpx 2rpx 2rpx #3a3939; */
 }

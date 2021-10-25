@@ -28,6 +28,7 @@ Component({
     allSourceType: [],
     keyTypeNameActive: 'ALL',
     loadingVisible: true,
+    transitionShow: false,
     isMore: false,
     isFinish: false,
 
@@ -47,7 +48,8 @@ Component({
       this.getPyqData()
       let userInfoT = wx.getStorageSync('userInfo') || {}
       this.setData({
-        userInfo: userInfoT
+        userInfo: userInfoT,
+        transitionShow: false
       })
 
     }
@@ -73,6 +75,9 @@ Component({
     // 获取所以资源
     async getPyqData(hitBottom = false) {
       let _self = this
+      _self.setData({
+        transitionShow: false,
+      })
       // 拿缓存数据来显示,不是底部加载,也不是下拉刷新
       // 无缓存,拿数据库数据
       let args = {
@@ -104,12 +109,12 @@ Component({
         let timestamp3 = dayjs(day3.$d).valueOf() // 3天后的时间戳
         item.isNew = timestamp3 > timestamp
       });
-
       this.setData({
         pyqDataList: pyqDataListT,
         isMore: false,
         loadingVisible: false,
-        isFinish: data.length === 0
+        isFinish: data.length === 0,
+        transitionShow: pyqDataListT.length == 0
       })
       // 缓存前10条数据
       wx.setStorageSync(this.data.keyTypeNameActive, this.data.pyqDataList.slice(0, 10))

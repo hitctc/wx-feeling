@@ -10,7 +10,9 @@ Page({
    */
   data: {
     title: '',
-    pyqDataList: []
+    pyqDataList: [],
+    loadingVisible: false,
+    transitionShow: false
   },
 
   /**
@@ -24,7 +26,9 @@ Page({
     })
 
     this.setData({
-      title: name
+      title: name,
+      loadingVisible: false,
+      transitionShow: false
     })
     this._getPyqData()
   },
@@ -36,12 +40,16 @@ Page({
 
   },
 
-  // 跳转详情
   // 复制成功
   onCopy(event) {
     // 点击复制
+    const _self = this
     const item = event.currentTarget.dataset.item
+    console.log('ACHUAN : onCopy : item', item)
     let content = item.content
+    let copyCountT = parseInt(item.copyCount) + 1
+    let lookCountT = parseInt(item.lookCount) + 2
+    let _id = item._id
     if (content === '') {
       _showToast('无可复制内容~')
       return
@@ -51,7 +59,25 @@ Page({
       success: function (res) {
         // todo 复制成功之后走一次接口，记录被复制的次数
         _showToast(`已复制：${content}`)
+        _self._copyAdd(_id, copyCountT, lookCountT)
       }
+    })
+  },
+
+  // copy自增成功
+  _copyAdd(_id, copyCountT, lookCountT) {
+    let copyCount = copyCountT
+    let lookCount = lookCountT
+    wx.cloud.callFunction({
+      name: 'handleData',
+      data: {
+        handleType: 'changeCopy',
+        _id,
+        copyCount,
+        lookCount
+      }
+    }).then((res) => {
+      console.info('copy数量增加完成！')
     })
   },
 
@@ -61,6 +87,9 @@ Page({
     let args = {
       name: _self.data.title
     }
+    _self.setData({
+      loadingVisible: true
+    })
 
     wx.cloud.callFunction({
       name: 'handleData',
@@ -69,7 +98,6 @@ Page({
         handleType: 'card'
       },
     }).then(res => {
-      // globalData
       let dataT = JSON.parse(JSON.stringify(res.result.data))
       // 处理数据
       _self._handingSource(dataT)
@@ -94,6 +122,7 @@ Page({
     this.setData({
       pyqDataList: pyqDataListT,
       loadingVisible: false,
+      transitionShow: pyqDataListT.length == 0
     })
   },
 })

@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "loading-g": "/components/loading-g/index"
+  },
   "navigationStyle": "custom",
   "navigationBarTitleText": "什么心情"
 }

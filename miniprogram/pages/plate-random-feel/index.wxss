@@ -9,11 +9,14 @@
   align-items: center;
 
   position: relative;
+
+  background-color: #012c4d;
+  overflow: hidden;
 }
 
 .back {
-  width: 750rpx;
-  height: 100vh;
+  width: 752rpx;
+  height: 101vh;
   position: absolute;
   filter: blur(1px);
   opacity: 1;
@@ -26,7 +29,6 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-
 
 @keyframes bg {
   0% {
@@ -89,6 +91,7 @@
   opacity: 0;
 }
 
+/* 内联样式的动画 item */
 @keyframes item {
   0% {
     filter: blur(2px);
@@ -99,7 +102,7 @@
   50% {
     filter: blur(0px);
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.1);
   }
 
   100% {

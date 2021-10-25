@@ -2,4 +2,5 @@
 <view class="welcome-mask" wx:if="{{maskVisible}}" animation="{{maskVisible}}">
   <view class="text1">{{bootUpInfo.title }}</view>
   <view class="text2">{{bootUpInfo.content}}</view>
+  <l-loading show="{{true}}" type="rotate"></l-loading>
 </view>

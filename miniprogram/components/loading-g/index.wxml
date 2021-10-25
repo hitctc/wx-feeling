@@ -1,4 +1,5 @@
-<!--components/loading-g/index.wxml-->
+<!-- components/loading-g/index.wxml -->
 <view class="loading-g-c">
-  <van-loading size="50"  />
+  <!-- <van-loading size="50" color="#4e83f6"  type="spinner"  /> -->
+  <l-loading show="{{true}}" type="rotate"></l-loading>
 </view>

@@ -1,6 +1,6 @@
 <!-- components/index/nav-tab/index.wxml -->
 <view class="card-list-c">
-  <scroll-view class="card-list-scroll-view" scroll-y="{{true}}" bindscrolltolower='scrollToLower' lower-threshold="50" upper-threshold='0'>
+  <scroll-view class="card-list-scroll-view" scroll-y="{{true}}" bindscrolltolower='scrollToLower' lower-threshold="50" upper-threshold='0' wx:if="{{pyqDataList.length > 0}}">
     <view class="card-list-box">
       <block wx:for="{{ pyqDataList }}" wx:key="index">
         <view class="item" bindtap="onCopy" data-item="{{item}}">
@@ -11,12 +11,19 @@
           <view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}">
             标签：{{item.selectTagTypeArr}}
           </view>
-          <view class="copy-count" wx:if="{{userInfo.userType ==='level-1'}}">复制量：{{item.copyCount}}+作者：{{item.author}}</view>
+          <view class="copy-count" wx:if="{{userInfo.userType ==='level-1'}}">
+            复制量：{{item.copyCount}}+作者：{{item.author}}
+          </view>
           <view class="tip" wx:if="{{item.isNew}}">NEW</view>
         </view>
       </block>
     </view>
     <more-g moreVisible="{{isMore}}" isFinish="{{isFinish}}"></more-g>
   </scroll-view>
+  <!-- 空状态显示 -->
+  <!-- 空状态显示 -->
+  <l-transition show="{{transitionShow}}" duration="1000">
+    <l-status-show show="{{true}}" type="product" l-class="status-show-styl" describe="没有相关文案，请到【个人中心】页，点击【建言反馈】" button-text="" l-describe-class="desc-styl"></l-status-show>
+  </l-transition>
   <loading-g wx:if="{{ loadingVisible }}"></loading-g>
 </view>

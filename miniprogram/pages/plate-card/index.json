@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "loading-g": "/components/loading-g/index"
+  },
   "navigationBarTitleText": "文案"
 }

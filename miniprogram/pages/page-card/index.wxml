@@ -1,9 +1,8 @@
-<!--pages/page-card/index.wxml-->
+<!-- pages/page-card/index.wxml -->
 <view class="page-card-container">
-  <view class="title">
-    {{title}}
-  </view>
-  <view class="_box">
+  <view class="title">{{title}}</view>
+  <!-- 心情内容 -->
+  <view class="_box" wx:if="{{pyqDataList.length>0}}">
     <block>
       <view class="item" wx:for="{{pyqDataList}}" wx:key="index" bindtap="onCopy" data-item="{{item}}">
         <view class="content">{{item.content}}</view>
@@ -12,4 +11,9 @@
       </view>
     </block>
   </view>
+  <!-- 空状态显示 -->
+  <l-transition show="{{transitionShow}}" duration="1000">
+    <l-status-show show="{{true}}" type="product" l-class="status-show-styl" describe="没有相关文案，请到【个人中心】页，点击【建言反馈】" button-text="" l-describe-class="desc-styl"></l-status-show>
+  </l-transition>
+  <loading-g wx:if="{{ loadingVisible }}"></loading-g>
 </view>

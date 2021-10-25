@@ -22,8 +22,9 @@ Page({
    */
   data: {
     state: '开始',
-    randomVisible: false, // 随机可见 
+    randomVisible: false, // 随机可见
     bigtitlehide: false, // 大标题隐藏
+    loadingVisible: false, // 大标题隐藏
     userInfo: {},
     pyqDataList: [],
     feelCardVisible: false,
@@ -41,14 +42,17 @@ Page({
 
   // 开始随机心情关键词
   async refreshRandom() {
-    wx.showLoading({
-      title: '正在搜寻中...',
-    })
+    // wx.showLoading({
+    //   title: '正在搜寻中...',
+    // })
 
     // 获取所有key类型
     let _self = this
     let keyTypeList = []
     let tagTypeList = []
+    _self.setData({
+      loadingVisible: true
+    })
     const db = wx.cloud.database()
 
     await db.collection('key-type').get().then(res => {
@@ -84,7 +88,8 @@ Page({
     }
 
     _self.setData({
-      randoms: keyTypeListT
+      randoms: keyTypeListT,
+      loadingVisible: false
     })
 
     animate = setInterval(function () {
@@ -166,30 +171,30 @@ Page({
     let _ = db.command
     db.collection('pyq-data')
       .where(_.or([{
-          // 标题
-          title: db.RegExp({ // 使用正则查询，实现对搜索的模糊查询
-            regexp: val,
-            options: 'i', //大小写不区分
-          }),
-        },
-        { // 内容
-          content: db.RegExp({
-            regexp: val,
-            options: 'i',
-          }),
-        },
-        { // keyTypeArr
-          keyTypeArr: db.RegExp({
-            regexp: val,
-            options: 'i',
-          }),
-        },
-        { // selectTagTypeArr
-          selectTagTypeArr: db.RegExp({
-            regexp: val,
-            options: 'i',
-          }),
-        }
+        // 标题
+        title: db.RegExp({ // 使用正则查询，实现对搜索的模糊查询
+          regexp: val,
+          options: 'i', //大小写不区分
+        }),
+      },
+      { // 内容
+        content: db.RegExp({
+          regexp: val,
+          options: 'i',
+        }),
+      },
+      { // keyTypeArr
+        keyTypeArr: db.RegExp({
+          regexp: val,
+          options: 'i',
+        }),
+      },
+      { // selectTagTypeArr
+        selectTagTypeArr: db.RegExp({
+          regexp: val,
+          options: 'i',
+        }),
+      }
       ])).get()
       .then(res => {
         let resT = _self.shuffle(JSON.parse(JSON.stringify(res.data)))
@@ -244,12 +249,16 @@ Page({
 
   },
 
-  // 跳转详情
   // 复制成功
   onCopy(event) {
     // 点击复制
+    const _self = this
     const item = event.currentTarget.dataset.item
+    console.log('ACHUAN : onCopy : item', item)
     let content = item.content
+    let copyCountT = parseInt(item.copyCount) + 1
+    let lookCountT = parseInt(item.lookCount) + 2
+    let _id = item._id
     if (content === '') {
       _showToast('无可复制内容~')
       return
@@ -259,9 +268,28 @@ Page({
       success: function (res) {
         // todo 复制成功之后走一次接口，记录被复制的次数
         _showToast(`已复制：${content}`)
+        _self._copyAdd(_id, copyCountT, lookCountT)
       }
     })
   },
+
+  // copy自增成功
+  _copyAdd(_id, copyCountT, lookCountT) {
+    let copyCount = copyCountT
+    let lookCount = lookCountT
+    wx.cloud.callFunction({
+      name: 'handleData',
+      data: {
+        handleType: 'changeCopy',
+        _id,
+        copyCount,
+        lookCount
+      }
+    }).then((res) => {
+      console.info('copy数量增加完成！')
+    })
+  },
+
 
   // 跳转编辑
   jumpEdit(event) {
