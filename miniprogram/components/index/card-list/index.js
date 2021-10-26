@@ -26,7 +26,7 @@ Component({
     page: 1,
     pyqDataList: [],
     allSourceType: [],
-    keyTypeNameActive: 'ALL',
+    keyTypeNameActive: '热门',
     loadingVisible: true,
     transitionShow: false,
     isMore: false,
@@ -34,7 +34,6 @@ Component({
 
     isDown: false,
     onOffList: [],
-
   },
 
   lifetimes: {
@@ -72,7 +71,7 @@ Component({
       this.getPyqData()
     },
 
-    // 获取所以资源
+    // 获取keyType的对应数据
     async getPyqData(hitBottom = false) {
       let _self = this
       _self.setData({

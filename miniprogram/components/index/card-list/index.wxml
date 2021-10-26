@@ -4,7 +4,7 @@
     <view class="card-list-box">
       <block wx:for="{{ pyqDataList }}" wx:key="index">
         <view class="item" bindtap="onCopy" data-item="{{item}}">
-          {{item.content}}
+          <text class="content-text">{{item.content}}</text>
           <button wx:if="{{userInfo.userType ==='level-1'}}" type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpDetail" data-item="{{item}}">
             编辑
           </button>
@@ -25,5 +25,7 @@
   <l-transition show="{{transitionShow}}" duration="1000">
     <l-status-show show="{{true}}" type="product" l-class="status-show-styl" describe="没有相关文案，请到【个人中心】页，点击【建言反馈】" button-text="" l-describe-class="desc-styl"></l-status-show>
   </l-transition>
-  <loading-g wx:if="{{ loadingVisible }}"></loading-g>
+  <view class="loading-c">
+    <l-loading show="{{loadingVisible}}" type="rotate" l-class="loading-c"></l-loading>
+  </view>
 </view>

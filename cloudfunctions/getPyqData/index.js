@@ -21,10 +21,11 @@ exports.main = async (event, context) => {
   let dataArr = []
   let errMsg = ''
   let page = event.page || 1
-  let keyTypeNameActiveT = event.keyTypeNameActive || "ALL"
+  let keyTypeNameActiveT = event.keyTypeNameActive || "热门" // 默认热门
+  // 取到全部数据
   if (keyTypeNameActiveT === 'ALL') {
     await db.collection('pyq-data')
-      .orderBy('dateIssued', 'desc')
+      .orderBy('_createTime', 'desc')
       // 跳过前几次查询的
       .skip((page - 1) * MAX_LIMIT)
       .limit(MAX_LIMIT)
@@ -34,10 +35,11 @@ exports.main = async (event, context) => {
         errMsg = res.errMsg
       })
   } else {
+    // 取到部分数据
     await db.collection('pyq-data').where({
       keyTypeArr: keyTypeNameActiveT
     })
-      .orderBy('dateIssued', 'desc')
+      .orderBy('_createTime', 'desc')
       // 跳过前几次查询的
       .skip((page - 1) * MAX_LIMIT)
       .limit(MAX_LIMIT)

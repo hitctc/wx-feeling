@@ -129,6 +129,6 @@
 
 .jump-btn button {
   padding: 0;
-  margin: 10rpx 0;
+  margin: 16rpx 0;
   background-color: transparent;
 }

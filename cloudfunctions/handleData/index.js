@@ -28,7 +28,7 @@ exports.main = async (event, context) => {
           options: 'i', //大小写不区分
         }),
       }]))
-        .orderBy('dateIssued', 'desc')
+        .orderBy('_createTime', 'desc')
         .limit(total)
         .get()
         .then(res => {

@@ -279,6 +279,16 @@ Page({
       dateIssued: _self.data.dateIssued,
       highlightMark: _self.data.highlightMark,
       statusIssued: _self.data.statusIssued,
+      _updateTime: (new Date()).valueOf(), // 更新时间
+      _createTime: (new Date()).valueOf(), // 创建时间
+
+      // var dayjs = require("../../../utils/day.js")
+      // var timestamp = (new Date()).valueOf();
+      // let dateIssuedT = item.dateIssued
+      // let day3 = dayjs(dateIssuedT).add(3, 'day') // 3天后
+      // let timestamp3 = dayjs(day3.$d).valueOf() // 3天后的时间戳
+      // item.isNew = timestamp3 > timestamp
+
     }
     wx.showLoading({
       title: '新增中...',
@@ -337,7 +347,8 @@ Page({
       dateIssued: _self.data.dateIssued,
       highlightMark: _self.data.highlightMark,
       statusIssued: _self.data.statusIssued,
-
+      _updateTime: (new Date()).valueOf(), // 更新时间
+      _createTime: _self.data._createTime, // 创建时间
     }
 
     // 调用云函数
@@ -428,7 +439,7 @@ Page({
     // })
   },
 
-  // 处理资源数据
+  // 处理获得单条数据，存到data中
   _handlePyqDataList(res) {
     let resT = JSON.parse(JSON.stringify(res))
 
@@ -449,6 +460,9 @@ Page({
       lookCount: parseInt(resT.lookCount),
       tagText: resT.tagText,
       dateIssued: resT.dateIssued,
+
+      _updateTime: resT._updateTime || (new Date()).valueOf(), // 更新时间
+      _createTime: resT._createTime || (new Date()).valueOf(), // 创建时间
 
       statusIssued: typeof (resT.statusIssued) == 'undefined' ? true : resT.statusIssued,
       highlightMark: typeof (resT.highlightMark) == 'undefined' ? true : resT.highlightMark,

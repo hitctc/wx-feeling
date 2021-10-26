@@ -33,9 +33,8 @@ Component({
         userInfo: userInfoT
       })
 
-      this._getSourceType()
-
-
+      // 请求资源数据
+      this._getKeyType()
     }
   },
 
@@ -54,7 +53,7 @@ Component({
     },
 
     // 获取所有key类型
-    _getSourceType() {
+    _getKeyType() {
       let _self = this
       wx.cloud.callFunction({
         name: 'handleKeyType',
