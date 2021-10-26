@@ -42,5 +42,5 @@
     </block>
   </view>
   <!-- <loading-g wx:if="{{ loadingVisible }}"></loading-g> -->
-  <loading-g wx:if="{{ true }}"></loading-g>
+  <loading-g wx:if="{{ loadingVisible }}"></loading-g>
 </view>
