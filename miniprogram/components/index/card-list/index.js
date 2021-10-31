@@ -115,6 +115,7 @@ Component({
         isFinish: data.length === 0,
         transitionShow: pyqDataListT.length == 0
       })
+
       // 缓存前10条数据
       wx.setStorageSync(this.data.keyTypeNameActive, this.data.pyqDataList.slice(0, 10))
     },
@@ -190,9 +191,8 @@ Component({
       })
     },
 
-
     // 跳转详情页
-    jumpDetail(event) {
+    jumpEdit(event) {
       let item = JSON.parse(JSON.stringify(event.currentTarget.dataset.item))
       // 跳转页面，传递数据
       wx.navigateTo({
@@ -200,6 +200,15 @@ Component({
       })
     },
 
+    jumpDetail(event) {
+      let item = JSON.parse(JSON.stringify(event.currentTarget.dataset.item))
+      console.log('ACHUAN : jumpDetail : item', item)
+      console.log('ACHUAN : jumpDetail : item', item._id)
+      // 跳转页面，传递数据
+      wx.navigateTo({
+        url: `/pages/page-detail/index?dateIssued=${item.dateIssued}&content=${item.content}`,
+      })
+    },
 
   }
 })

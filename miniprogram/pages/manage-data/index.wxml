@@ -128,6 +128,9 @@
     <button class="mini-btn" type="warn" plain size="mini" bindtap="onSubChange" wx:if="{{pageType==='change'}}">
       修改提交
     </button>
+    <button class="mini-btn" type="warn" plain size="mini" bindtap="onDetele" wx:if="{{pageType==='change'}}">
+      删除
+    </button>
     <button class="mini-btn" type="default" plain size="mini" bindtap="jumpAddPage" data-page-type="首页" wx:if="{{pageType==='change'}}">
       添加页面
     </button>

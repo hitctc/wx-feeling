@@ -5,22 +5,24 @@
       <block wx:for="{{ pyqDataList }}" wx:key="index">
         <view class="item" bindtap="onCopy" data-item="{{item}}">
           <text class="content-text">{{item.content}}</text>
-          <button wx:if="{{userInfo.userType ==='level-1'}}" type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpDetail" data-item="{{item}}">
-            编辑
-          </button>
-          <view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}">
-            标签：{{item.selectTagTypeArr}}
+          <text class="time-text">{{item.dateIssued}}</text>
+          <view class="deteil-box" catch:tap="jumpDetail" data-item="{{item}}">
+            <image class="deteil-icon" src="../../../images/share-forward-line.png" mode="aspectFill" style="" />
           </view>
-          <view class="copy-count" wx:if="{{userInfo.userType ==='level-1'}}">
-            复制量：{{item.copyCount}}+作者：{{item.author}}
+          <view class="level-1-wrap">
+            <button wx:if="{{userInfo.userType ==='level-1'}}" type="default" size="mini" class="jump-detail-btn" plain catchtap="jumpEdit" data-item="{{item}}">
+              编辑
+            </button>
+            <view class="tag-text" wx:if="{{userInfo.userType ==='level-1'}}">
+              标签：{{item.selectTagTypeArr}}；复制量：{{item.copyCount}}；作者：{{item.author || '-'}}；
+            </view>
           </view>
-          <view class="tip" wx:if="{{item.isNew}}">NEW</view>
+          <view class="tip" wx:if="{{item.isNew}}"></view>
         </view>
       </block>
     </view>
     <more-g moreVisible="{{isMore}}" isFinish="{{isFinish}}"></more-g>
   </scroll-view>
-  <!-- 空状态显示 -->
   <!-- 空状态显示 -->
   <l-transition show="{{transitionShow}}" duration="1000">
     <l-status-show show="{{true}}" type="product" l-class="status-show-styl" describe="没有相关文案，请到【个人中心】页，点击【建言反馈】" button-text="" l-describe-class="desc-styl"></l-status-show>

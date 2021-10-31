@@ -89,6 +89,12 @@
           "pathName": "pages/manage-data/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/page-detail/index",
+          "pathName": "pages/page-detail/index",
+          "query": "dateIssued=2021-10-31&content=内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+          "scene": null
         }
       ]
     }

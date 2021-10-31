@@ -29,7 +29,8 @@
     "pages/page-reward/index",
     "pages/plate-random-feel/index",
     "pages/plate-card/index",
-    "pages/page-card/index"
+    "pages/page-card/index",
+    "pages/page-detail/index"
   ],
   "window": {
     "backgroundColor": "#537FF3",
@@ -94,6 +95,8 @@
     "l-card": "/miniprogram_npm/lin-ui/card/index",
     "l-input": "/miniprogram_npm/lin-ui/input/index",
     "l-textarea": "/miniprogram_npm/lin-ui/textarea/index",
-    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index"
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
+    "l-mask": "/miniprogram_npm/lin-ui/mask/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index"
   }
 }

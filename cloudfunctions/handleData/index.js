@@ -62,6 +62,12 @@ exports.main = async (event, context) => {
           lookCount: event.lookCount
         }
       })
+    } else if (event.handleType === 'delete') {
+      return await db.collection('pyq-data').where({
+        _id: event._id
+      }).remove().then(() => {
+        return true
+      })
     }
   } catch (e) {
     console.error(e)

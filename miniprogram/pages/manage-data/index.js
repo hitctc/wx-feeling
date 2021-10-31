@@ -220,24 +220,6 @@ Page({
     }
   },
 
-  // 获取所以Tag标签
-  _getAllTagType() {
-    let _self = this
-    wx.showLoading({
-      title: '努力获取标签中...',
-    })
-    wx.cloud.callFunction({
-      name: 'getTagType'
-    }).then(res => {
-      if (res) {
-        _self.setData({
-          allTagType: res.result.data
-        })
-        wx.hideLoading({})
-      }
-    }).catch(console.error)
-  },
-
   // 新增时提交逻辑
   confirmAddData() {
     const _self = this
@@ -396,6 +378,44 @@ Page({
     }).catch(console.error)
   },
 
+  onDetele() {
+    const _id = this.data._id || ''
+    const content = this.data.content || ''
+    Dialog.confirm({
+      message: `确定删除：${content}`,
+      confirmButtonText: "确定",
+      cancelButtonText: "取消"
+    }).then(() => {
+      _showToast("回到了顶部")
+      wx.showLoading()
+      // 调用云函数
+      wx.cloud.callFunction({
+        name: 'handleData',
+        data: {
+          handleType: 'delete',
+          _id,
+        }
+      }).then(res => {
+        _showToast("删除完成，跳转首页")
+        wx.hideLoading({
+          success: (res) => {
+            setTimeout(() => {
+              wx.switchTab({
+                url: '/pages/plate-index/index',
+              })
+            }, 1000)
+          },
+        })
+      }).catch(console.error)
+    }).catch(() => {
+      _showToast('取消删除')
+      // wx.navigateTo({
+      //   url: '/pages/plate-index/index',
+      // })
+    });
+
+  },
+
   // 修改时获取单条数据
   async getSingleData() {
     const _self = this
@@ -413,6 +433,24 @@ Page({
         title: res.data.title
       })
     })
+  },
+
+  // 获取所以Tag标签
+  _getAllTagType() {
+    let _self = this
+    wx.showLoading({
+      title: '努力获取标签中...',
+    })
+    wx.cloud.callFunction({
+      name: 'getTagType'
+    }).then(res => {
+      if (res) {
+        _self.setData({
+          allTagType: res.result.data
+        })
+        wx.hideLoading({})
+      }
+    }).catch(console.error)
   },
 
   // 获取key

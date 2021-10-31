@@ -1,0 +1,101 @@
+/* pages/page-detail/index.wxss */
+
+.page-detail {
+  width: 750rpx;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.page-detail ._box {
+  width: 100%;
+  height: calc(100vh - 60rpx);
+  box-shadow: 0 4rpx 12rpx 0 #999;
+  border-radius: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+._box .content {
+  width: 100%;
+  text-align: center;
+}
+
+._box .date {
+  width: 100%;
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+._box .icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.icon .share-btn {
+  /* width: 50rpx;
+  height: 50rpx;
+  margin: 0;
+  padding: 0; */
+  margin: 0;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+}
+
+.icon .share {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.icon .pyq {
+  width: 50rpx;
+  height: 50rpx;
+  padding-left: 20rpx;
+}
+
+.page-detail .mask-styl {
+  width: 100%;
+}
+
+.mask-styl .arrows-box {
+  text-align: right;
+  box-sizing: content-box;
+  margin: 10rpx 150rpx 0;
+}
+
+.arrows-box .arrows {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.mask-styl .content {
+  width: 750rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+.mask-styl .more-fill {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.page-detail .close-icon {
+  z-index: 101;
+  position: fixed;
+  bottom: 160rpx;
+  left: 50%;
+  transform: translate(-50%);
+}

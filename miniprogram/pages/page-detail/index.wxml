@@ -1,0 +1,30 @@
+<!-- pages/page-detail/index.wxml -->
+<view class="page-detail">
+  <view class="_box">
+    <view class="content" catch:tap="onCopy">{{content}}</view>
+    <view class="date">{{date}}</view>
+    <view class="icon">
+      <button open-type="share" class="share-btn">
+        <!-- <van-icon name="friends" size="30" color="#07c160" /> -->
+        <image class="share" src="../../images/share-forward-line.png" mode="aspectFill" />
+        <!-- <view>微信好友</view> -->
+      </button>
+      <image class="pyq" src="../../images/camera-lens-line.png" mode="aspectFill" catch:tap="onPyq" />
+    </view>
+  </view>
+  <l-transition show="{{ isMaskVisible }}">
+    <l-mask show="{{true}}" opacity="0.5" l-class="mask-styl" bind:lintap="onCloseMask">
+      <view class="arrows-box">
+        <image class="arrows" src="../../images/arrows.png" mode="aspectFill" />
+      </view>
+      <view class="content">
+        <view class="text">
+          请点击右上角“
+          <image class="more-fill" src="../../images/more-fill.png" mode="aspectFill" />
+          ”，点击“分享到朋友圈”
+        </view>
+      </view>
+      <l-icon name="close" size="50" l-class="close-icon" color="#fff" />
+    </l-mask>
+  </l-transition>
+</view>
