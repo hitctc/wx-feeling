@@ -1,4 +1,5 @@
 /* pages/manage-data/index.less */
+
 .add-m-page {
   width: 750rpx;
   display: flex;
@@ -37,10 +38,13 @@
   color: #EE0A24;
 }
 
-
 .form-box .type {
   width: 100%;
   margin-top: 10rpx;
+}
+
+.type .van-checkbox__label {
+  width: 100%;
 }
 
 .type .type-title {
@@ -48,7 +52,6 @@
   font-size: 32rpx;
   font-weight: bold;
   padding: 18rpx 6rpx;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -61,7 +64,6 @@
 
 .type .custom-class {
   width: 100%;
-
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -112,15 +114,12 @@
   margin: 0 20rpx;
 }
 
-
 .add-m-page .jump-btn {
-  z-index: 999;
+  z-index: 99;
   position: fixed;
   top: 36%;
   right: 0rpx;
-
   width: 150rpx;
-
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

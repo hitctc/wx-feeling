@@ -15,11 +15,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('ACHUAN : options', options)
     let content = options.content
-    console.log('ACHUAN : content', content)
     let dateIssued = options.dateIssued
-    console.log('ACHUAN : dateIssued', dateIssued)
     this.setData({
       content,
       date: dateIssued,

@@ -12,8 +12,8 @@
       <image class="pyq" src="../../images/camera-lens-line.png" mode="aspectFill" catch:tap="onPyq" />
     </view>
   </view>
-  <l-transition show="{{ isMaskVisible }}">
-    <l-mask show="{{true}}" opacity="0.5" l-class="mask-styl" bind:lintap="onCloseMask">
+  <l-transition show="{{ true }}">
+    <l-mask show="{{isMaskVisible}}" opacity="0.5" l-class="mask-styl" bind:lintap="onCloseMask">
       <view class="arrows-box">
         <image class="arrows" src="../../images/arrows.png" mode="aspectFill" />
       </view>

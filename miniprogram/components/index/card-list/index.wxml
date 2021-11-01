@@ -5,8 +5,8 @@
       <block wx:for="{{ pyqDataList }}" wx:key="index">
         <view class="item" bindtap="onCopy" data-item="{{item}}">
           <text class="content-text">{{item.content}}</text>
-          <text class="time-text">{{item.dateIssued}}</text>
-          <view class="deteil-box" catch:tap="jumpDetail" data-item="{{item}}">
+          <view class="time-box" catch:tap="jumpDetail" data-item="{{item}}">
+            <text class="time-text">{{item.dateIssued}}</text>
             <image class="deteil-icon" src="../../../images/share-forward-line.png" mode="aspectFill" style="" />
           </view>
           <view class="level-1-wrap">
