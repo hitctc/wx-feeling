@@ -129,7 +129,7 @@ Page({
     let date = `${now.$y}-${(now.$M + 1) < 10 ? '0' + (now.$M + 1) : (now.$M + 1)}-${(now.$D) < 10 ? '0' + (now.$D) : now.$D}`
     return {
       title: content + '\r\n' + date,
-      path: `/pages/plate-index/index`,
+      path: `/pages/page-card/index?name=${content}`,
       imageUrl: 'https://6665-feel-6gdrrxeye8840e66-1304594986.tcb.qcloud.la/img/logo2%2B5x4.png?sign=8e32097a22322d3211c513990da89264&t=1635674876',
     }
   },
@@ -143,7 +143,7 @@ Page({
 
     return {
       title: content + '\r\n' + date,
-      path: `/pages/plate-index/index`,
+      path: `/pages/page-card/index?name=${content}`,
       imageUrl: 'https://6665-feel-6gdrrxeye8840e66-1304594986.tcb.qcloud.la/img/logo2%2B1x1.png?sign=08d998156af2a81378ac677166bb1f93&t=1635675035',
     }
   },
