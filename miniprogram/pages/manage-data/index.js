@@ -168,10 +168,10 @@ Page({
       _showToast('必须选择【keyType】')
       return
     }
-    if (_self.data.selectTagTypeArr.length == 0) {
-      _showToast('必须选择【标签】')
-      return
-    }
+    // if (_self.data.selectTagTypeArr.length == 0) {
+    //   _showToast('必须选择【标签】')
+    //   return
+    // }
     if (_self.data.content == '') {
       _showToast('【内容】不能为空')
       return
@@ -194,10 +194,10 @@ Page({
       _showToast('必须选择【keyType】')
       return
     }
-    if (_self.data.selectTagTypeArr.length == 0) {
-      _showToast('必须选择【标签】')
-      return
-    }
+    // if (_self.data.selectTagTypeArr.length == 0) {
+    //   _showToast('必须选择【标签】')
+    //   return
+    // }
     if (_self.data.content == '') {
       _showToast('【内容】不能为空')
       return

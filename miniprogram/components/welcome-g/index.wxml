@@ -1,6 +1,6 @@
 <!-- components/welcome-g/index.wxml -->
 <view class="welcome-mask" wx:if="{{maskVisible}}" animation="{{maskVisible}}">
-  <view class="text1">{{bootUpInfo.title }}</view>
-  <view class="text2">{{bootUpInfo.content}}</view>
+  <view class="text1">{{bootUpInfo.title || '欢迎' }}</view>
+  <view class="text2">{{bootUpInfo.content || '好句子，简洁用'}}</view>
   <l-loading show="{{true}}" type="rotate"></l-loading>
 </view>

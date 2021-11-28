@@ -32,7 +32,7 @@
       <!-- 打标签 -->
       <view class="type">
         <view class="type-title">
-          <text style="color: #EE0A24;">*</text>
+          <!-- <text style="color: #EE0A24;">*</text> -->
           打标签（通过标签来随机）
           <button type="default" plain size="mini" bindtap="jumpTagType">管理标签</button>
         </view>
